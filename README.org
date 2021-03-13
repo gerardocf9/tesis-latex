@@ -1,0 +1,12 @@
+* Recursos que hemos conseguido
+** [[https://www.isotel.eu/mixedsim/intro/index.html][Open source mixed signal and verilog simulation]]
+** Ngspice
+    - [[https://www.up-microlab.org/resources/tutorials/tutorial-using-ngspice/][ngspice tutorial]]
+** [[https://github.com/HSU-ANT/ACME.jl][Circuit simulator in Julia]]
+** [[https://xyce.sandia.gov/][Xyce]]
+** [[http://ngspice.sourceforge.net/books.html][Electronics simulation Books]]
+
+** [[https://www.dspace.com/en/inc/home/products/sw/sensor_sim.cfm][Sensor simulation Dspace]]
+** [[http://dspace.espoch.edu.ec/handle/123456789/5459][Tesis sobre sensorica]]
+* Notas
+  - Tenemos que hacer ya sea la simualacion del sensor o aumentar la complejidad de la tesis
