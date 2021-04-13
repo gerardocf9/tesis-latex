@@ -7,22 +7,31 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel} % espanol
 \usepackage{float}
+\usepackage{color}
+\usepackage{colortbl}
+
+\usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
+
 
 \usepackage{graphicx} % graficos
 \graphicspath{ {./images/} }
-
 \usepackage{setspace}%interlineado agrega:
 % \doublespacing \onehalfspace \singlespace \spacing{x}
 \spacing{1.5}
 \pagestyle{headings}
 %\setlegtth{\parindent}{<distancia>}
-
+\usepackage{subfig}
 
 \begin{document}
+
 \include{portada}
 
-\section{Problematica}
-\setcounter{page}{1}
-	vamos a ver si escribe
+%\newpage
+%\tableofcontents
+%\newpage
+
+
+\include{problema}
+
 
 \end{document}
