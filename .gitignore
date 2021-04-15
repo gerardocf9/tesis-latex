@@ -3,3 +3,7 @@
 *.aux
 *.out
 *.toc
+*.run.xml
+*.bbl
+*.bcf
+*.blg

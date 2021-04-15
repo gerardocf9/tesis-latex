@@ -22,16 +22,22 @@
 %\setlegtth{\parindent}{<distancia>}
 \usepackage{subfig}
 
+\usepackage[backend=biber,style=apa]{biblatex}
+\bibliography{referencias}
+
+
 \begin{document}
 
-\include{portada}
+	\include{portada}
 
-%\newpage
-%\tableofcontents
-%\newpage
+	%\newpage
+	%\tableofcontents
+	%\newpage
 
+	%Capitulo 1
+	\include{descripcion_problema}
+	\include{objetivos}
 
-\include{problema}
-
+	\printbibliography
 
 \end{document}
