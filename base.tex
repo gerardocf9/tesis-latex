@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article} 
+\documentclass[a4paper,11pts]{article} 
 % A4: 210 × 297 mm   carta: 216 × 279 mm
 \usepackage[a4paper]{geometry}
 \geometry{top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
@@ -35,9 +35,14 @@
 	%\newpage
 
 	%Capitulo 1
-	\include{descripcion_problema}
+	\begingroup
+		\let\clearpage\relax
+		\include{descripcion_problema}
+		\include{solucion}	
+	\endgroup
+	
 	\include{objetivos}
 
-	\printbibliography
+	\printbibliography[title={\centering{Referencias Bibliográficas}}]
 
 \end{document}
