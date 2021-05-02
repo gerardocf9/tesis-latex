@@ -1,0 +1,48 @@
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper]{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
+\usepackage[spanish]{babel}
+\usepackage{float}
+\usepackage{graphicx} % graficos
+\graphicspath{ {./images/} }
+\usepackage{setspace}%interlineado agrega:
+% \doublespacing \onehalfspace \singlespace \spacing{x}
+\spacing{1.5}
+\pagestyle{headings}
+
+%\usepackage { natbib }
+
+\usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = authoryear]{biblatex}
+\bibliography{referencias}
+
+\usepackage{csquotes}
+\usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
+
+
+\begin{document}
+	\include{portada}
+
+	\newpage
+	\tableofcontents
+	%\newpage
+	\listoffigures
+	\newpage
+	%Capitulo 1
+
+	
+
+	%si pongo la solucion junto con la descripcion se arregla los \newpage en todos ladps y se quita el clear page relax
+	\include{descripcion_problema}
+	\include{solucion.tex}
+	
+	\include{objetivos}
+	\include{justificacion_importancia}
+	\include{antecedentes}
+	%\bibliographystyle{apa}
+
+	%\bibliography{referencias}
+
+	\printbibliography[title={\centering{Referencias Bibliográficas}}]
+
+\end{document}
