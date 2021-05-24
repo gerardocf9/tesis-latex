@@ -3,6 +3,8 @@
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 
+\usepackage{tocbibind}
+
 \usepackage[a4paper]{geometry}
 \geometry{top=2.54cm, bottom=2.54cm, left=2.54cm, right=2.54cm}
 \usepackage[spanish]{babel}
@@ -24,24 +26,47 @@
 
 
 \begin{document}
+\renewcommand{\listtablename}{Índice de Tablas}
+\pagenumbering{roman}
+
 	\include{portada}
 
 	%\newpage
-	%\tableofcontents
-	%\newpage
-%	\listoffigures
-%	\newpage
-	%Capitulo 1
+	\tableofcontents
+	\newpage
+	\listoffigures
+	\newpage
+	\listoftables
 
-	
+
+%***************************************************
+%**********  Capitulo 1  ***************************
+%***************************************************	
 
 	\include{descripcion_problema}
-	\include{solucion.tex}
-	
+%	\include{solucion}
 	\include{objetivos}
 	\include{justificacion_importancia}
-	\include{antecedentes}
+	\include{Limitaciones_alcance}
 
+
+
+%***************************************************
+%**********  Capitulo 2  ***************************
+%***************************************************
+%\include{solucion}
+	\include{antecedentes}
+	\include{Marco_teorico}
+
+
+
+
+%***************************************************
+%**********  Capitulo 3  ***************************
+%***************************************************
+	\include{Marco_metodologico}% naturaleza de la investigacion
+	\include{Recursos}
+	\include{Cronograma_actividadesS}
 
 	\printbibliography[title={\centering{Referencias Bibliográficas}}]
 
