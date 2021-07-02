@@ -107,7 +107,6 @@ multiples peque;os capacitores, lo cual con un circuito se puede traducir en
 aceleracion. A su vez se puede dise;ar acelerometros que midan mas de un eje a
 la vez.
 
-
 Debido a que los dispositvos microelectromecanicos son producidos en masa, ya
 que cuentan con las mismas ventajas de la produccion de componentes
 electronicos, son mucho mas economicos que un dispositivo pizoelectrico, el cual
@@ -160,6 +159,7 @@ Es un primer paso en generar un modelo mas precioso o nos permite obtener
 informacion cuando no se tiene suficiente informacion, o la naturaleza del
 sistema es extremadamente compleja y dicha tarea es simplemente imposible.
 
+https://help.xlstat.com/s/article/que-es-el-modelado-estadistico?language=es
 
 # Página web
 
