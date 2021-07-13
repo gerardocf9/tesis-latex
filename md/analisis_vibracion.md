@@ -115,6 +115,41 @@ Como la aceleración de la masa de prueba es también proporcional a la fuerza
 aplicada, la aceleración del acelerometro sera entonces directamente
 proporcional al voltaje y la carga producida en el cristal.
 
+
+# Procesamiento de señales
+
+Una vez recolectado los datos el siguiente paso será análisis de los mismos.
+Existen una gran variedad de técnicas, y la elección de una dependerá en mayor
+medida de lo que se desea diagnosticar. Los análisis se clasificaran en dos
+categorías principales: análisis de frecuencia y análisis en el dominio del
+tiempo.
+
+El análisis en frecuencia es el mas popular de los dos, esto se debe a
+que la mayoría de las fallas poseen frecuencias características, y como el
+análisis de frecuencia permite separar las frecuencias, esto facilita su
+detección. Sin embargo, cuando las frecuencias son bajas o la frecuencia que se
+quiere detectar se encuentra cerca de otro frecuencia, es muy difícil
+identificar la señal en el dominio de la frecuencia. En estos casos es mejor
+usar un análisis en el dominio del tiempo, ya que son mucho mas sencillas de
+detectar las fallas.
+
+
+
+# Quizas se deba agregar
+
+Coherencia de señales ->
+
+Otro tipo de análisis es el de coherencia de dos señales, cuando dos señales
+son coherentes es bastante probable que estén correlacionadas por lo tanto se
+puede estudiar una conociendo la otra.
+
+Modulación ->
+
+En el caso de rodamientos una técnica altamente usada es la de de demodulación
+o la de envolvente, donde primero se necesita usar un filtro pasa altas para
+luego desmodular la señal
+
+
 # Referencias
 
 - https://simple.wikipedia.org/wiki/Sensor
