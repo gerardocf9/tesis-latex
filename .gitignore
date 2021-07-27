@@ -11,3 +11,4 @@ prueba.pdf
 *.lot
 *.fdb_latexmk
 *.fls
+*.dvi

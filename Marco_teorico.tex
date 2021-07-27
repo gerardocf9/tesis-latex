@@ -1,11 +1,9 @@
-
 \subsection{MARCO TEÓRICO}
 
 Esta parte del capítulo expone el contenido teórico necesario para la
-realización de este proyecto. Esto incluye informacion sobre los motores electricos,
-El analisis de la vibracion, las herramientas computacionales, los sistemas web
-y el modelado estadistico.
-
+realización de este proyecto. Esto incluye informacion sobre los motores
+electricos, El analisis de la vibracion, las herramientas computacionales, los
+sistemas web y el modelado estadistico.
 
 %https://es.wikipedia.org/wiki/Motor_el%C3%A9ctrico
 
@@ -20,7 +18,6 @@ de induccion, sincrones, entre otros y los \textbf{motores de corriente continua
 como lo son los motores de escobillas,  sin escobillas, de iman permanente,
 entre otros.
 
-
 El motor mas usado en el sector industrial, es el motor de induccion, debido
 principalmente a su bajo costo y al poco mantenimiento que requieren para estar
 completamente operativo, esto en particular es debido a su sencillo diseño
@@ -30,7 +27,6 @@ el motor de corriente
 continua, debido a que su control, en terminos de torque y potencia, es mucho
 mas sencillo para ciertos niveles de potencia.
 
-
 Tambien existen los motores sincronos, cuya construccion es similar a la de un
 motor de induccion pero a su vez requiere de una fuente de alimentacion externa
 para el rotor, lo cual aumenta su costo, ademas de esto su velocidad es
@@ -38,9 +34,6 @@ constante, por lo tanto este tipo de motor es utilizado en aplicaciones
 especificas. Como se menciono anteriormente, existen otros tipos de motores,
 pero esto son usualmente de menor potencia por
 lo tanto su utlidad industrial es mucho mas limitada.
-
-
-
 
 \subsubsection*{Rodamientos}
 
@@ -51,8 +44,7 @@ se encuentra suspendido por \textbf{rodamientos}, de forma que el movimiento y
 las fuerzas producidas en la iteraccion entre las bobinas y el nucleo con los
 campos magneticos, producidos por el estator, puedan ser utilizados. Ademas,
 los rodamientos, cuando se encuentran en buenas condiciones, permiten minimizar
-el roce entre el eje y soporte, maximizando la transferencia de potencia.\\
-
+el roce entre el eje y soporte, maximizando la transferencia de potencia.
 
 Estos tambien son conocidos como \textbf{rolineras}, y son un tipo de cojinete,
 un elemento mecanico diseñado para reducir la friccion entre un eje y los
@@ -62,16 +54,12 @@ como pueden ser bolas o rodillos, una jaula que se encarga de mantener los
 elementos de rodadura separados ademas de guiados y un lubricante o un sistema
 de lubricacion.
 
-
 Dado que son un elemento mecanico el cual es continuamente usado, sufre mucho
 desgaste y es el elemento mas propenso a dañarse, según los estudios realizados
 por ~\textcite{Kammermann} el 59\% de las fallas son causadas por los rodamientos
 y asimismo su principal falla es el desgaste, de igual forma se presentan
 otras fallas estructurales. Y por estas razones es fundamental tener bajo continuo
 monitoreo este elemento, esto se suele hacer a traves de un analisis de vibracion.
-
-
-
 
 \subsubsection{Análisis de Vibración}
 
@@ -80,7 +68,6 @@ elástico, alrededor de un punto de equilibrio. En general podemos decir que una
 vibración es un caso especifico de una oscilación, cuando esta es de origen
 mecánico.
 
-
 Se conoce como análisis de vibración, al conjunto de técnicas que permiten
 obtener información de un equipo, a partir de sus vibraciones. Es una de las
 técnicas más usadas en el mantenimiento predictivo de equipos mecánicos, debido
@@ -88,27 +75,24 @@ a que es un proceso poco invasivo y de bajo costo. El análisis de vibración
 permite diagnosticar fallas de forma temprana, así como detectar señales
 prematuras de desgaste.
 
-
 Según Girdhar (2004) el análisis de vibración nos permite detectar las
 siguientes fallas:
 
-- Defectos en los engranajes
-- Defectos en los rodamientos
-- Desalineamientos
-- Desbalances
-- Ejes torcidos
-- Excentricidad
-- Fallas eléctricas
-- Fuerzas hidráulicas o aerodinámicas
-- Mala sujeción en las piezas
-- Problemas en las correas de transmisión
-- Problemas de lubricación
-- Resonancia
-- Rozamientos en el rotor
-
-
-
-
+\begin{itemize}
+\item{Defectos en los engranajes}
+\item{Defectos en los rodamientos}
+\item{Desalineamientos}
+\item{Desbalances}
+\item{Ejes torcidos}
+\item{Excentricidad}
+\item{Fallas eléctricas}
+\item{Fuerzas hidráulicas o aerodinámicas}
+\item{Mala sujeción en las piezas}
+\item{Problemas en las correas de transmisión}
+\item{Problemas de lubricación}
+\item{Resonancia}
+\item{Rozamientos en el rotor}
+\end{itemize}
 
 \subsubsection*{Adquisición de datos}
 
@@ -140,10 +124,7 @@ vez puede funcionar como amortiguador. Debido a esto, los acelerometros se
 pueden modelar como un sistema lineal de segundo orden, por lo que su respuesta
 en frecuencia posee un pico de resonancia.
 
-
-
 \subsubsection*{Tipos de acelerometros}
-
 
 \begin{itemize}
     \item  Acelerometros Capacitivos:
@@ -159,8 +140,6 @@ desplazamiento de salida. Finalmente, si conectamos un sensor de
 desplazamiento, podemos medir la aceleración. El sensor de desplazamiento mas
 popular para este tipo de medidores es el capacitivo.
 
-
-
 En su mayoría los acelerometros capacitivos vienen como dispositivos
 microelectromecanicos (MEMS por sus siglas en ingles), que son dispositivos
 fabricados con técnicas similares a la de la fabricación de circuitos
@@ -173,8 +152,6 @@ industriales, ya que poseen múltiples ventajas como que no requieren de una
 unidad de adecuación de la señal y pueden comunicarse directamente con un
 microcontrolador; son bastante económicos, ya que pueden ser producidos en
 masa con alta facilidad y son bastante compactos.
-
-
 
 \item  Acelerometros piezoresistivos:
 
@@ -201,11 +178,7 @@ Como la aceleración de la masa de prueba es también proporcional a la fuerza
 aplicada, la aceleración del acelerometro sera entonces directamente
 proporcional al voltaje y la carga producida en el cristal.
 
-
 \end{itemize}
-
-
-
 
 \subsubsection{Procesamiento de señales}
 
@@ -224,22 +197,9 @@ identificar la señal en el dominio de la frecuencia. En estos casos es mejor
 usar un análisis en el dominio del tiempo, ya que son mucho mas sencillas de
 detectar las fallas.
 
-
-
 \subsubsection{Herramienta Computacional}
 
-
-
-
-
-
-
-
-
-
-
 \subsubsection{Sistema Web}
-
 
 \subsubsection*{Página web}
 
@@ -271,18 +231,10 @@ servidor no es instantanea y nunca lo sera.
 Pero aun asi, una interfaz web para un usario promedio es una solucion comoda y
 accesible y permite mayor libertad al usuario.
 
-
-
 \subsubsection*{Servidores}
 
 Un servidor web es un ordenador de proposito especifico que permite la
 transmicion de datos a uno o multiples clientes web.
-
-
-
-
-
-
 
 \subsubsection{Modelo estadístico}
 
@@ -297,4 +249,3 @@ variable.
 Es un primer paso en generar un modelo mas precioso o nos permite obtener
 informacion cuando no se tiene suficiente informacion, o la naturaleza del
 sistema es extremadamente compleja y dicha tarea es simplemente imposible.
-
