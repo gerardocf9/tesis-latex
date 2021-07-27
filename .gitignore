@@ -9,3 +9,5 @@ prueba.pdf
 *.blg
 *.lof
 *.lot
+*.fdb_latexmk
+*.fls

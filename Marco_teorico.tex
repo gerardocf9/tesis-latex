@@ -1,4 +1,300 @@
 
 \subsection{MARCO TEÓRICO}
 
-Esta parte del capítulo expone el contenido teórico necesario para la realización de este proyecto. Esto incluye 
+Esta parte del capítulo expone el contenido teórico necesario para la
+realización de este proyecto. Esto incluye informacion sobre los motores electricos,
+El analisis de la vibracion, las herramientas computacionales, los sistemas web
+y el modelado estadistico.
+
+
+%https://es.wikipedia.org/wiki/Motor_el%C3%A9ctrico
+
+\subsubsection{ Motores eléctricos}
+
+Un motor electrico es un dispositivo que transforma energia electrica en
+energia mecanica mediante la accion de campos magneticos, y estan compuestos
+principalmente por un estator (parte fija) y un rotor (parte movil).
+Existen dos familias principales de motores electricos las cuales, a su vez,
+se subdividen en \textbf{motores de corriente alterna} como lo son los  motores
+de induccion, sincrones, entre otros y los \textbf{motores de corriente continua}
+como lo son los motores de escobillas,  sin escobillas, de iman permanente,
+entre otros.
+
+
+El motor mas usado en el sector industrial, es el motor de induccion, debido
+principalmente a su bajo costo y al poco mantenimiento que requieren para estar
+completamente operativo, esto en particular es debido a su sencillo diseño
+,en comparacion al de otros motores de igual potencia, ya que requiere  menor
+numero de componentes. Cabe resaltar que el segundo tipo de motor mas usado es
+el motor de corriente
+continua, debido a que su control, en terminos de torque y potencia, es mucho
+mas sencillo para ciertos niveles de potencia.
+
+
+Tambien existen los motores sincronos, cuya construccion es similar a la de un
+motor de induccion pero a su vez requiere de una fuente de alimentacion externa
+para el rotor, lo cual aumenta su costo, ademas de esto su velocidad es
+constante, por lo tanto este tipo de motor es utilizado en aplicaciones
+especificas. Como se menciono anteriormente, existen otros tipos de motores,
+pero esto son usualmente de menor potencia por
+lo tanto su utlidad industrial es mucho mas limitada.
+
+
+
+
+\subsubsection*{Rodamientos}
+
+Para que un motor pueda llevar a cabo la transformacion de potencia debe rotar.
+Esta accion es llevada a cabo por el \textbf{rotor}, el cual esta formado por un
+eje que soporta un juego de bobinas envueltas sobre un núcleo magnético. Este
+se encuentra suspendido por \textbf{rodamientos}, de forma que el movimiento y
+las fuerzas producidas en la iteraccion entre las bobinas y el nucleo con los
+campos magneticos, producidos por el estator, puedan ser utilizados. Ademas,
+los rodamientos, cuando se encuentran en buenas condiciones, permiten minimizar
+el roce entre el eje y soporte, maximizando la transferencia de potencia.\\
+
+
+Estos tambien son conocidos como \textbf{rolineras}, y son un tipo de cojinete,
+un elemento mecanico diseñado para reducir la friccion entre un eje y los
+elementos conectados al mismo. Existen muchos tipos de rolineras, sin enbargo
+su estructura se fundamenta en dos anillos concentricos, algun elemento rotativo
+como pueden ser bolas o rodillos, una jaula que se encarga de mantener los
+elementos de rodadura separados ademas de guiados y un lubricante o un sistema
+de lubricacion.
+
+
+Dado que son un elemento mecanico el cual es continuamente usado, sufre mucho
+desgaste y es el elemento mas propenso a dañarse, según los estudios realizados
+por ~\textcite{Kammermann} el 59\% de las fallas son causadas por los rodamientos
+y asimismo su principal falla es el desgaste, de igual forma se presentan
+otras fallas estructurales. Y por estas razones es fundamental tener bajo continuo
+monitoreo este elemento, esto se suele hacer a traves de un analisis de vibracion.
+
+
+
+
+\subsubsection{Análisis de Vibración}
+
+La vibración, es el  movimiento periódico de un cuerpo o medio
+elástico, alrededor de un punto de equilibrio. En general podemos decir que una
+vibración es un caso especifico de una oscilación, cuando esta es de origen
+mecánico.
+
+
+Se conoce como análisis de vibración, al conjunto de técnicas que permiten
+obtener información de un equipo, a partir de sus vibraciones. Es una de las
+técnicas más usadas en el mantenimiento predictivo de equipos mecánicos, debido
+a que es un proceso poco invasivo y de bajo costo. El análisis de vibración
+permite diagnosticar fallas de forma temprana, así como detectar señales
+prematuras de desgaste.
+
+
+Según Girdhar (2004) el análisis de vibración nos permite detectar las
+siguientes fallas:
+
+- Defectos en los engranajes
+- Defectos en los rodamientos
+- Desalineamientos
+- Desbalances
+- Ejes torcidos
+- Excentricidad
+- Fallas eléctricas
+- Fuerzas hidráulicas o aerodinámicas
+- Mala sujeción en las piezas
+- Problemas en las correas de transmisión
+- Problemas de lubricación
+- Resonancia
+- Rozamientos en el rotor
+
+
+
+
+
+\subsubsection*{Adquisición de datos}
+
+Para realizar cualquier tipo de análisis, primero se deben adquirir datos, y
+por regla general mientras mas datos se tengan y mas precisas sean las
+mediciones, mejores serán los estudios que se pueden realizar.
+
+La toma de datos comienza con el sensor, que es el dispositivo que transforma
+la unidad física de interés, en una señal que pueda ser procesada con mayor
+facilidad. En el caso de las vibraciones, los sensores mas usados son los
+acelerometros.  Esto se debe principalmente a que tienen mayor ancho de banda
+que los sensores de posición y los de velocidad, lo que les permite detectar
+vibraciones de mayor frecuencia. Adicionalmente, las vibraciones en los
+rodamientos por naturaleza son de alta frecuencia, y debido a que estos son
+componentes críticos en los motores eléctricos; hace casi exclusivo el uso de
+acelerometros en las mediciones de vibración en motores eléctrico. Sin
+embargo, en casos mas especializados, como podría ser el análisis de vibración
+de maquinaria de larga envergadura son también usados los otros tipos de
+sensores.
+
+\subsubsection{Acelerometros}
+
+Se conoce como acelerometro a los dispositivos capaces de medir aceleración. Su
+funcionamiento proviene de la segunda ley de Newton, que dice que fuerza
+ejercida sobre un cuerpo es proporcional a su masa y a su aceleración. Los
+acelerometros por lo general cuentan con una masa de prueba (también conocida
+como masa sísmica), alguna especie de resorte y un marco de soporte, que a su
+vez puede funcionar como amortiguador. Debido a esto, los acelerometros se
+pueden modelar como un sistema lineal de segundo orden, por lo que su respuesta
+en frecuencia posee un pico de resonancia.
+
+
+
+\subsubsection*{Tipos de acelerometros}
+
+
+\begin{itemize}
+    \item  Acelerometros Capacitivos:
+
+Los acelerometros capacitivos son uno de los modelos mas sencillos de medir
+aceleración. Cuando una masa sísmica experimenta una fuerza, se desplaza a una
+aceleración proporcional a la fuerza aplicada. Si a su vez a la masa se le
+agrega unos resortes unidos a una carcasa, los resortes ejercerán una fuerza
+proporcional al desplazamiento de la masa. Estos efectos juntos al
+amortiguamiento producen un sistema lineal de segundo orden, el cual podemos
+ver como un sistema que al aplicarse una fuerza de entrada produce un
+desplazamiento de salida. Finalmente, si conectamos un sensor de
+desplazamiento, podemos medir la aceleración. El sensor de desplazamiento mas
+popular para este tipo de medidores es el capacitivo.
+
+
+
+En su mayoría los acelerometros capacitivos vienen como dispositivos
+microelectromecanicos (MEMS por sus siglas en ingles), que son dispositivos
+fabricados con técnicas similares a la de la fabricación de circuitos
+integrados, pero a su vez poseen componentes mecánicos microscópicos. Son los
+acelerometros mas populares en aplicaciones no industriales, pero en la
+industria son preferidos los acelerometros pizoresistivos y los pizoelectricos.
+Aunque en aplicaciones de bajo consumo, bajo coste o cuando las frecuencias con
+las que se trabajan no son tan altas, pueden ser usados en aplicaciones
+industriales, ya que poseen múltiples ventajas como que no requieren de una
+unidad de adecuación de la señal y pueden comunicarse directamente con un
+microcontrolador; son bastante económicos, ya que pueden ser producidos en
+masa con alta facilidad y son bastante compactos.
+
+
+
+\item  Acelerometros piezoresistivos:
+
+Son después de los acelerometros pizoelectricos, los mas usados a nivel
+industrial. Están constituidos por una o varias galgas extensiométricas, una
+masa de prueba y unos resortes de soporte. La galga sujeta a la masa de
+sísmica, y al esta recibir una fuerza produce un desplazamiento proporcional a
+la fuerza aplicada, lo que deforma a su vez la galga extensiométrica y
+finalmente esto se traduce como un cambio de resistencia del sensor. La ventaja
+de los acelerometros piezoresistivos es que pueden medir valores DC lo que los
+hace útil en el estudio de impactos, sin embargo, son también usados en el
+analisis de vibración en el rango de mediana frecuencia.
+
+\item Acelerometros piezoelectricos:
+
+Son el acelerometro mas usado en aplicaciones industriales y poseen alto rango
+dinámico, bajos niveles de ruido, alta linealidad, alto ancho de banda y al no
+poseer partes móviles poseen poco desgaste. Su construcción es bastante
+sencilla, se tiene disco de un cristal pizoelectrico unido por dos terminales
+circulares, de forma similar a la de un condensador, y justo encima se tiene
+una masa de prueba. Al experimentar una fuerza el cristal se deforma lo que
+produce una diferencia de carga y un voltaje proporcional a la fuerza aplicada.
+Como la aceleración de la masa de prueba es también proporcional a la fuerza
+aplicada, la aceleración del acelerometro sera entonces directamente
+proporcional al voltaje y la carga producida en el cristal.
+
+
+\end{itemize}
+
+
+
+
+\subsubsection{Procesamiento de señales}
+
+Una vez recolectado los datos el siguiente paso será análisis de los mismos.
+Existen una gran variedad de técnicas, y la elección de una dependerá en mayor
+medida de lo que se desea diagnosticar. Los análisis se clasificaran en dos
+categorías principales: análisis de frecuencia y análisis en el dominio del
+tiempo.
+
+El análisis en frecuencia es el mas popular de los dos, esto se debe a
+que la mayoría de las fallas poseen frecuencias características, y como el
+análisis de frecuencia permite separar las frecuencias, esto facilita su
+detección. Sin embargo, cuando las frecuencias son bajas o la frecuencia que se
+quiere detectar se encuentra cerca de otro frecuencia, es muy difícil
+identificar la señal en el dominio de la frecuencia. En estos casos es mejor
+usar un análisis en el dominio del tiempo, ya que son mucho mas sencillas de
+detectar las fallas.
+
+
+
+\subsubsection{Herramienta Computacional}
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Sistema Web}
+
+
+\subsubsection*{Página web}
+
+Una pagina web es un tipo de documento que usa en el protocolo HTTP, lo que uno
+conoce usualmente como la web. A groso modo una pagina web tiene contenido y
+permite redigirir o obtener nuevo contenido a partir de una direccion web. El
+protocolo comenzo siendo estatico y dirigido usualmente a la transmicion de
+texto pero poco a poco se fue convirtiendo en mas que eso. Es facil decir que
+HTTP es el protocolo mas usado en todo el mundo, tanto que es usado como
+sinonimo de internet cuando es solo una parte de el.
+
+Debido a la invencion de tecnologias como javascrit y AJAX hoy en dia es
+posible tener aplicaciones web, que son programas junto a una interfaz grafica,
+que permite comunicarse con servidores que realizan la mayor parte del trabajo.
+Debido a la popularidad de la web, asi mismo como su universalidad de la
+misma. Es posible el desarrollo de aplicaciones complejas que funcione desde la
+comodidad de dispotivos moviles. La web permite por tanto facilidad a la hora
+de transmitir informacion asi como poder acceder a cualquier contenido desde
+cualquier dispositivo a cualquier momento.
+
+La web suele ser el metodo de acceso de mucha tecnologia y si bien el
+desarrollo web usa el mismo estandar de tecnologias. En el lado del servidor
+las tecnologias son mucho mas amplias. Cualquier aplicacion que pueda correr
+en un ordenador puede ser conectada a una interfaz web. Teniendo una solo
+limitante que es la latencia y si bien los protocolos estan avanzado para hacer
+esto un problema del pasado seguira siendo cierto que la comunicacion con el
+servidor no es instantanea y nunca lo sera.
+
+Pero aun asi, una interfaz web para un usario promedio es una solucion comoda y
+accesible y permite mayor libertad al usuario.
+
+
+
+\subsubsection*{Servidores}
+
+Un servidor web es un ordenador de proposito especifico que permite la
+transmicion de datos a uno o multiples clientes web.
+
+
+
+
+
+
+
+\subsubsection{Modelo estadístico}
+
+Un modelo estadistico es un modelo matematico que posee variables aleatorias,
+es decir posee una o mas variables, de las cuales no se tiene completa certeza
+de su valor o proviene de algun evento aleatorio.
+
+Un modelo estadistico permite inferir ciertas caracteristicas de un evento,
+como que tan probable es tal evento y como se distribuye los valores de la
+variable.
+
+Es un primer paso en generar un modelo mas precioso o nos permite obtener
+informacion cuando no se tiene suficiente informacion, o la naturaleza del
+sistema es extremadamente compleja y dicha tarea es simplemente imposible.
+
