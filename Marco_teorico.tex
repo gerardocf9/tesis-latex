@@ -7,6 +7,7 @@ sistemas web y el modelado estadistico.
 
 %https://es.wikipedia.org/wiki/Motor_el%C3%A9ctrico
 
+
 \subsubsection{ Motores eléctricos}
 
 Un motor electrico es un dispositivo que transforma energia electrica en
@@ -35,6 +36,7 @@ especificas. Como se menciono anteriormente, existen otros tipos de motores,
 pero esto son usualmente de menor potencia por
 lo tanto su utlidad industrial es mucho mas limitada.
 
+
 \subsubsection*{Rodamientos}
 
 Para que un motor pueda llevar a cabo la transformacion de potencia debe rotar.
@@ -61,6 +63,7 @@ y asimismo su principal falla es el desgaste, de igual forma se presentan
 otras fallas estructurales. Y por estas razones es fundamental tener bajo continuo
 monitoreo este elemento, esto se suele hacer a traves de un analisis de vibracion.
 
+
 \subsubsection{Análisis de Vibración}
 
 La vibración, es el  movimiento periódico de un cuerpo o medio
@@ -68,31 +71,32 @@ elástico, alrededor de un punto de equilibrio. En general podemos decir que una
 vibración es un caso especifico de una oscilación, cuando esta es de origen
 mecánico.
 
-Se conoce como análisis de vibración, al conjunto de técnicas que permiten
+Asimismo, se conoce como análisis de vibración, al conjunto de técnicas que permiten
 obtener información de un equipo, a partir de sus vibraciones. Es una de las
 técnicas más usadas en el mantenimiento predictivo de equipos mecánicos, debido
 a que es un proceso poco invasivo y de bajo costo. El análisis de vibración
 permite diagnosticar fallas de forma temprana, así como detectar señales
 prematuras de desgaste.
 
-Según Girdhar (2004) el análisis de vibración nos permite detectar las
+Según Girdhar \Cite{Girdhar}  el análisis de vibración nos permite detectar las
 siguientes fallas:
 
 \begin{itemize}
-\item{Defectos en los engranajes}
-\item{Defectos en los rodamientos}
-\item{Desalineamientos}
-\item{Desbalances}
-\item{Ejes torcidos}
-\item{Excentricidad}
-\item{Fallas eléctricas}
-\item{Fuerzas hidráulicas o aerodinámicas}
-\item{Mala sujeción en las piezas}
-\item{Problemas en las correas de transmisión}
-\item{Problemas de lubricación}
-\item{Resonancia}
-\item{Rozamientos en el rotor}
+\item Defectos en los engranajes
+\item Defectos en los rodamientos
+\item Desalineamientos
+\item Desbalances
+\item Ejes torcidos
+\item Excentricidad
+\item Fallas eléctricas
+\item Fuerzas hidráulicas o aerodinámicas
+\item Mala sujeción en las piezas
+\item Problemas en las correas de transmisión
+\item Problemas de lubricación
+\item Resonancia
+\item Rozamientos en el rotor
 \end{itemize}
+
 
 \subsubsection*{Adquisición de datos}
 
@@ -100,106 +104,207 @@ Para realizar cualquier tipo de análisis, primero se deben adquirir datos, y
 por regla general mientras mas datos se tengan y mas precisas sean las
 mediciones, mejores serán los estudios que se pueden realizar.
 
-La toma de datos comienza con el sensor, que es el dispositivo que transforma
-la unidad física de interés, en una señal que pueda ser procesada con mayor
-facilidad. En el caso de las vibraciones, los sensores mas usados son los
+La adquisicion de datos es el proceso de realizar mediciones de fenomenos fisicos
+y registrarlos, en algun formato especifico, para analizarlos posteriormente.
+Cabe resaltar que en algunos casos es necesario hacer un acondicionamiento de
+la señal, esto
+implica modificarla controladamente al reducir o aumentar su amplitud ademas de
+sumarle un nivel offset, voltaje continuo, para que cumpla requisitos minimos
+y pueda ser procesada por los siguientes circuitos.
+
+Al momento de la adquisicion de datos, se toman medidas de una señal analogica
+la cual se convertira al pasar por una serie de etapas y dispositivos en una
+señal digital y se guardara en un formato deseado y en una unidad de
+almacenamiento masivo (Rom, flash, etc).
+El primer paso en la toma de  datos comienza con el sensor, que es un
+dispositivo el cual transforma la unidad física de interés, en una señal que
+pueda ser procesada con mayor facilidad, luego esta se adecuara mediante un
+circuito especializado a las caracteristicas y requerimientos del sistema,
+luego sera procesada por un convertidor Analógico-Digital, el cual se encarga de
+muestrear, reterner y procesar la señal, y de esta forma obtener una version
+digital de la misma, la cual se procesara o guardara mediante un software desde
+una computadora.
+
+En el caso de las vibraciones, los sensores mas usados son los
 acelerometros.  Esto se debe principalmente a que tienen mayor ancho de banda
 que los sensores de posición y los de velocidad, lo que les permite detectar
-vibraciones de mayor frecuencia. Adicionalmente, las vibraciones en los
-rodamientos por naturaleza son de alta frecuencia, y debido a que estos son
-componentes críticos en los motores eléctricos; hace casi exclusivo el uso de
-acelerometros en las mediciones de vibración en motores eléctrico. Sin
-embargo, en casos mas especializados, como podría ser el análisis de vibración
+vibraciones de mayor frecuencia. Adicionalmente, dado que las vibraciones en los
+rodamientos por naturaleza son de alta frecuencia, y como se menciono anteriormente,
+estos son componentes críticos en los motores eléctricos.
+Estas caracteristicas hacen al acelerometro el sensor mas utilizado para las
+mediciones de vibración en motores eléctrico. Sin embargo,
+en casos mas especializados, como podría ser el análisis de vibración
 de maquinaria de larga envergadura son también usados los otros tipos de
-sensores.
+sensores ya que sus caracteristicas pueden facilitar el estudio.
+
 
 \subsubsection{Acelerometros}
 
-Se conoce como acelerometro a los dispositivos capaces de medir aceleración. Su
-funcionamiento proviene de la segunda ley de Newton, que dice que fuerza
-ejercida sobre un cuerpo es proporcional a su masa y a su aceleración. Los
+Un acelerometro es un dispositivo capaz de medir aceleración, no es
+necesariamente la misma que la aceleracion de coordenadas (cambio de la velocidad de
+un elemento en el espacio), sino que es la acerleracion asociada con el fenómeno
+de peso experimentado por una masa de prueba que se
+encuentra en el marco de referencia del dispositivo.  Funciona mediante
+la utilizacion de la segunda ley de Newton, \textbf{la fuerza resultante
+ejercida sobre un cuerpo es proporcional a su masa por su aceleración}. Los
 acelerometros por lo general cuentan con una masa de prueba (también conocida
 como masa sísmica), alguna especie de resorte y un marco de soporte, que a su
 vez puede funcionar como amortiguador. Debido a esto, los acelerometros se
-pueden modelar como un sistema lineal de segundo orden, por lo que su respuesta
-en frecuencia posee un pico de resonancia.
+pueden modelar matematicamente como un sistema lineal de segundo orden,
+por lo que su respuesta en frecuencia posee un pico de resonancia.
+
 
 \subsubsection*{Tipos de acelerometros}
 
 \begin{itemize}
     \item  Acelerometros Capacitivos:
 
-Los acelerometros capacitivos son uno de los modelos mas sencillos de medir
-aceleración. Cuando una masa sísmica experimenta una fuerza, se desplaza a una
-aceleración proporcional a la fuerza aplicada. Si a su vez a la masa se le
-agrega unos resortes unidos a una carcasa, los resortes ejercerán una fuerza
-proporcional al desplazamiento de la masa. Estos efectos juntos al
-amortiguamiento producen un sistema lineal de segundo orden, el cual podemos
-ver como un sistema que al aplicarse una fuerza de entrada produce un
-desplazamiento de salida. Finalmente, si conectamos un sensor de
-desplazamiento, podemos medir la aceleración. El sensor de desplazamiento mas
-popular para este tipo de medidores es el capacitivo.
+        Los acelerometros capacitivos son uno de los modelos mas sencillos
+        capaces de medir
+        aceleración, ademas de ser facilmente utilizables y reproducibles en masa.
+        Funcionan mediante una masa sísmica, dado que esta, al  experimentar una fuerza
+        se desplaza con una aceleración proporcional a la fuerza aplicada.
+        Si a la masa se le agregan unos resortes unidos a una carcasa, los resortes
+        ejercerán una fuerza proporcional al desplazamiento de la masa generando un
+        desplazamiento facilmente medible.
 
-En su mayoría los acelerómetros capacitivos vienen como dispositivos
-microelectromecánicos, mems por sus siglas en ingles, que son dispositivos
-fabricados con técnicas similares a la de la fabricación de circuitos
-integrados, pero a su vez poseen componentes mecánicos microscópicos. Son los
-acelerómetros mas populares en aplicaciones no industriales, pero en la
-industria son preferidos los acelerómetros piezorresistivos y los piezoeléctricos.
-Aunque en aplicaciones de bajo consumo, bajo coste o cuando las frecuencias con
-las que se trabajan no son tan altas, pueden ser usados en aplicaciones
-industriales, ya que poseen múltiples ventajas como que no requieren de una
-unidad de adecuación de la señal y pueden comunicarse directamente con un
-microcontrolador; son bastante económicos, ya que pueden ser producidos en
-masa con alta facilidad y son bastante compactos.
+        Este fenomeno se produce ya que estos efectos en conjunto al
+        amortiguamiento producen un sistema lineal de
+        segundo orden, este sistema matematico genera una salida en desplazamiento
+        al aplicarse como entrada una fuerza
+         Finalmente, si al conectarse un sensor de desplazamiento, se observa
+        la aceleración a la que esta sometido el instrumento.
+        El sensor de desplazamiento mas
+        popular para este tipo de medidores es el capacitivo.
 
-\item  Acelerometros piezoresistivos:
+        En su mayoría los acelerómetros capacitivos vienen como dispositivos
+        microelectromecánicos, \textbf{mems} por sus siglas en ingles, que son
+        dispositivos
+        fabricados con técnicas similares a la de la fabricación de circuitos
+        integrados, pero a su vez poseen componentes mecánicos microscópicos. Son los
+        acelerómetros mas populares en aplicaciones no industriales, sin embargo,
+        en aplicaciones de bajo consumo, bajo coste o cuando las frecuencias con
+        las que se trabajan no son tan altas, pueden ser usados a niveles
+        industriales, ya que poseen múltiples ventajas como:
 
-Son después de los acelerometros pizoelectricos, los mas usados a nivel
-industrial. Están constituidos por una o varias galgas extensiométricas, una
-masa de prueba y unos resortes de soporte. La galga sujeta a la masa de
-sísmica, y al esta recibir una fuerza produce un desplazamiento proporcional a
-la fuerza aplicada, lo que deforma a su vez la galga extensiométrica y
-finalmente esto se traduce como un cambio de resistencia del sensor. La ventaja
-de los acelerometros piezoresistivos es que pueden medir valores DC lo que los
-hace útil en el estudio de impactos, sin embargo, son también usados en el
-analisis de vibración en el rango de mediana frecuencia.
+        \begin{itemize}
+            \item No requieren adecuación de la señal.
+            \item Pueden comunicarse directamente con un microcontrolador.
+            \item Su precio es economico.
+            \item Son compactos.
+        \end{itemize}
 
-\item Acelerometros piezoelectricos:
 
-Son el acelerometro mas usado en aplicaciones industriales y poseen alto rango
-dinámico, bajos niveles de ruido, alta linealidad, alto ancho de banda y al no
-poseer partes móviles poseen poco desgaste. Su construcción es bastante
-sencilla, se tiene disco de un cristal pizoelectrico unido por dos terminales
-circulares, de forma similar a la de un condensador, y justo encima se tiene
-una masa de prueba. Al experimentar una fuerza el cristal se deforma lo que
-produce una diferencia de carga y un voltaje proporcional a la fuerza aplicada.
-Como la aceleración de la masa de prueba es también proporcional a la fuerza
-aplicada, la aceleración del acelerometro sera entonces directamente
-proporcional al voltaje y la carga producida en el cristal.
+    \item  Acelerometros piezoresistivos:
+
+        Son después de los acelerometros pizoelectricos, los mas usados a nivel
+        industrial. Su funcionamiento es similar al de los acelerometros
+        capacitivos, ante una aceleracion de entrada se produce un desplazamiento
+        de salida, ma en este caso, estos están constituidos por una o varias
+        galgas extensiométricas, una masa de prueba y unos resortes de soporte.
+        La galga sujeta a la masa sísmica, y al esta recibir una fuerza produce
+        un desplazamiento proporcional a la fuerza aplicada, lo que deforma a
+        su vez la galga extensiométrica y finalmente esto se traduce como un
+        cambio de resistencia en el sensor. La ventaja de los acelerometros
+        piezoresistivos es que pueden medir valores de voltaje DC lo que los
+        hace útil en el estudio de impactos, sin embargo, son también usados en el
+        analisis de vibración en el rango de mediana frecuencia.
+
+
+    \item Acelerometros piezoelectricos:
+
+        Son el acelerometro mas usado en aplicaciones industriales ya que
+        poseen caracteristicas como:
+
+        \begin{itemize}
+            \item Alto rango dinamico.
+            \item Bajos niveles de ruido.
+            \item Alta linealidad.
+            \item Alto ancho de banda.
+            \item Poco desgaste, ya que no poseen partes moviles.
+        \end{itemize}
+
+
+        Su construcción es bastante sencilla, se tiene disco de un cristal
+        pizoelectrico unido por dos terminales circulares, de forma similar a
+        la de un condensador, y justo encima se tiene una masa de prueba.
+        Al experimentar una fuerza el cristal se deforma lo que produce una
+        diferencia de carga y un voltaje proporcional a la fuerza aplicada.
+        Como la aceleración de la masa de prueba es también proporcional a la
+        fuerza aplicada, la aceleración del acelerometro sera entonces
+        directamente proporcional al voltaje y la carga producida en el cristal.
 
 \end{itemize}
 
+
 \subsubsection{Procesamiento de señales}
 
-Una vez recolectado los datos el siguiente paso será análisis de los mismos.
-Existen una gran variedad de técnicas, y la elección de una dependerá en mayor
-medida de lo que se desea diagnosticar. Los análisis se clasificaran en dos
-categorías principales: análisis de frecuencia y análisis en el dominio del
-tiempo.
+Despues de ser almacenada la informacion, debe ser estudiada, procesada, para lo
+cual se utilizan una serie de herramientas, tecnicas o softwares especializados
+a cada necesidad. Este estudio se puede categorizar en dos ramas principales:
 
-El análisis en frecuencia es el mas popular de los dos, esto se debe a
-que la mayoría de las fallas poseen frecuencias características, y como el
-análisis de frecuencia permite separar las frecuencias, esto facilita su
-detección. Sin embargo, cuando las frecuencias son bajas o la frecuencia que se
-quiere detectar se encuentra cerca de otro frecuencia, es muy difícil
-identificar la señal en el dominio de la frecuencia. En estos casos es mejor
-usar un análisis en el dominio del tiempo, ya que son mucho mas sencillas de
-detectar las fallas.
+\begin{itemize}
+    \item Dominio del tiempo, termino utilizado para describir el analisis
+        de funciones matematicas o señales con respecto al tiempo, la sucesion
+        de estados que atraviesa la señal de forma natural, y los estudios mas
+        comunes son en  \textbf{tiempo continuo} y en \textbf{tiempo discreto}.
+
+    \item Dominio de la frecuencia, termino utilizado para describir el analisis
+        de funciones matematicas, señales o movimientos periodicos respecto a
+        su frecuencia, numero de veces que sucede un evento en un periodo, se
+        utilizan transformadas para llevar las funciones o señales del dominio
+        del tiempo, base, al dominio de la frecuencia, deseado, la mas famosa es
+        la \textbf{transformada de fourier}.
+\end{itemize}
+
+
+Graficamente se suelen entender el \textbf{dominio temporal} como la evolucion
+de una señal con respecto al tiempo, es decir su evolucion natural, por otro
+lado el \textbf{dominio frecuencial} muestra los componentes de la señal segun
+la frecuencia en la que oscilan dentro de un rango determinado.
+
+%  grafica de las señales??
+
+
+El análisis en frecuencia suele ser mas utilizado debido a que
+la mayoría de las fallas poseen frecuencias características, y dado que en  el
+análisis de frecuencia se descompone en frecuencias la señal, se facilita la
+detección de fallas caracteristicas y asi mismo, la amplitud de la frecuencia es
+directamente proporcional al nivel de la falla. Por lo tanto se obtiene un
+espectro amplio del estado de la pieza.
+Cabe resaltar que cuando las frecuencias son bajas o muy cercanas entre si,
+se dificulta determinar e identificar alguna falla, suele suceder cuando se
+estudia una falla o evento con frecuencia muy baja o muy cercana a la frecuencia
+natural de la señal o elemento medido. En estos casos es mejor
+usar un análisis en el dominio del tiempo, ya que se facilita la
+deteccion de las fallas.
+
+
 
 \subsubsection{Herramienta Computacional}
 
+
+Una herramienta computacional puede ser definida como cualquier software,
+sistema de integracion, analisis o almacenamiento el cual ayuda a los cientificos
+o usuarios a solucionar un problema especifico en una determinada rama. Entre
+estos pueden variar desde sistemas complejos como compiladores, algoritmos
+e incluso sistemas operativos hasta herramientas como hojas de calculos, sistemas
+de oficina o medios de comunicacion. Funcionan mediante la implementacion de
+tecnicas y protocolos para solucionar problemas de forma iterativa o con una
+secuencia de pasos concreta.
+
+Siguiendo este orden de ideas, una gran cantidad de estas herramientas son
+encontradas en la libreria de informacion mas grande del mundo, el internet.
+Todas estas comparten la peculiaridad de que son un \textbf{sistema web} y por
+ende pueden
+ser accedidas con facilidad desde cualquier punto con un dispositivo capaz de
+tener conexion a internet y un navegador web. Esta facilidad se debe a que un
+\textbf{servidor} se encarga de hacer el procesamiento de la informacion y envia
+el resultado con un formato especifico, tipicamente json, el cual se renderiza
+en una pagina web.
+
 \subsubsection{Sistema Web}
+
 
 \subsubsection*{Página web}
 
@@ -231,10 +336,12 @@ servidor no es instantanea y nunca lo sera.
 Pero aun asi, una interfaz web para un usario promedio es una solucion comoda y
 accesible y permite mayor libertad al usuario.
 
+
 \subsubsection*{Servidores}
 
 Un servidor web es un ordenador de proposito especifico que permite la
 transmicion de datos a uno o multiples clientes web.
+
 
 \subsubsection{Modelo estadístico}
 
