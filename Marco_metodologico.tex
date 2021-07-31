@@ -2,10 +2,10 @@
 
 \section{MARCO METODOLÓGICO}
 
-Como ha sido explicado en el primer capitulo, se pretende hacer una herramienta
+Como fue explicado en el primer capitulo, se pretende hacer una herramienta
 computacional para el análisis de la vibración en motores eléctricos alimentada
-mediante datos de una simulación digital. Partiendo de este hecho, se puede
-comenzar con la definición de los siguientes aspectos.
+mediante datos de una simulación digital. Partiendo de esto, se comenzará
+con la definición de los siguientes aspectos.
 
 \subsection{NATURALEZA DE LA INVESTIGACIÓN}
 
@@ -21,3 +21,40 @@ El presente trabajo es clasificado como Proyecto Especial, puesto que según
     productos tecnológicos en general, así como también los de creación
     literaria y artística.}
 \end{center}
+
+\subsection*{METODOLOGÍA DE DESARROLLO DEL SOFTWARE}
+
+Para la implementación de los distintos sistemas que componen la herramienta
+computacional propuesta, se necesitar seguir una metodología de diseño de
+software. Como la herramienta se clasifica como una aplicación WEB, las
+metodologías utilizadas en el desarrollo de este tipo aplicaciones son
+aplicables a este trabajo.
+
+Las aplicaciones WEB cuentan con muchas similitudes a las de aplicaciones de
+computadores personales, sin embargo una de sus principales diferencias es que
+las aplicaciones WEB están en un estado de constante cambio por lo tanto
+se pierde la noción de versiones, los cambios toman efectos de forma inmediata
+y de forma gradual. Esta diferencia es producto de que las aplicaciones WEB
+en mayor medida son una forma de transmitir información. Como la información
+cambia de forma constante y los requisitos de la aplicación también son
+variables, junto con el hecho de que los cambios de versiones pueden
+realizarse con la menor fricción posible, los cambios se pueden observar
+al volver a cargar la pagina, hace que las aplicaciones WEB existan en un
+estado de evolución continua. Según \cite{pressman2002} la evolución constante
+de las aplicaciones WEB puede ser comparada con la jardinería, se hace un
+trabajo inicial el cual seria equivalente a sembrar un jardín y una vez se
+tenga el sitio web se debe realizar el trabajo de mantenerlo que seria
+equivalente a regar y abonar las plantas.
+
+Debido a lo presentado anteriormente, para le elaboración de los diferentes
+componentes de la herramienta se realizara un desarrollo de forma continua,
+en donde la aplicación tendrá la capacidad de evolucionar si algún día
+cambian los requisitos de la misma. Para esto se utilizara la ayuda de
+\textbf{Git} como sistema de control de versiones, lo cual permitiría integrar
+los diferentes cambios de forma mas eficaz y facilitar la cooperación a la
+hora del desarrollo de la aplicación. Para la elaboración de los diferentes
+componentes se usara también un proceso iterativo, cada vez que se implemente
+un componente se probara su funcionamiento y de encontrar una falla,
+solucionar la falla y volver a probar hasta que no se consigan fallas que
+afecten el funcionamiento del programa.
+
