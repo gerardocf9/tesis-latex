@@ -35,11 +35,14 @@
 \usepackage{csquotes}
 \usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
 
+
+\usepackage{enumitem}%eliminar el espaciado entre items de lista
+
 %****************************************************
 %     secciones con formato especifico
 \usepackage{titlesec}
 \titleformat{\section}[display]
-{\normalfont\bfseries\LARGE}{\filcenter CAPITULO \thesection}{3pt}{\filcenter \LARGE}
+{\normalfont\bfseries\LARGE}{\filcenter CAPÍTULO \thesection}{3pt}{\filcenter \LARGE}
 
 
 \newcommand{\comillas}[1]{``#1"}
@@ -77,7 +80,7 @@
 %\include{solucion}
 	\include{antecedentes}
 	\include{Marco_teorico}
-    \include{glosario}
+    %\include{glosario}
 
 
 
