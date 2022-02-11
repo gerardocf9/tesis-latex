@@ -1,0 +1,143 @@
+\thispagestyle{empty}
+
+\section{ANÁLISIS Y DISCUSIÓN DE RESULTADOS}
+
+\subsection{ELECCIÓN DE LAS HERRAMIENTAS Y LENGUAJES}
+    La elección de las herr..
+
+
+    % MODELO ESTADISTICO DE LA VIBRACION
+    % SERVIDORES, CONEXION CON SENSORES, BASES DE DATOS, ANALISIS EN FRECUENCIA, WEB
+    % UI, CLIENTE WEB
+\subsection{IMPLEMENTACIÓN DEL MODELO ESTADISTICO}
+
+
+\subsection{IMPLEMENTACIÓN DE LA BASE DE DATOS}
+
+    Como se ha mencionado anteriormente, se ha escogido una base de datos no
+    relacional, especificamente MongoDB, dentro de esta se han desarrollado
+    una base de datos llamada ``tesis"\   y dos colecciones llamadas ``MotorData"\  y
+    ``MotoresInDB"\ ; la primera coleccion se encarga de almacenar toda la informacion
+    enviada por los sensores (en este caso el cliente simulado con los datos
+    proporcionados por el modelo estadistico) y la segunda coleccion contiene una
+    lista con los identificadores unicos de cada motor que tenga al menos un documento
+    en la coleccion ``MotorData"\ , es decir, hay informacion registrada de su actividad.
+
+    Cada coleccion tiene una estructura fija definida para facilitar el manejo y
+    la consistencia de los documentos, esta es similar un json y sus campos
+    estan explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y
+    \ref{tab:MotorInDBbson} para ``MotorInDB"\ .
+
+    \begin{table}[h!]
+        \begin{center}
+            Tabla de la estructura seguida para la colección ``MotorData"\ .\\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|p{9cm}|}
+                \hline
+                Elemento        & tipo de dato & Descripcion \\\hline\hline
+                %
+                $\_$id      & []bytes  & Elemento utilizado por MongoDB para
+                identificar y facilitar la busqueda de los documentos\\\hline
+                %
+                IdMotor         & uint64   & Identificador unico del motor.\\\hline
+                %
+                Caracteristicas & string   & Descripcion e informacion del motor.\\\hline
+                %
+                IdSensor        & []uint64 & lista de los identificadores-sensores
+                que tiene conectado este motor.\\\hline
+                %
+                Data            & []DataSensor & lista en forma de subcoleccion
+                que contiene los resultados del sensor.\\\hline
+                %
+                Time            & time  & Estampa de tiempo, fecha y hora de la muestra.\\\hline
+                \hline
+                \multicolumn{3}{|c|}{Sub coleccion  ``DataSensor"\ }\\\hline\hline
+                %
+                IdSensorData & uint64 & Identificador unico del sensor que tomo la muestra.\\\hline
+                AcelerationX & float64 & Muestra de aceleracion en el eje X.\\\hline
+                AcelerationY & float64 & Muestra de aceleracion en el eje Y.\\\hline
+                AcelerationZ & float64 & Muestra de aceleracion en el eje Z.\\
+                \hline
+            \end{tabular}
+        \end{center}
+        \caption[Estructura de MotorData]{Estructura de la coleccion MotorData}
+        \label{tab:MotorDatabson}
+    \end{table}
+
+\vspace{1cm}
+
+
+    \begin{table}[h!]
+        \begin{center}
+            Tabla de la estructura seguida para la coleccion ``MotorInDB"\ \\
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|p{11cm}|}
+                \hline
+                Elemento & tipo     & Descripcion \\\hline\hline
+                %
+                \_id      & []bytes  & Elemento utilizado por MongoDB para
+                identificar y facilitar la busqueda de los documentos\\\hline
+                %
+                IdMotor  & []uint64 & Lista que contiene todos los identificadores
+                unicos de los motores. Facilita busqueda e implementacion de los
+                clientes Webs\\\hline
+            \end{tabular}
+        \end{center}
+        \caption[Estructura de MotorInDB]{Estructura de la coleccion MotorInDB}
+        \label{tab:MotorInDBbson}
+    \end{table}
+
+    Cabe realtar que ``uint64"\  hace referencia a un numero natural de 64 bits, y
+    ``float64"\  a un numero racional representado como punto flotante de 64 bits,
+    Asimismo se usan estos tipos ya que en el caso de los datos es una unidad
+    comun, para maximizar la precision y en el caso de los identificadores de
+    sensores, permite el uso de 64 bits (16 bytes) los cuales son codificados de
+    la forma expuesta en la tabla \ref{tab:CodIdSensor}, para
+    poder transmitir mas informacion y facilitar la escalabilidad del sistema en
+    un futuro.
+
+    \begin{table}[h!]
+        \begin{center}
+            Tabla de la estructura seguida para ``IdSensor"\  \\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Tipo de sensor & Ubicación & Reservado  & Serial \\\hline
+                $ B_{15} $ & $ B_{14} $  & $ B_{13}B_{12} $ & $ B_{11}\cdots B_{0} $\\
+                \hline
+            \end{tabular}
+
+            \vspace{0.3cm}
+            \begin{tabular}{|c|p{13cm}|}
+                \hline
+                Campo       & Descripción
+                \\\hline\hline
+                tipo        & tipo de sensor usado, Acelerometro, Temperatura, etc.
+                Con $0000b$ siendo Acelerometro y 15 posibilidades adicionales.
+                \\\hline
+                Ubicación   & Posicion con respecto al motor y acoples. Con:
+                $0000b$ Lado con carga, $ 0001b$ Lado libre, $ 0010b\cdots1111b $
+                disponibles para acoples y chumaceras.
+                \\\hline
+                Reservado   & No se utilizan, son 0x00 siempre y se reservan para
+                posibles expansiones y/o necesidades.
+                \\\hline
+                Serial      & Numero de fabricacion del sensor, desde 0 hasta $2^48$.
+                \\\hline
+            \end{tabular}
+        \end{center}
+        \caption[Estructura IdSensor]{Estructura seguida en el identificador de
+        los sensores para permitir y facilitar la escalabilidad del sistema}
+        \label{tab:CodIdSensor}
+    \end{table}
+
+
+ \newpage
+\subsection{IMPLEMENTACION DE LOS SERVIDORES}
+
+\subsection{IMPLEMENTACION DEL CLIENTE WEB}
+
+\subsection{COMPROBACIÓN DE LOS RESULTADOS}
+

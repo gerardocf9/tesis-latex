@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 
-%\usepackage{fontspec}
-%\setmainfont{Times New Roman}
+%\usepackage{src/cap/fontspec}
+%\setmainfont{src/cap/Times New Roman}
 
 \usepackage{tocbibind}
 
@@ -21,12 +21,12 @@
 \usepackage{graphicx} % graficos
 \graphicspath{ {./images/} }
 \usepackage{setspace}%interlineado agrega:
-% \doublespacing \onehalfspace \singlespace \spacing{x}
+% \doublespacing \onehalfspace \singlespace \spacing{src/cap/x}
 \spacing{1.5}
 \setlength{\parindent}{0pt}
 \pagestyle{headings}
 
-%\usepackage { natbib }
+%\usepackage {src/cap/ natbib }
 \setlength{\parskip}{12pt}
 
 \usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = apa]{biblatex}
@@ -52,7 +52,7 @@
 \renewcommand{\listtablename}{Índice de Tablas}
 \pagenumbering{roman}
 
-	\include{portada}
+	\include{src/portada}
 
 	%\newpage
 	\tableofcontents
@@ -66,30 +66,59 @@
 %**********  Capitulo 1  ***************************
 %***************************************************
 \begin{refsection}
-	\include{descripcion_problema}
-%	\include{solucion}
-	\include{objetivos}
-	\include{justificacion_importancia}
-	\include{Limitaciones_alcance}
+	\include{src/cap1/descripcion_problema}
+%	\include{src/cap/solucion}
+	\include{src/cap1/objetivos}
+	\include{src/cap1/justificacion_importancia}
+	\include{src/cap1/Limitaciones_alcance}
 
 
 
 %***************************************************
 %**********  Capitulo 2  ***************************
 %***************************************************
-%\include{solucion}
-	\include{antecedentes}
-	\include{Marco_teorico}
-    %\include{glosario}
+%\include{src/cap/solucion}
+	\include{src/cap2/antecedentes}
+	\include{src/cap2/Marco_teorico}
+    %\include{src/cap/glosario}
+    %Faltan mas teorias, de lo usado y tal vez otro antescedente
 
 
 
 %***************************************************
 %**********  Capitulo 3  ***************************
 %***************************************************
-	\include{Marco_metodologico}% naturaleza de la investigacion
-	\include{Recursos}
-	\include{Cronograma_actividades}
+    % naturaleza de la investigacion, Tipo de investigacion
+	\include{src/cap3/Marco_metodologico}
+    %Procedimiento de recoleccion de datos e informacion
+    %Fases de la investigacion
+    \include{src/cap3/Metodologia}
+	\include{src/cap3/Recursos}
+	%\include{src/cap3/Cronograma_actividades}
+
+
+
+%***************************************************
+%**********  Capitulo 4  ***************************
+%***************************************************
+    \include{src/cap4/Analisis_Discusion_Resultados}%1 por objetivo
+    % LENGUAJES Y HERRAMIENTAS UTILIZADOS
+    % MODELO ESTADISTICO DE LA VIBRACION
+    % SERVIDORES, CONEXION CON SENSORES, BASES DE DATOS, ANALISIS EN FRECUENCIA, WEB
+    % UI, CLIENTE WEB
+
+
+
+%***************************************************
+%**********  Capitulo 5  ***************************
+%***************************************************
+    %Conclusiones
+    %Recomendaciones
+
+%***************************************************
+%**********  Anexos      ***************************
+%***************************************************
+    %Anexos
 
 	\printbibliography[title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
 \end{refsection}
