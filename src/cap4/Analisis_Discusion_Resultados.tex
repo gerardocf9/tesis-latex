@@ -3,101 +3,103 @@
 \section{ANÁLISIS Y DISCUSIÓN DE RESULTADOS}
 
 \subsection{ELECCIÓN DE LAS HERRAMIENTAS Y LENGUAJES}
-    La elección de las herr..
+    Para la elección de las herramientas y lenguajes a utilizar se
 
 
     % MODELO ESTADISTICO DE LA VIBRACION
     % SERVIDORES, CONEXION CON SENSORES, BASES DE DATOS, ANALISIS EN FRECUENCIA, WEB
     % UI, CLIENTE WEB
-\subsection{IMPLEMENTACIÓN DEL MODELO ESTADISTICO}
+\subsection{IMPLEMENTACIÓN DEL MODELO ESTADÍSTICO}
 
 
 \subsection{IMPLEMENTACIÓN DE LA BASE DE DATOS}
 
     Como se ha mencionado anteriormente, se ha escogido una base de datos no
-    relacional, especificamente MongoDB, dentro de esta se han desarrollado
+    relacional, específicamente MongoDB, dentro de esta se han desarrollado
     una base de datos llamada ``tesis"\   y dos colecciones llamadas ``MotorData"\  y
-    ``MotoresInDB"\ ; la primera coleccion se encarga de almacenar toda la informacion
+    ``MotoresInDB"\ ; la primera colección se encarga de almacenar toda la información
     enviada por los sensores (en este caso el cliente simulado con los datos
-    proporcionados por el modelo estadistico) y la segunda coleccion contiene una
-    lista con los identificadores unicos de cada motor que tenga al menos un documento
-    en la coleccion ``MotorData"\ , es decir, hay informacion registrada de su actividad.
+    proporcionados por el modelo estadístico) y la segunda colección contiene una
+    lista con los identificadores únicos de cada motor que tenga al menos un documento
+    en la colección ``MotorData"\ , es decir, hay información registrada de su actividad.
 
-    Cada coleccion tiene una estructura fija definida para facilitar el manejo y
+    Cada colección tiene una estructura fija definida para facilitar el manejo y
     la consistencia de los documentos, esta es similar un json y sus campos
-    estan explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y
+    están explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y
     \ref{tab:MotorInDBbson} para ``MotorInDB"\ .
 
-    \begin{table}[h!]
+    \begin{table}[ht]
         \begin{center}
             Tabla de la estructura seguida para la colección ``MotorData"\ .\\
 
             \vspace{0.3cm}
             \begin{tabular}{|c|c|p{9cm}|}
                 \hline
-                Elemento        & tipo de dato & Descripcion \\\hline\hline
+                Elemento        & tipo de dato & Descripción \\\hline\hline
                 %
                 $\_$id      & []bytes  & Elemento utilizado por MongoDB para
-                identificar y facilitar la busqueda de los documentos\\\hline
+                identificar y facilitar la búsqueda de los documentos\\\hline
                 %
-                IdMotor         & uint64   & Identificador unico del motor.\\\hline
+                IdMotor         & string   & Identificador único del motor.\\\hline
                 %
-                Caracteristicas & string   & Descripcion e informacion del motor.\\\hline
+                Características & string   & Descripción e información del motor.\\\hline
                 %
                 IdSensor        & []uint64 & lista de los identificadores-sensores
                 que tiene conectado este motor.\\\hline
                 %
-                Data            & []DataSensor & lista en forma de subcoleccion
+                Data            & []DataSensor & lista en forma de sub colección
                 que contiene los resultados del sensor.\\\hline
                 %
                 Time            & time  & Estampa de tiempo, fecha y hora de la muestra.\\\hline
                 \hline
-                \multicolumn{3}{|c|}{Sub coleccion  ``DataSensor"\ }\\\hline\hline
+                \multicolumn{3}{|c|}{Sub colección  ``DataSensor"\ }\\\hline\hline
                 %
-                IdSensorData & uint64 & Identificador unico del sensor que tomo la muestra.\\\hline
-                AcelerationX & float64 & Muestra de aceleracion en el eje X.\\\hline
-                AcelerationY & float64 & Muestra de aceleracion en el eje Y.\\\hline
-                AcelerationZ & float64 & Muestra de aceleracion en el eje Z.\\
+                IdSensorData & uint64 & Identificador único del sensor que tomo la muestra.\\\hline
+                AcelerationX & float64 & Muestra de aceleración en el eje X.\\\hline
+                AcelerationY & float64 & Muestra de aceleración en el eje Y.\\\hline
+                AcelerationZ & float64 & Muestra de aceleración en el eje Z.\\
                 \hline
             \end{tabular}
         \end{center}
-        \caption[Estructura de MotorData]{Estructura de la coleccion MotorData}
+        \caption[Estructura de MotorData]{Estructura de la colección MotorData}
         \label{tab:MotorDatabson}
     \end{table}
 
 \vspace{1cm}
 
 
-    \begin{table}[h!]
+    \begin{table}[ht]
         \begin{center}
-            Tabla de la estructura seguida para la coleccion ``MotorInDB"\ \\
+            Tabla de la estructura seguida para la colección ``MotorInDB"\ \\
             \vspace{0.3cm}
             \begin{tabular}{|c|c|p{11cm}|}
                 \hline
-                Elemento & tipo     & Descripcion \\\hline\hline
+                Elemento & tipo     & Descripción \\\hline\hline
                 %
                 \_id      & []bytes  & Elemento utilizado por MongoDB para
-                identificar y facilitar la busqueda de los documentos\\\hline
+                identificar y facilitar la búsqueda de los documentos\\\hline
                 %
-                IdMotor  & []uint64 & Lista que contiene todos los identificadores
-                unicos de los motores. Facilita busqueda e implementacion de los
+                IdMotor  & []string & Lista que contiene todos los identificadores
+                únicos de los motores. Facilita búsqueda e implementación de los
                 clientes Webs\\\hline
             \end{tabular}
         \end{center}
-        \caption[Estructura de MotorInDB]{Estructura de la coleccion MotorInDB}
+        \caption[Estructura de MotorInDB]{Estructura de la colección MotorInDB}
         \label{tab:MotorInDBbson}
     \end{table}
 
-    Cabe realtar que ``uint64"\  hace referencia a un numero natural de 64 bits, y
-    ``float64"\  a un numero racional representado como punto flotante de 64 bits,
-    Asimismo se usan estos tipos ya que en el caso de los datos es una unidad
-    comun, para maximizar la precision y en el caso de los identificadores de
-    sensores, permite el uso de 64 bits (16 bytes) los cuales son codificados de
+    Cabe relatar que ``uint64"\  hace referencia a un numero natural de 64 bits
+    y es usado en los identificadores de sensores ya que permite el uso de 64
+    bits (16 bytes) los cuales son codificados de
     la forma expuesta en la tabla \ref{tab:CodIdSensor}, para
-    poder transmitir mas informacion y facilitar la escalabilidad del sistema en
+    poder transmitir mas información y facilitar la escalabilidad del sistema en
     un futuro.
+    Asimismo, se utiliza
+    ``float64"\ para representar  a un numero racional representado como punto
+    flotante de 64 bits, Esta es una unidad común porque permite maximizar la
+    precisión en la medida.
 
-    \begin{table}[h!]
+    \begin{table}[ht]
         \begin{center}
             Tabla de la estructura seguida para ``IdSensor"\  \\
 
@@ -114,17 +116,17 @@
                 \hline
                 Campo       & Descripción
                 \\\hline\hline
-                tipo        & tipo de sensor usado, Acelerometro, Temperatura, etc.
-                Con $0000b$ siendo Acelerometro y 15 posibilidades adicionales.
+                tipo        & tipo de sensor usado, Acelerómetro, Temperatura, etc.
+                Con $0000b$ siendo Acelerómetro y 15 posibilidades adicionales.
                 \\\hline
-                Ubicación   & Posicion con respecto al motor y acoples. Con:
+                Ubicación   & Posición con respecto al motor y acoples. Con:
                 $0000b$ Lado con carga, $ 0001b$ Lado libre, $ 0010b\cdots1111b $
                 disponibles para acoples y chumaceras.
                 \\\hline
                 Reservado   & No se utilizan, son 0x00 siempre y se reservan para
                 posibles expansiones y/o necesidades.
                 \\\hline
-                Serial      & Numero de fabricacion del sensor, desde 0 hasta $2^48$.
+                Serial      & Numero de fabricación del sensor, desde 0 hasta $2^48$.
                 \\\hline
             \end{tabular}
         \end{center}
@@ -135,9 +137,133 @@
 
 
  \newpage
-\subsection{IMPLEMENTACION DE LOS SERVIDORES}
+\subsection{IMPLEMENTACIÓN DE LOS SERVIDORES}
 
-\subsection{IMPLEMENTACION DEL CLIENTE WEB}
+    Los servidores son necesarios para recolectar la información de los sensores,
+    establecer una comunicación full duplex la cual permita obtener información
+    a tiempo real del comportamiento del sensor, además de permitir toda la
+    interacción web que da la visibilidad. Dado que estas tareas pueden ser
+    separadas y manejadas en forma de APIs se crearon 2 servidores, permitiendo
+    de esta forma la división de la carga de trabajo y por ende disminuyendo los
+    requerimientos mínimos del equipo en donde se monta cada servidor individual.
+    Así mismo, esto permite una mayor escalabilidad y paralelismo, dado que en el
+    caso de ser necesaria una ampliación en la capacidad de computo se puede colocar
+    otro equipo en vez de aumentar las capacidades del equipo ya existente. Este
+    hecho permite disminuir los costos sustancialmente.
+
+    La implementación de estos 2 servidores da origen a un \textbf{servidor dedicado
+    a sensorica}, desarrollado como un micro-servicio en el lenguaje de programación
+    Go (también conocido como Golang) por las razones previamente expuestas, y
+    a un \textbf{servidor dedicado al tratamiento web} desarrollado con una
+    combinación de Python y el framework Django para el Backend y html-css-javascript
+    con el framework de React en un paradigma multipaginas de renderizado desde
+    el servidor para el frontend-cliente Web.
+
+    \subsubsection{Servidor dedicado a Sensorica}
+
+    Este servidor fue realizado en Go por los motivos expuestos anteriormente y
+    cumple la función de micro-servicio, se encarga de la recolección y comunicación
+    con la red de sensorica, la cual es implementada por el cliente de la simulación
+    y el modelo estadístico, así mismo envía la información relacionada con la
+    vista exhaustiva (para esta se requieren mediciones a tiempo real y por esto
+    este servidor tiene una conexión full duplex con los sensores).
+
+    Como se observa en la tabla \ref{tab:ServerSensorica}
+
+    \begin{table}[ht]
+        \begin{center}
+            Tabla de las funcionalidades del servidor dedicado a sensorica   \\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|p{5cm}|p{10cm}|}
+                \hline
+                Dirección       & Tarea realizada
+                \\\hline\hline
+                DireccionIP/sensormessage &
+                Se encarga del comportamiento, acceso
+                e intercambio de información sensor-servidor. Es una comunicación
+                bidireccional con http2 (https) y se intercambian por el canal
+                establecido tanto la información de medición diaria, (después es
+                subida a la base de datos) como la
+                información de medición exhaustiva (es enviada al cliente que
+                la solicito).
+
+                \\\hline
+                DireccionIP/exhaustive \textbf{?idMotor=identificador}   &
+                Se encarga de solicitar la información para la vista exhaustiva,
+                el identificador único del motor que se solicitara la data
+                es enviado por el url (?idMotor=identificador) .
+                \\\hline
+            \end{tabular}
+
+            \vspace{0.3cm}
+            Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
+            que sera montado (Host) el sitio, en caso de un ambiente local, por
+            ejemplo, es ``localhost:8080" (este es el usado para las pruebas,
+            cuando se cambia a producción se modifica por el del host contratado)
+        \end{center}
+        \caption[Funciones Servidor Sensorica]{ Relación de punto de acceso y
+        funcionalidad implementada en el servidor de sensorica}
+        \label{tab:ServerSensorica}
+    \end{table}
+
+
+    El primer ``Endpoint"\ (DireccionIP/sensormessage) realiza las siguientes tareas:
+
+    \begin{itemize}
+        \item Establecer una conexión http2 con los solicitantes, para esto se intercambian,
+            además de los paquetes e información necesarios para establecer el protocolo,
+            unos mensajes que permiten identificar el motor y la cadena de sensores
+            correspondientes a esta información.
+            %
+        \item Posteriormente se revisa si el motor
+            tiene una conexión activa (no debe de existir por unicidad de la información)
+            y si ya se ha recibido información de este motor previamente, de no ser así,
+            se agrega a la lista de motores de la que se posee información.
+            %
+        \item En este punto el servidor se dedica a escuchar la llegada o solicitud
+            de información. Esta puede ser de el sensor con el que se estableció
+            conexión (mediante un canal interno) o  de la solicitud de información
+            para una vista exhaustiva. Para cada caso se hace lo siguiente:
+            \begin{itemize}
+                \item[*] Si es información, se verifica que venga en formado valido
+                    y se sube a la base de datos.
+                \item[*] Si es una solicitud de información, se verifica que
+                    la conexión con el motor sea la indicada y se solicita la
+                    información, se espera la respuesta y se envía por el mismo
+                    canal interno. Esta solicitud es hecha por el segundo Endpoint.
+                \item[*] No se dio ninguno de los casos, entonces el cliente se
+                    desconectara. Se procede a eliminar la conexión y la lista
+                    mediante un procedimiento de cierre de conexión.
+            \end{itemize}
+            %
+        \item Finalmente, existe un procedimiento de cierre de conexión ya sea
+            por solicitud del cliente o por un error ocurrido.
+    \end{itemize}
+
+
+    El segundo ``Endpoint"\ (DireccionIP/exhaustive\textbf{?idMotor=identificador})
+    realiza las siguientes tareas:
+
+    \begin{itemize}
+        \item Decodifica el URL enviado para obtener el parámetro (idMotor) y
+            comprueba su existencia. En caso de error se envía un mensaje
+            de petición incorrecta.
+        %
+        \item Se comprueba que el motor solicitado exista en las conexiones
+            actuales. Es importante resaltar que se refiere a la conexión
+            bidireccional, ya que de caso contrario no se puede obtener información
+            a tiempo real. Por esto, si la conexión es inexistente, se envía un
+            mensaje de petición incorrecta, no se puede conectar al motor.
+        %
+        \item Se solicita por un canal interno al otro Endpoint la información
+            deseada y se espera su respuesta.
+        %
+        \item Se envía la respuesta con estado de creado y la información.
+    \end{itemize}
+
+
+\subsection{IMPLEMENTACIÓN DE LOS CLIENTES}
 
 \subsection{COMPROBACIÓN DE LOS RESULTADOS}
 
