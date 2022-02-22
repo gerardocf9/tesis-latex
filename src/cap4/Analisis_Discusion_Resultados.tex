@@ -55,9 +55,10 @@
                 \multicolumn{3}{|c|}{Sub colección  ``DataSensor"\ }\\\hline\hline
                 %
                 IdSensorData & uint64 & Identificador único del sensor que tomo la muestra.\\\hline
-                AcelerationX & float64 & Muestra de aceleración en el eje X.\\\hline
-                AcelerationY & float64 & Muestra de aceleración en el eje Y.\\\hline
-                AcelerationZ & float64 & Muestra de aceleración en el eje Z.\\
+                Aceleracion  & float64 & Muestra de aceleración medida en g .\\\hline
+                VelocidadX & float64 & Muestra de velocidad en el eje X.\\\hline
+                VelocidadY & float64 & Muestra de velocidad en el eje Y.\\\hline
+                VelocidadZ & float64 & Muestra de velocidad en el eje Z.\\
                 \hline
             \end{tabular}
         \end{center}
@@ -119,14 +120,14 @@
                 tipo        & tipo de sensor usado, Acelerómetro, Temperatura, etc.
                 Con $0000b$ siendo Acelerómetro y 15 posibilidades adicionales.
                 \\\hline
+                Reservado   & No se utilizan, son 0x00 siempre y se reservan para
+                posibles expansiones y/o necesidades.
+                \\\hline
                 Ubicación   & Posición con respecto al motor y acoples. Con:
                 $0000b$ Lado con carga, $ 0001b$ Lado libre, $ 0010b\cdots1111b $
                 disponibles para acoples y chumaceras.
                 \\\hline
-                Reservado   & No se utilizan, son 0x00 siempre y se reservan para
-                posibles expansiones y/o necesidades.
-                \\\hline
-                Serial      & Numero de fabricación del sensor, desde 0 hasta $2^48$.
+                Serial      & Numero de fabricación del sensor, desde 0 hasta $2^{48}$.
                 \\\hline
             \end{tabular}
         \end{center}
