@@ -414,3 +414,162 @@ variable. Además se suele usar como primer paso en generar un modelo mas
 preciso o para la obtención de información cuando no se tiene suficiente,
 es difícil su acceso o la naturaleza del
 sistema es extremadamente compleja y dicha tarea es simplemente imposible.
+
+
+\subsection{Lenguaje de programacion}
+Los lenguajes de programacion pueden ser definidos, segun \cite{ETAC} como
+sistemas estructurados
+que permiten a las personas o programadores interactuar y dar instrucciones a un
+programa o software con la finalidad de lograr objetivos.
+
+En la actualidad existen una gran cantidad de lenguajes de programacion, algunos
+desarrollados en la antiguedad que todavian desarrollan un papel importante en
+los sistemas, como lo son C, C++, Java y otros mas modernos como lo pueden ser
+Go, Rust y Python.
+
+Como se explica en \cite{javaTpoint}
+Los lenguajes de programacion suelen ser clasificados en bajo nivel y alto nivel,
+haciendo referencia a la necesidad de un compilador o interprete para poder ser
+ejecutado por la computadora, siendo los de bajo nivel lenguaje de maquina o
+ensamblador y los de alto nivel los lenguajes comunmente conocidos, como
+Python, Java, JavaScript, PHP, C++, Objective C, Cobol, Perl, Pascal, LISP,
+FORTRAN, Go y Swift. Estos lenguajes de alto nivel se pueden subdividir
+de acuerdo a la necesidad de un compilador (C,C++,Go, etc) o de un interprete
+(Python, Javascript, Ruby, etc) en \cite{LenguajesCompiladosEInterpretados}, se
+puede leer mas de esto. Asimismo, existe otra pequeña subdivison en el ``tipado"
+del lenguaje, que es la necesidad de especificar el tipo de valor que una
+variable o constante puede tomar, siendo estas posibilidades un tipado fuerte,
+medio o debil, tambien llamados dinamico (debil) o estatico (fuerte).
+
+
+\subsection{Go}
+Go es un lenguaje de programacion creado en 2007 en google, especificamente por
+Robert Griesemer, Rob Pike y Ken Thompson, su sintaxis es similar a la del lenguaje
+C y tiende a ser dinamico como python pero con un rendimiento equiparable a los
+de C o C++. Como se especifica en su pagina y documentacion oficial
+\cite{GolangDocumentacion}: Go es un proyecto de codigo abierto (open source)
+para hacer a los programadores pas productivos, es un lenguaje expresivo, conciso,
+limpio y eficiente con mecanismos de concurrencia (paralelismo) que permiten facilmente
+obtener el maximo rendimiento posible de las maquinas multinucleoy redes de maquinas
+actuales, mientras permite una programacion flexible y modular, ademas de un compilado
+rapido con un recolector de basura (el lenguaje se encarga de liberar memoria
+no utilizada).
+Es un lenguaje compilado rapido y con tipado estatico (las variables y sus tipos tienen que
+ser definidos con anterioridad) que se siente como un lenguaje interpretado y
+con tipado dinamico (variables modificables sin tipo definido, mas sencillo de
+escribir el codigo pero menos estructurado).
+
+Adicional a esto, este lenguaje tiene un ecosistema de comunidades, librerias y
+herramientas en constante crecimiento que facilitan el aprendizaje y el desarrollo
+de codigo.
+
+\subsubsection{Fyne}
+
+Fyne es una de las librerias (conjunto de herramientas o paquete) mas utilizado
+en Go para el desarrollo de GUI, como se indica en su pagina oficial \cite{fyne}
+el conjunto de herramientas de fyne es una herramienta facil de aprender, gratuita
+y de codigo abierto (open source) que permite la creacion de aplicaciones graficas
+para escritorios, telefonos y mas. Combina el poder y la simplicidad del leguaje
+Go con una cuidadosamente creada libreria de widgets (miniaplicaciones o herramientas)
+que hacen ahora mas facil que nunca la construccion de aplicaciones y su despliegue
+a produccion en todas las plataformas (sistemas operativos, ios, linux, windows, etc)
+y tiendas (windows store, google play, etc).
+
+\subsection{HTML}
+
+HTML no es considerado un lenguaje de programacion propiamente dicho por su
+incapacidad de realizar acciones de logica o aritmetica, mas especificamente y
+de acuerdo a \cite{HTML},
+es un lenguaje de enmaquetado (una forma de escritura que utiliza elementos
+sintácticos para dar forma y estructura a la informacion escrita posteriormente
+a un proceso de  compilacaion o interpretacion por la maquina, otros ejemplos son
+Latex y Markdown), especificamente un lenguaje de enmaquetado de hipertexto y es
+el bloque mas basico para la Web ya que define y estructura el contenido de la
+misma.
+
+``Hipertexto"  se refiere a los enlaces que se utilizan para conectar la pagina
+web con otras partes, ya sean de la misma pagina o paginas externas a la misma.
+Estos enlaces son fundamentales en la Web ya que permiten la actualizacion y el
+entrelazamiento de las paginas creadas por otras personas, esto permite
+una participacion activa el la ``Worl Wide Web".
+
+HTML usa ``etiquetas" para dar informacion adicional  el texto, las imagenes,
+el contenido y permitir
+una correcta muestra del contenido, estos elementos sintaxicos son por ejemplo:
+ <head>, <title>, <body>, <header>, <footer>, <article>, <section>, <p>, <div>,
+ <span>, <img>, <aside>, <audio>, <canvas>, <datalist>, <details>, <embed>,
+ <nav>, <output>, <progress>, <video>, <ul>, <ol>, <li>, entre otros.
+
+ De esta horma, el mismo texto entre etiquetas distintas va a tener caracteristicas
+ visuales distintas, por ejemplo, <h1>Algo<h1> es un titulo, negritas y tamaño de
+ fuente muy superior a <p>Algo<p> que seria un parrafo.
+
+
+\subsection{CSS}
+
+CSS al igual que HTML no es considerado un lenguaje de programacion, por las mismas
+razones, en cambio, como se describe en \cite{CSS} es una hoja de estilos en cascada,
+un lenguaje utilizado para describir y dar estilo a documentos escritos en HTML o
+XML, Esto lo consigue al describir como los elementos deberan ser mostrados en la
+pantalla, papel, habla o otra tipo de multimedia.
+
+Dado estas caracteristicas CSS es una parte funtamental en el desarrollo Web, ya
+sea en su version pra o con la inclusion de frameworks o librerias como lo son
+Bootstrap o TailWind CSS.
+
+Funciona mediante la especificacion y modificacion de las caracteristicas en
+entornos, etiquetas o elementos unicos, mediante identificadores, de un entorno
+HTML o XML y por esto permite la modificacion de los atributos.
+Usualmente, en terminos Web, se modifican tamaños de fuente, peso de la misma,
+color de fondo o de fuente, margenes, espaciado interno (padding), centrado,
+entre otras cosas, y mediante la fijacion de estas caracteristicas a atributos
+particualares se puede desarrollar un entorno grafico completo, animaciones y
+transiciones.
+
+\subsection{Javascript}
+
+Como se describe en \cite{JavaScript}, este lenguaje de programacion es liviano e
+interpretado, debilmente tipado y es comunmente conocido como el lenguaje estandar
+de los scripts en las paginas Webs; sin embargo, tambien puede ser utilizado en
+otros ambientes como a nivel de servidor y en aplicaciones multiplataformas.
+Javascript es un lenguaje basado en prototipos, multiparadigma, dinamico y de
+ejecucion en un silo hilo (no aprovecha la paralelizacion de los multiples
+nucleos) y soporta todo tipo de estilo de programacion.
+
+Sus estandares han ido evolucionando con el tiempo y son conocidos como
+`` ECMAScript Language Specification"; comunmente javascript corre del lado del
+cliente y es utilizado para diseñar como las paginas web se ven o se comportan
+ante algun evento especifico.
+
+Al ser un lenguaje tan popular y comun, posee una gran comunidad y una cantidad
+muy significativa de ``Frameworks"  y librerias, facilitando su aprendizaje
+y maximizando la cantidad de cosas que permite hacer. Entre las mas conocidas
+estan: Node.js para el servidor, React, Angular y Vue para el cliente, ademas
+existen librerias como JQuerry que facilitan el lenguaje.
+
+\subsubsection{React}
+
+React es una libreria de javascript de codigo abierto diseñada for facebook y
+lanzada por primera vez en 2013, como dice su documentacion oficial \cite{React}
+esta diseñada para la construccion de interfaces de usuario, tiene una filosofia
+de pagina unica (singlepage) pero puede ser utilizada para desarrollar aplicaciones
+de multiples paginas. Esta libreria tiene la caracteristica de ser declarativa
+y basada en componentes.
+
+Como se menciono anteriormente, React hace sencillo la creacion de interfaces
+de usuario al permitir la combinacion de javascript con xml-html en ``jsx" dando
+la posibilidad de devolver y renderizar html desde funciones con componentes
+logicos. Ademas, es completamente modular por lo que se pueden desarrollar
+indiviualmente los elementos de la interfaz y juntarlos con total facilidad,
+estos elementos son llamados componentes y utilizan todas las propiedades de
+javascript y la manipulacion del DOM (Document Object Model) para mostrar
+y actualizar la informacion cuando es necesario.
+
+
+
+\subsection{Python}
+\subsubsection{Django}
+
+
+\subsection{Octave}
+
