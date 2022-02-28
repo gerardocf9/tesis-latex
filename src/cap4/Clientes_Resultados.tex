@@ -3,97 +3,97 @@
 
 Un cliente puede ser definido como un equipo o software que se conecta a un
 servidor para obtener un beneficio, sea por poder de computo, para obtener
-una informacion dada o comunicarse con un programa que se ejecuta en el lado
-del servidor. Siguiendo esta definicion, Se crearon 2 clientes, uno para
-facilitar la insersion de datos en la simulacion del sensor y el cliente web
-el cual permite manejar el analisis y la monitorizacion de los sensores.
+una información dada o comunicarse con un programa que se ejecuta en el lado
+del servidor. Siguiendo esta definición, Se crearon 2 clientes, uno para
+facilitar la inserción de datos en la simulación del sensor y el cliente web
+el cual permite manejar el análisis y la monitorización de los sensores.
 
 \subsubsection{Cliente de Sensorica}
 
-Este fue elaborado en Go para facilitar la interconexion con el servidor y
+Este fue elaborado en Go para facilitar la interconexión con el servidor y
 de igual forma aprovechar el paralelismo y la multiplataforma que el
 lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 
 \begin{itemize}
-    \item GUI: Es la interfaz grafica de usuario, utiliza el framework fyne por
+    \item GUI: Es la interfaz gráfica de usuario, utiliza el framework fyne por
         facilidades
         de diseño y es una ventana que permite ingresar datos equivalentes
-        a las caracteristicas del motor y conectar con el servidor (ademas de
-        especificar en que direccion esta el motor), y posee una ventana de
-        log en la cual se comunica al usuario acciones como la conexion exitosa y
-        el envio de informacion al servidor. Permite especificar:
+        a las características del motor y conectar con el servidor (además de
+        especificar en que dirección esta el motor), y posee una ventana de
+        log en la cual se comunica al usuario acciones como la conexión exitosa y
+        el envió de información al servidor. Permite especificar:
         \begin{enumerate}
-            \item Direccio Ip: Lugar a conectar.
-            \item Id Motor: Identificador unico del motor.
-            \item Potencia: Informacion adicional, opcional.
+            \item Dirección Ip: Lugar a conectar.
+            \item Id Motor: Identificador único del motor.
+            \item Potencia: Información adicional, opcional.
             \item Nivel de daño: numero entre 1 y 10 que determina los posibles
                 valores del modelo.
-            \item Informacion: Informacion adicional, pensado para comentarios,
+            \item Información: Información adicional, pensado para comentarios,
                 opcional.
             \item Sensores: lista de 1 a 5 posibles sensores, que representan
-                los identificadores unicos que tienen los sensores asociados
+                los identificadores únicos que tienen los sensores asociados
                 al motor.
         \end{enumerate}
 
-        Cabe resaltar que a ser una GUI es el proceso principal, las demas
+        Cabe resaltar que a ser una GUI es el proceso principal, las demás
         tareas son realizadas de forma paralela.
 
-    \item Conexion al servidor: Es un protocolo que ocurre cada vez que se presiona
-        el boton de conectar, se encarga de intercambiar informacion con el servidor
-        para poder conectarse (bajo el protocolo https) y envia los datos de
+    \item Conexión al servidor: Es un protocolo que ocurre cada vez que se presiona
+        el botón de conectar, se encarga de intercambiar información con el servidor
+        para poder conectarse (bajo el protocolo https) y envía los datos de
         que motor se va a conectar (simular) y que sensores tiene asociados, espera
-        una aprobacion de conexion (no exista un motor con el mismo id enviando
-        informacion), obtiene las caracteristicas especificadas en la GUI y
-        comienza un proceso de envio-recibo de informacion.
+        una aprobación de conexión (no exista un motor con el mismo id enviando
+        información), obtiene las características especificadas en la GUI y
+        comienza un proceso de envió-recibo de información.
         Este es un proceso
         que se ejecuta paralelamente a la GUI y se inicia cada vez que se
-        presiona el boton de conectar, Si habia un proceso previo y se vuelve a
+        presiona el botón de conectar, Si había un proceso previo y se vuelve a
         presionar conectar finaliza el anterior y comienza uno nuevo.
 
-    \item Comunicacion con el servidor: Es un proceso de envio bidireccional
-        de informacion, esta rutina se inicia cuando la conexion al servidor
+    \item Comunicación con el servidor: Es un proceso de envió bidireccional
+        de información, esta rutina se inicia cuando la conexión al servidor
         es completada exitosamente y se subdivide en 3 procesos que a su
-        vez corren paralelamente (se toma el proceso de conexion al servidor
+        vez corren paralelamente (se toma el proceso de conexión al servidor
         y se crean 2 hijos para un total de 4 procesos paralelizados si se
         incluye la GUI). Estos procesos son:
 
         \begin{enumerate}
             \item timer: Es un proceso que se encarga de cronometrar cada cuanto
-                se va a mandar una mensaje de informacion con los datos
-                correspondientes a una medicion normal al servidor.
+                se va a mandar una mensaje de información con los datos
+                correspondientes a una medición normal al servidor.
 
             \item listen: Es un proceso que se encarga de verificar si hay una
-                solicitud de informacion, ya sea del subproceso timer (como un
-                mensaje normal) o del servidor para solicitar informacion de la
-                vista exhaustiva (la cantidad de informacion enviada es sustancialmente
-                diferente) o para la terminacion del proceso e informa a handler
+                solicitud de información, ya sea del subproceso timer (como un
+                mensaje normal) o del servidor para solicitar información de la
+                vista exhaustiva (la cantidad de información enviada es sustancialmente
+                diferente) o para la terminación del proceso e informa a handler
                 que se debe hacer.
 
             \item handler: Se encarga de realizar la tarea pedida por listen,
-                al enviar la informacion solicitada al servidor, enviando 2 mensajes,
-                uno con el tipo de informacion que se envia y otro con la informacion.
+                al enviar la información solicitada al servidor, enviando 2 mensajes,
+                uno con el tipo de información que se envía y otro con la información.
                 Esto fue establecido como una especie de protocolo para dar mayor
-                seguridad y a la vez facilitar el intercambio de informacion con
+                seguridad y a la vez facilitar el intercambio de información con
                 el servidor.
         \end{enumerate}
 
-        Cabe resaltar que estos procesos son asincronos y no sufren prelaciones
+        Cabe resaltar que estos procesos son asíncronos y no sufren prelaciones
         entre ellos.
 \end{itemize}
 
 \subsubsection{Cliente WEB}
 
 Este cliente es el mas conocido, ya que es el que permite que se muestre la
-informacion en el navegador web. Esta constituido por las vistas general,
-especifica y exhaustiva, cada una de estas representa una pagina web separada y
-todas fueron construidas utilizando el framework de javascript \textbf{React}
-y con html especificamente un template de Django y css para dar estructura
-basica y estilo respectivamente.
+información en el navegador web. Esta constituido por las vistas general,
+específica y exhaustiva, cada una de estas representa una pagina web separada y
+todas fueron construidas utilizando el framework de JavaScript \textbf{React}
+y con html específicamente un template de Django y css para dar estructura
+básica y estilo respectivamente.
 
-Se opto por utilizar un
-estilo multi paginas con renderizado de lado servidor (especificamente del
-servidor web) por la necesidad de los calculos avanzados y graficas que
-se deben realizar, ademas de los llamados importantes e interconexiones con la
+Se optó por utilizar un
+estilo multi paginas con renderizado de lado servidor (específicamente del
+servidor web) por la necesidad de los cálculos avanzados y gráficas que
+se deben realizar, además de los llamados importantes e interconexiones con la
 api del servidor de Go, y la BBDD. Esto difiere con el paradigma tradicional de
 React (monopagina de renderizado en servidor) pero permite optimizar recursos y
 facilita expansiones a futuro.
@@ -102,36 +102,36 @@ Su estructura viene dada por las 3 paginas o sub aplicaciones que permiten:
 
 \begin{itemize}
     \item General: conocer el estado general de un grupo de motores, indicando
-        en codigo de colores (verde, amarillo, rojo) el nivel de daño que posee
+        en código de colores (verde, amarillo, rojo) el nivel de daño que posee
         un motor. Este nivel es determinado por las muestras mas actuales de
-        la informacion del motor y unos valores parametros proporcionados en
-        conjunto con los datos de los cuales se elaboro el modelo estadistico.
+        la información del motor y unos valores parámetros proporcionados en
+        conjunto con los datos de los cuales se elaboró el modelo estadístico.
 
-        Cabe resaltar que estos valores son una extrapolacion empirica de la
-        vibracion en una planta especifica, es configurable y puede variar dadas
-        las caracteristicas propias de cada instalacion. Esto es debido a que
-        las bases utilizadas en la instalacion, los soportes, entre otros factores
-        \textbf{causados por ignorar las normas de instalacion} afectan las medidas.
+        Cabe resaltar que estos valores son una extrapolación empírica de la
+        vibración en una planta específica, es configurable y puede variar dadas
+        las características propias de cada instalación. Esto es debido a que
+        las bases utilizadas en la instalación, los soportes, entre otros factores
+        \textbf{causados por ignorar las normas de instalación} afectan las medidas.
 
-    \item Especifica:  permite el estudio del estado de un motor especifico,
-        este es enviado como parametro en el url al servidor. Permite observar
-        un histograma y una tabla exportable a excel de sus caracteristicas y
-        evolucion en el tiempo, siempre y cuando se tenga medicion de ese periodo
+    \item Específica:  permite el estudio del estado de un motor específico,
+        este es enviado como parámetro en el url al servidor. Permite observar
+        un histograma y una tabla exportable a excel de sus características y
+        evolución en el tiempo, siempre y cuando se tenga medición de ese periodo
         en la base de datos, asimismo permite solicitar la vista exhaustiva del
-        mismo motor si es requerido un nivel mayor de analisis.
+        mismo motor si es requerido un nivel mayor de análisis.
 
-    \item Exhaustiva: esta vista incluye todo lo anterior de la vista especifica,
-        con la salvacion de que permite regresar al menu general en vez de hacer
-        una vista exhaustiva, ademas de que realiza un analisis en frecuencia
+    \item Exhaustiva: esta vista incluye todo lo anterior de la vista específica,
+        con la salvación de que permite regresar al menú general en vez de hacer
+        una vista exhaustiva, además de que realiza un análisis en frecuencia
         del estado a tiempo real del motor (para que se pueda realizar este
-        analisis se tiene que tener acceso a tiempo real con el motor, es decir,
-        el servidor de sensorica debe tener una conexion con un sensor que se
-        encargue de monitorear el respectivo motor permitiendole asi solicitar
-        la informacion necesaria para hacer el analisis.
+        análisis se tiene que tener acceso a tiempo real con el motor, es decir,
+        el servidor de sensorica debe tener una conexión con un sensor que se
+        encargue de monitorear el respectivo motor permitiéndole así solicitar
+        la información necesaria para hacer el análisis.
 
-        Cabe resaltar que esta accion es tratada como una vista aparte ya que
+        Cabe resaltar que esta acción es tratada como una vista aparte ya que
         tiene un peso computacional relativamente alto asociado, y por ende,
-        ademas de consumir recursos, tiene una duracion de carga de algunos
+        además de consumir recursos, tiene una duración de carga de algunos
         segundos que deteriora la experiencia de usuario y por esto se busca que
         sea obtenida solamente por una solicitud explicita.
 \end{itemize}

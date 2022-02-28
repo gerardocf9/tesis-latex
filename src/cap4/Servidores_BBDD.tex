@@ -43,7 +43,7 @@
                 \multicolumn{3}{|c|}{Sub colección  ``DataSensor"\ }\\\hline\hline
                 %
                 IdSensorData & uint64 & Identificador único del sensor que tomo la muestra.\\\hline
-                Aceleracion  & float64 & Muestra de aceleración medida en g .\\\hline
+                Aceleración  & float64 & Muestra de aceleración medida en g .\\\hline
                 VelocidadX & float64 & Muestra de velocidad en el eje X.\\\hline
                 VelocidadY & float64 & Muestra de velocidad en el eje Y.\\\hline
                 VelocidadZ & float64 & Muestra de velocidad en el eje Z.\\
@@ -77,14 +77,14 @@
         \label{tab:MotorInDBbson}
     \end{table}
 
-    Cabe relatar que ``uint64"\  hace referencia a un numero natural de 64 bits
+    Cabe relatar que ``uint64"\  hace referencia a un número natural de 64 bits
     y es usado en los identificadores de sensores ya que permite el uso de 64
     bits (16 bytes) los cuales son codificados de
     la forma expuesta en la tabla \ref{tab:CodIdSensor}, para
     poder transmitir mas información y facilitar la escalabilidad del sistema en
     un futuro.
     Asimismo, se utiliza
-    ``float64"\ para representar  a un numero racional representado como punto
+    ``float64"\ para representar  a un número racional representado como punto
     flotante de 64 bits, Esta es una unidad común porque permite maximizar la
     precisión en la medida.
 
@@ -115,7 +115,7 @@
                 $0000b$ Lado con carga, $ 0001b$ Lado libre, $ 0010b\cdots1111b $
                 disponibles para acoples y chumaceras.
                 \\\hline
-                Serial      & Numero de fabricación del sensor, desde 0 hasta $2^{48}$.
+                Serial      & número de fabricación del sensor, desde 0 hasta $2^{48}$.
                 \\\hline
             \end{tabular}
         \end{center}
@@ -129,14 +129,14 @@
 \subsection{IMPLEMENTACIÓN DE LOS SERVIDORES}
 
     Los servidores son necesarios para recolectar la información de los sensores,
-    establecer una comunicación full duplex la cual permita obtener información
+    establecer una comunicación full dúplex la cual permita obtener información
     a tiempo real del comportamiento del sensor, además de permitir toda la
     interacción web que da la visibilidad. Dado que estas tareas pueden ser
     separadas y manejadas en forma de APIs se crearon 2 servidores, permitiendo
     de esta forma la división de la carga de trabajo y por ende disminuyendo los
     requerimientos mínimos del equipo en donde se monta cada servidor individual.
     Así mismo, esto permite una mayor escalabilidad y paralelismo, dado que en el
-    caso de ser necesaria una ampliación en la capacidad de computo se puede colocar
+    caso de ser necesaria una ampliación en la capacidad de cómputo se puede colocar
     otro equipo en vez de aumentar las capacidades del equipo ya existente. Este
     hecho permite disminuir los costos sustancialmente.
 
@@ -211,7 +211,7 @@
             se agrega a la lista de motores de la que se posee información.
             %
         \item En este punto el servidor se dedica a escuchar la llegada o solicitud
-            de información. Esta puede ser de el sensor con el que se estableció
+            de información. Esta puede ser del sensor con el que se estableció
             conexión (mediante un canal interno) o  de la solicitud de información
             para una vista exhaustiva. Para cada caso se hace lo siguiente:
             \begin{itemize}
