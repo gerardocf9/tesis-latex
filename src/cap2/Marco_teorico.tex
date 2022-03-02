@@ -399,6 +399,22 @@ de Internet o Intranet. Estos responden a las solicitudes de paginas Web u otros
 servidores basados en esta tecnología.
 
 
+\subsubsection{Interfaz de programación de aplicaciones (API)}
+Interfaz de programación de aplicaciones es una forma de simplificar el diseño
+de software al permitir el intercambio de información y funcionalidades de forma
+rápida y segura. Como explica \cite{API} una API permite a las compañías y
+desarrolladores abrir y expandir las informaciones y funcionalidades que poseen
+con grupos externos de desarrolladores, compañeros de negocios e incluso departamentos
+internos dentro de la misma compañía, esto permite separar los desarrollos y
+trabajar de forma paralela ya que los desarrolladores no necesitan conocer la
+implementación, simplemente la utilizan como interfaz para comunicarse con otros
+productos y servicios.
+
+Cabe resaltar que sin estas fuera imposible el desarrollo de muchas aplicaciones
+populares. Una API funciona al ser un conjunto de normas que defines como se
+comunicaran las computadoras o aplicaciones entre ellas, es decir, sirve como
+una capa de abstracción entre el servidor y la aplicación.
+
 \subsubsection{Modelo estadístico}
 
 Un modelo estadístico, de acuerdo a \cite{modeloIBM}, es una representación
@@ -467,7 +483,7 @@ de código.
 
 Fyne es una de las librerías (conjunto de herramientas o paquete) más utilizado
 en Go para el desarrollo de GUI, como se indica en su pagina oficial \cite{fyne}
-el conjunto de herramientas de fyne es una herramienta fácil de aprender, gratuita
+el conjunto de herramientas de Fyne es una herramienta fácil de aprender, gratuita
 y de código abierto (open source) que permite la creación de aplicaciones gráficas
 para escritorios, teléfonos y más. Combina el poder y la simplicidad del lenguaje
 Go con una cuidadosamente creada librería de widgets (miniaplicaciones o herramientas)
@@ -569,7 +585,7 @@ y actualizar la información cuando es necesario.
 \subsubsection{Python}
 
 En su página oficial, específicamente en sus preguntas frecuentes
-\cite{pythonDocs} se especifica que python es un lenguaje de programación
+\cite{pythonDocs} se especifica que Python es un lenguaje de programación
 interpretado, interactivo y orientado a objetos, este soporta muchos paradigmas
 además del orientado a objetos, como lo son el procedimental y el funcional.
 Python incorpora funcionalidades como módulos, excepciones, un tipado dinámico
@@ -578,13 +594,13 @@ combina un poder computacional bastante alto con una muy clara sintaxis,
 librerías, sistemas y compatibilidad con todos los sistemas operativos, además
 de una facilidad para extenderse a los lenguajes C o C++.
 
-Cabe resaltar que python es completamente gratuito y tiene una gran capacidad,
+Cabe resaltar que Python es completamente gratuito y tiene una gran capacidad,
 dada su gran cantidad de librerías y frameworks, para cumplir muchas tareas,
 como lo son estadística, sistemas webs, ciencia de datos entre otros.
 
 \subsubsection{Django}
 
-Django es un framework web de alto nivel de python el cual fomenta un
+Django es un framework web de alto nivel de Python el cual fomenta un
 desarrollo rápido, limpio y pragmático. Como se especifica en su documentación
 oficial,
 \cite{DjangoDoc} Fue creado para desarrolladores con experiencia que necesitan
@@ -594,11 +610,11 @@ completamente gratuito y de código libre.
 
 Entre las características de Django son su gran velocidad para el diseño, gran
 cantidad de extras y tareas adicionales fácilmente configurables
-(autentificación, administración, etc.), seguridad (previene errores comunes
+(autenticación, administración, etc.), seguridad (previene errores comunes
 como SQL injection y  cross-site scripting-requests), versatilidad y facilidad
 de escalabilidad.
 
-Cabe destacar que Django permite la inclusión de librerías de python para
+Cabe destacar que Django permite la inclusión de librerías de Python para
 cualquier ámbito y existen algunas específicamente diseñadas para facilitar el
 desarrollo con este framework, por ejemplo Django rest framework, para la
 creación de APIs desde el servidor de Django  y Django-cors-headers que permite
@@ -606,12 +622,12 @@ modificar y controlar el acceso de solicitudes a APIs desde clientes.
 
 \subsubsection{Numpy}
 
-Numpy es un paquete-extensión de python diseñado para la computación
+Numpy es un paquete-extensión de Python diseñado para la computación
 científica. Como se explica en su documentación oficial \cite{Numpy} es una
 herramienta de computación numérica que ofrece una gran cantidad de  funciones
-matemáticas, generación de números aleatorios, rutinas algebraicas de algebra
-lineal, transformadas de fourier, el tratado de arreglos N-dimensionales,
-vectorizacion e indexación de los mismos, todo esto a un gran rendimiento y una
+matemáticas, generación de números aleatorios, rutinas algebraicas de álgebra
+lineal, transformadas de Fourier, el tratado de arreglos N-dimensionales,
+vectorización e indexación de los mismos, todo esto a un gran rendimiento y una
 facilidad notable de su uso . Además de todo esto, esta es una herramienta
 gratuita de código abierto.
 
@@ -619,7 +635,7 @@ gratuita de código abierto.
 
 Pandas es otra herramienta dedicada al cálculo numérico, es una herramienta
 rápida, poderosa, flexible y de fácil utilización, además de código abierto,
-utilizada para el análisis y la manipulación de datos, es creada en python.
+utilizada para el análisis y la manipulación de datos, es creada en Python.
 Entre sus características destacan su velocidad y eficiencia con objetos de
 tipo DataFrame para la manipulación de la información, sus herramientas para la
 lectura y escritura de información en distintos formatos, entre los cuales
@@ -629,11 +645,34 @@ datos, y una muy alta optimización con puntos de código críticos escritos en
 Cython o C. Además de esto, otras características adicionales son expuestas en
 su documentación oficial \cite{PandasDocs}
 
-\subsubsection{Scipy}
+\subsubsection{SciPy}
+SciPy es una librería-colección de algoritmos para la computación científica en
+Python, como se explica en su sitio oficial \cite{Scipy}, esta desarrollado de
+forma abierta en GitHub a traves del consenso y el trabajo de la comunidad
+científica de Python y de la comunidad de SciPy. Esta herramienta provee estructuras
+de datos y
+algoritmos para optimización, integración, interpolación, problemas algebraicos,
+ecuaciones, ecuaciones diferenciales, estadística, entre otros. Esta escrita
+en lenguajes de medio-bajo nivel, como lo son Fortran, C y C++, haciendo sus
+implementaciones bastante optimizadas y permitiendo el uso de código compilado
+con la flexibilidad y facilidad de uso de Python.
+
 \subsubsection{FastApi}
+\cite{FastApi} define FastApi como un framework moderno y rápido, con alto
+rendimiento, diseñado para
+la construcción de APIs web en Python, tiene una versión mínima de 3.6. Sus
+características principales son:
 
-\subsubsection{Digital ocean y Heroku}
-
+\begin{itemize}
+    \item velocidad, equiparable con Node.js y Go haciéndolo
+uno de los frameworks de Python mas rápidos actualmente.
+    \item velocidad de escritura, permitiendo alcanzar un aumento en el desarrollo
+        de hasta un 300\%.
+    \item Facilidad, esta desarrollado para ser intuitivo, fácil, permitiendo
+        reutilización y a su vez eliminando hasta un 40\% de los errores ( ``bugs")
+        inducidos por humanos.
+    \item Utiliza estándares de código abierto como lo son ``OpenApi"" y ``JSON Schema"".
+\end{itemize}
 
 \subsubsection{Octave}
 Octave es un software originalmente escrito por John W.Eaton y muchos otros,
@@ -650,3 +689,25 @@ Cabe resaltar que octave posee una gran gama de librerías o módulos escritos e
 C++, C, Fortran entre otros lenguajes, y es completamente gratuito y
 redistribuible.
 
+
+\subsection{Git}
+Es un software de control de versiones diseñado por Linus Torvalds pensado para
+la confiabilidad y compatibilidad del mantenimiento de versiones de aplicaciones
+especialmente útil cuando estas tienen un gran numero de versiones y archivos.
+Como explica \cite{Git}, Git es un sistema de control de versiones distribuido,
+gratuito y de código abierto, diseñado para manejar eficientemente tanto pequeños
+como grandes proyectos de forma rápida y eficiente. Se diferencia de otros sistemas
+por características como ramificaciones locales baratas, en términos computacionales
+espacio y velocidad, múltiples flujos de trabajo en áreas de ensamblaje convenientes
+(Permite trabajar tanto en clientes gráficos como en la terminal).
+
+\subsection{GitHub}
+GitHub es una plataforma para el montaje de  código y el control de versiones
+basada en Git. Se utiliza para la creación de código fuentes ya que permite y
+facilita la interconexión entre los programadores, como se explica en \cite{github}
+GitHub  permite incrementar la velocidad del desarrollador, además de asegurar
+cada paso, automatizar los espacios y flujos de trabajo, facilitando de esta
+forma los patrones de desarrollo e integración continua y permitiendo la creación
+de equipos de trabajo sin el impedimento de la ubicación geográfica.
+
+\subsubsection{Digital ocean}
