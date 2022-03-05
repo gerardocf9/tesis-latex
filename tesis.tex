@@ -11,7 +11,7 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{hyphenat}
+\usepackage[none]{hyphenat}
 
 \hyphenation{mi-cro-elec-tro-me-cá-ni-cos}
 \hyphenation{ace-le-ró-me-tros}
@@ -52,6 +52,7 @@
 %  \makeatother
 
 \begin{document}
+\sloppy
 \renewcommand{\listtablename}{Índice de Tablas}
 \pagenumbering{roman}
 	\include{src/portada}
@@ -69,20 +70,28 @@
 %***************************************************
 \begin{refsection}
 
+	\newpage
+    \begingroup
+    \let\clearpage\relax
 	\include{src/cap1/descripcion_problema}
 %	\include{src/cap/solucion}
 	\include{src/cap1/objetivos}
 	\include{src/cap1/justificacion_importancia}
 	\include{src/cap1/Limitaciones_alcance}
-
+    \endgroup
 
 
 %***************************************************
 %**********  Capitulo 2  ***************************
 %***************************************************
 %\include{src/cap/solucion}
+
+	\newpage
+    \begingroup
+    \let\clearpage\relax
 	\include{src/cap2/antecedentes}
 	\include{src/cap2/Marco_teorico}
+    \endgroup
     %\include{src/cap/glosario}
     %Faltan mas teorias, de lo usado y tal vez otro antescedente
 
@@ -92,6 +101,10 @@
 %***************************************************
 %**********  Capitulo 3  ***************************
 %***************************************************
+	\newpage
+    \begingroup
+    \let\clearpage\relax
+
     % naturaleza de la investigacion, Tipo de investigacion
 	\include{src/cap3/Marco_metodologico}
 
@@ -102,11 +115,15 @@
 	\include{src/cap3/Recursos}
 	%\include{src/cap3/Cronograma_actividades}
 
+    \endgroup
 
 
 %***************************************************
 %**********  Capitulo 4  ***************************
 %***************************************************
+	\newpage
+    \begingroup
+
     \include{src/cap4/Lenguajes_Herramientas_Utilizados}%1 por objetivo
     % LENGUAJES Y HERRAMIENTAS UTILIZADOS
     \include{src/cap4/Modelo_Estadistico}
@@ -118,6 +135,7 @@
     \include{src/cap4/Clientes_Resultados}
     % UI, CLIENTE WEoB
 
+    \endgroup
 
 
 %***************************************************
@@ -136,6 +154,7 @@
 %***************************************************
     %Anexos
 
+	\newpage
 	\printbibliography[title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
 \end{refsection}
 

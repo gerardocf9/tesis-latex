@@ -5,11 +5,100 @@
 \subsection{PROCEDIMIENTO DE RECOLECCIÓN DE INFORMACIÓN}
 
 \subsection{ELECCIÓN DE LAS HERRAMIENTAS Y LENGUAJES}
-    Para la elección de las herramientas y lenguajes a utilizar se
+    Dada la gran cantidad de actividades y los requerimientos que tenian las mismas,
+    se hizo un estudio de los lenguajes y herramientas mas utilizados en
+    la actualidad para tareas similares y junto a esto, se establecieron
+    ciertos criterios y requerimientos minimos para cada tarea a realizar, de
+    esta forma, se tomaron las siguientes decisiones:
+
+    \subsubsection{Servidor}
+    La decision del servidor se puede a su vez dividir de acuerdo a los
+    microservicios realizados, es decir, el servidor dedicado a sensorica y
+    el servidor Web. En ambos casos se manejaron los mismos lenguajes, asimismo, debido a
+    las caracteristicas variantes entre estos y la posibilidad, dada la arquitectura
+    distribuida utilizada, de utilizar multiples herramientas se opto por utilizar
+    el que mejor cumplia los requerimientos establecidos; como se observa en la
+    tabla \ref{tab:LenguajesServidor}, se comparan los lenguajes Golang, Python
+    con framework Django y NodeJs, esto es debido a que los servidores siguen un
+    sistema Web y es mas facil el desarrollo en estos lenguajes especializados que
+    en sistemas como Apache o Nginx mas robustos pero generales.
+
+    \begin{table}[ht]
+        \begin{center}
+            Distintas opciones manejadas al momento de desarrollar los servidores.\\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Caracteristica              & Golang & Django & NodeJs\\\hline
+                Velocidad                   & 10    & 7     &   8   \\\hline
+                Facilidad de implementacion & 8     & 9     &  7\\\hline
+                Robustez                    & 6     & 9     & 7 \\\hline
+                Escalabilidad               & 10    & 10    & 9 \\\hline
+                Paralelismo                 & 10    & -     & 2 \\\hline
+                Facilidades a conexion http2& 9     &7      & 7 \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \caption[Comparativa de posibles lenguajes nivel servidor]{Comparacion entre
+        los posibles lenguajes utilizables para servidores}
+        \label{tab:LenguajesServidor}
+    \end{table}
+
+    Para el microservicio de sensorica, las caracteristicas mas importantes furon
+    el paralelismo y la facilidad de implementar una conexion http2, por la
+    necesidad de una conexion full duplex, y por estos motivos Golang fue un claro
+    ganador, dado que es un lenguaje diseñado para microservicios y paralelismo y
+    el uso de librerias facilitan increiblemente el establecer una conexion http2.
+
+    Por otro lado, en terminos del servidor Web, las necesidades giraban entorno
+    a la facilidad de implementacion, robustez y escalabilidad que otorgaban los
+    lenguajes siendo en este caso Python + Django el ganador indiscutible.
 
 
-    % MODELO ESTADISTICO DE LA VIBRACION
-    % SERVIDORES,  ANALISIS EN FRECUENCIA, WEB
-    % UI, CLIENTE WEB
+    Cabe resaltar que paralelismo hace referencia al mejor uso posible de los
+    recursos de hardware del servidor por la gran cantidad de conexiones
+    continuas y tareas adicionales que deben de ser realizadas y estar
+    establecidas, no a la cantidad de peticiones que recibe el servidor.
+
+    \subsubsection{Cliente}
+
+    En terminos de clientes tambien se debe hacer diferencia entre los 2 sistemas
+    creados, cliente de sensorica y cliente Web. El cliente de sensorica se
+    implemento en Golang por las mismas razones dadas para el servidor de sensorica.
+
+    Por otro lado, en la actualidad los clientes Webs estan compuestos casi en
+    su totalidad de una combinacion de HTML-CSS-JavaScript, existen casos en los
+    que no se usa JavaScript o clientes escritos en otros lenguajes e interpretados
+    en la web; de esta forma, la decision esta en que framework de javascript se
+    va a utilizar, existen una gran variedad que cubre desde JavaScript ``vanilla",
+    sin framework y JQuerry, que otorgan interactividad pero se complica rapidamente
+    cuando la aplicacion crece, hasta los 3 gigantes en la actualidad, ReactJs,
+    Angular y VueJs, que facilitan y agilizan increiblemente el proceso de desarrollo.
+    Como se explica en la tabla \ref{tab:LenguajesCliente}, La razon mas importante
+    en la toma de la decision fueron conocimientos previos con ReactJs.
 
 
+    \begin{table}[ht]
+        \begin{center}
+            Distintas opciones manejadas al momento de desarrollar los clientes Webs.\\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Caracteristica              & JavaScript & React & Otros JsFrameworks\\\hline
+                Facilidad de implementacion & 1         & 7     &  7\\\hline
+                Conocimientos previos       & 6         & 5     &  - \\\hline
+                \hline
+            \end{tabular}
+        \end{center}
+        \caption[Comparativa de posibles lenguajes nivel cliente Web]{Comparacion entre
+        los posibles lenguajes utilizables para clientes Webs}
+        \label{tab:LenguajesCliente}
+    \end{table}
+
+
+
+    \subsubsection{Modelo estadistico}
+
+    \subsubsection{Analisis en frecuencia}

@@ -125,7 +125,41 @@
     \end{table}
 
 
- \newpage
+\subsection{LLENADO DE LA BASE DE DATOS}
+    Para el llenado con la informacion se desarrollo un script en Golang,
+    llamado ``LlenarBBDD"\ , este
+    se encarga de hacer las peticiones al modelo y a la base de datos de forma
+    automatica, realiza 120 peticiones, equivalentes a 120 dias, con un aumento
+    progresivo del nivel de daño cada 40 dias-peticiones. Al ser un script funciona
+    mediante la terminal y utiliza las banderas expuestas en la tabla
+    \ref{tab:BanderasLLenadoBBDD} para tomar la informacion.
+
+\begin{table}[ht]
+        \begin{center}
+            Banderas utilizadas en el llamado del script LlenarBBDD \\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|c|p{7cm}|p{5cm}|}
+                \hline
+                Bandera & Descripcion & Requerimiento \\\hline
+                -i & Para especificar el Id del Motor. & Requerida.\\\hline
+                -d & Para indicar el nivel de daño  & Opcional, por defecto 1.\\\hline
+                -c & Indicar las caracteristicas e informacion del motor & Opcional, por defecto ``Estado del motor".\\\hline
+                -s1& Especificar el Id del sensor 1 &Requerida.\\\hline
+                -s2& Especificar el Id del sensor 2 &Requerida.\\\hline
+                -s3& Especificar el Id del sensor 3 & Opcional, por defecto se omite.\\\hline
+                -s4& Especificar el Id del sensor 4  &Opcional, por defecto se omite.\\\hline
+                -r & Reiniciar la base de datos si su vaulor es ``true"& opcional, por defecto false.
+                \\\hline
+            \end{tabular}
+        \end{center}
+        \caption[Banderas Script para el llenado de la BBDD]{
+        Banderas utilizables al momento de llamar el script para llenar la informacion
+        de la base de datos}
+        \label{tab:BanderasLLenadoBBDD}
+    \end{table}
+
+
 \subsection{IMPLEMENTACIÓN DE LOS SERVIDORES}
 
     Los servidores son necesarios para recolectar la información de los sensores,
@@ -252,4 +286,79 @@
     \end{itemize}
 
     \subsubsection{Servidor web}
+    Este servidor fue realizado en Python con el Framework Django
+    por los motivos expuestos anteriormente y cumple la función de servidor Web,
+    es el servidor principal ya que se encarga de enviar y solicitar informacion
+    para crear la visualizacion del cliente, ademas de estudiar y crear las graficas
+    y enviar informacion al cliente web para analisis.
+    Sus conecciones son por el protoclo http, y https para la pedicion de informacion
+    exhaustiva con el microservicio de sensorica. y realiza las tareas expuestas
+    en la tabla \ref{tab:serWeb}
+
+    \begin{table}[ht]
+        \begin{center}
+            Tabla de las funcionalidades del servidor Web   \\
+
+            \vspace{0.3cm}
+            \begin{tabular}{|p{5cm}|p{10cm}|}
+                \hline
+                Dirección       & Tarea realizada
+                \\\hline\hline
+                DireccionIP/ &
+                Enviar el HTML necesario, mediante un Template de Django,
+                para mostrar la vista general en el navegador.
+                \\\hline
+                DireccionIP/especifica \textbf{?IdMotor=identificador}&
+                Enviar el HTML necesario, mediante un Template de Django,
+                para mostrar la vista especifica en el navegador.
+                \\\hline
+                DireccionIP/exhaustiva \textbf{?IdMotor=identificador}  &
+                Enviar el HTML necesario, mediante un Template de Django,
+                para mostrar la vista exhaustiva en el navegador.
+                \\\hline
+                DireccionIP/ static/... &
+                Es una funcionalidad del servidor la cual permite el envio de
+                archivos estaticos por solicitudes externas, ya sea por un
+                requerimiento del HTML o del JavaScript.
+                \\\hline
+                DireccionIP/ get\_data\_motores &
+                API que entrega  una lista, formato JSON,
+                con la ultima medicion almacenada de cada sensor en la base de
+                datos.
+                \\\hline
+                DireccionIP/ get\_list\_motores &
+                API que entrega una lista, formato JSON,
+                con todos los motores de los que se
+                dispone informacion en la base de datos.
+                \\\hline
+                DireccionIP/get\_especifica \textbf{?IdMotor=identificador}&
+                API que se encarga de devolver un JSON con toda la informacion
+                en la base de datos referente al motor con el Id pasado en el
+                Url, ademas de las direcciones, en el mismo servidor que seran
+                entregadas mediante el endpoint ``DireccionIP/static/... ", que
+                ocupan las graficas historicas referente a ese motor.
+                \\\hline
+                DireccionIP/get\_exhaustiva \textbf{?IdMotor=identificador}&
+                API que se encarga de devolver un JSON con toda la informacion
+                en la base de datos referente al motor con el Id pasado en el
+                Url, ademas de las direcciones, en el mismo servidor que seran
+                entregadas mediante el endpoint ``DireccionIP/static/... ", que
+                ocupan las graficas historicas y del estudio de Fourier
+                referente a ese motor.
+                \\\hline
+            \end{tabular}
+
+            \vspace{0.3cm}
+            Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
+            que sera montado (Host) el sitio, en caso de un ambiente local, por
+            ejemplo, es ``localhost:8000" (este es el usado para las pruebas,
+            cuando se cambia a producción se modifica por el del host contratado)
+        \end{center}
+        \caption[Funciones Servidor Web]{ Relación de punto de acceso y
+        funcionalidad implementada en el servidor Web }
+        \label{tab:serWeb}
+    \end{table}
+
+    Cada endpoint realiza las siguientes tareas
+
 
