@@ -321,7 +321,7 @@ ser accedidas con facilidad desde cualquier punto con un dispositivo capaz de
 tener conexión a Internet y un navegador. Esta facilidad se debe a que un
 \textbf{servidor} se encarga de hacer el procesamiento de la información y envía
 el resultado con un formato específico, típicamente son  JSON, por \comillas{notación de
-objeto de JavaScrip} el cual es un formato de texto sencillo para el intercambio de
+objeto de JavaScript} el cual es un formato de texto sencillo para el intercambio de
 datos, este se renderiza (proceso para generar una representación gráfica por
 medio de programas informáticos) en una pagina Web.
 
@@ -362,7 +362,7 @@ punto que es fácilmente categorizado como el protocolo más usado en todo el
 mundo, siendo incluso utilizado como sinónimo de Internet cuando es solo una
 parte de él.
 
-Debido a la invención de tecnologías como JavaScrip y AJAX hoy en día es
+Debido a la invención de tecnologías como JavaScript y AJAX hoy en día es
 posible tener aplicaciones Web, que son programas junto a una interfaz gráfica,
 que permite comunicarse con servidores que realizan la mayor parte del trabajo.
  Es posible el desarrollo de aplicaciones complejas que funcionen desde la
@@ -398,6 +398,58 @@ y se caracterizan por alojar la información y los datos de los usuarios a trav�
 de Internet o Intranet. Estos responden a las solicitudes de paginas Web u otros
 servidores basados en esta tecnología.
 
+\subsubsection{Base de datos}
+Una base de datos como dice \cite{bbdd} es una herramienta para almacenar y
+organizar información.
+Las bases de datos pueden contener información de cualquier tipo de información
+y se utiliza para evitar problemas como redundancia y para facilitar el manejo de
+grandes cantidades de información, en este orden de ideas,  una base de datos
+computarizada es un contenedor de objetos el cual permite:
+
+\begin{itemize}
+    \item Agregar nuevos elementos.
+    \item Editar y mover información en la base de datos.
+    \item Eliminar información.
+    \item Organizarla y visualizarla de diferentes formas.
+    \item Compartirla con otros usuarios, programadores o interesados.
+\end{itemize}
+
+Las bases de datos, según \cite{bbddTipos} se suelen dividir en dos tipos, de
+acuerdo al tipo de lenguaje
+utilizado para manipularlo, estas son SQL( ``Structured Query Languaje" utilizado
+para bases de datos relacionales) y NoSQL (Sus tipos de datos no suelen ser
+estructurados, mas algunas bases de datos permiten su estructuración) y su
+utilización o selección depende mucho del tipo de procesamiento que se le
+dará a la información que esta contenida en ella, algunos otros factores importantes
+a considerar son la velocidad de escritura-lectura y paralelismo.
+
+\subsubsection{MongoDB}
+MongoDB según \cite{MongoDB} es un sistema de base de datos no relacional de código
+abierto el cual utiliza documentos flexibles en lugar de tablas y columnas para
+almacenar y procesar varios tipos de información. Al ser una solución NoSQL,
+MongoDB no requiere un sistema de manejo relacional lo cual permite un modelado
+mas elástico al momento de guardar la información, además, permite mas libertad
+en las consultas lo cual además de simplificar el manejo para los desarrolladores
+permite desarrollar un ecosistema fácilmente escalable en aplicaciones y servicios
+multi plataformas.
+
+Cabe resaltar que el modelo de estructuración de datos que utiliza MongoDB es
+BSON el cual es formato binario de JSON.
+
+\subsubsection{MongoDB Atlas}
+Como \cite{MongoDBAtlas} especifica en su documentación oficial, MongoDB Atlas
+es un servicio de base de datos (Database-as-a-Server, DBaaS) el cual permite
+establecer, llevar a producción y escalar las bases de datos sin preocuparse por
+el hardware físico, actualizaciones de software y los detalles de configuración.
+
+Es decir, MongoDB Atlas es un sistema completamente manejado en la nube el cual
+maneja toda la complejidad de llevar a producción el sistema, manejarlo y revisar
+el estado de sus componentes, además, permite la utilización de cualquier proveedor
+de servicios (AWS,Azure y GCP).
+
+Cabe resaltar que MongoDB Atlas es un servicio pago, sin embargo, permite la
+utilización de un ``cluster" gratuito, de almacenamiento limitado, para
+practicas y aprendizaje.
 
 \subsubsection{Interfaz de programación de aplicaciones (API)}
 Interfaz de programación de aplicaciones es una forma de simplificar el diseño
@@ -565,7 +617,7 @@ existen librerías como JQuerry que facilitan el lenguaje.
 
 \subsubsection{React}
 
-React es una librería de JavaScript de código abierto diseñada por facebook y
+React es una librería de JavaScript de código abierto diseñada por Facebook y
 lanzada por primera vez en 2013, como dice su documentación oficial \cite{React}
 está diseñada para la construcción de interfaces de usuario, tiene una filosofía
 de pagina única (singlepage) pero puede ser utilizada para desarrollar aplicaciones
@@ -596,11 +648,11 @@ de una facilidad para extenderse a los lenguajes C o C++.
 
 Cabe resaltar que Python es completamente gratuito y tiene una gran capacidad,
 dada su gran cantidad de librerías y frameworks, para cumplir muchas tareas,
-como lo son estadística, sistemas webs, ciencia de datos entre otros.
+como lo son estadística, sistemas Webs, ciencia de datos entre otros.
 
 \subsubsection{Django}
 
-Django es un framework web de alto nivel de Python el cual fomenta un
+Django es un Framework web de alto nivel de Python el cual fomenta un
 desarrollo rápido, limpio y pragmático. Como se especifica en su documentación
 oficial,
 \cite{DjangoDoc} Fue creado para desarrolladores con experiencia que necesitan
@@ -616,7 +668,7 @@ de escalabilidad.
 
 Cabe destacar que Django permite la inclusión de librerías de Python para
 cualquier ámbito y existen algunas específicamente diseñadas para facilitar el
-desarrollo con este framework, por ejemplo Django rest framework, para la
+desarrollo con este Framework, por ejemplo Django rest Framework, para la
 creación de APIs desde el servidor de Django  y Django-cors-headers que permite
 modificar y controlar el acceso de solicitudes a APIs desde clientes.
 
@@ -648,7 +700,7 @@ su documentación oficial \cite{PandasDocs}
 \subsubsection{SciPy}
 SciPy es una librería-colección de algoritmos para la computación científica en
 Python, como se explica en su sitio oficial \cite{Scipy}, esta desarrollado de
-forma abierta en GitHub a traves del consenso y el trabajo de la comunidad
+forma abierta en GitHub a través del consenso y el trabajo de la comunidad
 científica de Python y de la comunidad de SciPy. Esta herramienta provee estructuras
 de datos y
 algoritmos para optimización, integración, interpolación, problemas algebraicos,
@@ -658,7 +710,7 @@ implementaciones bastante optimizadas y permitiendo el uso de código compilado
 con la flexibilidad y facilidad de uso de Python.
 
 \subsubsection{FastApi}
-\cite{FastApi} define FastApi como un framework moderno y rápido, con alto
+\cite{FastApi} define FastApi como un Framework moderno y rápido, con alto
 rendimiento, diseñado para
 la construcción de APIs web en Python, tiene una versión mínima de 3.6. Sus
 características principales son:

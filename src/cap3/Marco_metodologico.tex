@@ -30,34 +30,239 @@ cataloga como investigación aplicada, puesto que "persigue fines inmediatos y
 concretos a través de la búsqueda de un nuevo conocimiento técnico con aplicación
 inmediata a un problema determinado"\ \textcite{Velez}.
 
-
-
-
-
 \subsection{FASES DE LA INVESTIGACIÓN}
 
-En funcion de los objetivos especificos, se pueden definir las fases que conforman
-la investigacion:
+En función de los objetivos específicos, se pueden definir las fases que conforman
+la investigación:
 
 \subsubsection{Definición de los requerimientos de usuario}
+Esta fase tiene relación directa con la concepción del proyecto ya que fue el
+planteamiento de los problemas y posibles soluciones, separación de vistas,
+mecanismos de análisis, entre otros. Sin una concepción compleja de las estructuras
+de datos y los lenguajes necesarios para elaborarla.
+Como en todo proyecto, esta fase requirió de la interacción con el cliente (ingeniero
+mecánico que propuso la idea) con la finalidad de puntualizar los requerimientos
+mínimos necesarios para obtener una aplicación viable.
 
-\subsubsection{Revision documental}
+De esta manera, la primera fase ha constado de las siguientes actividades:
 
-\subsubsection{Analisis de la informacion}
-Selección de los lenguajes a utilizar
+\begin{itemize}
+    \item Selección de la cantidad de vistas óptimas para facilitar el estudio
+        y el monitoreo de la planta, siendo esto decidido a 3, una vista
+        \textbf{general} del estado de los motores en la planta, una
+        \textbf{especifica} en donde se observa el comportamiento de un motor,
+        una \textbf{exhaustiva} que añada información a la especifica, gráfica en
+        el dominio de la frecuencia, agregada para mejorar la experiencia de
+        usuario, por la demora necesaria para generar este estudio.
+    %
+    \item Definición de la estructura mínima necesaria para poder evaluar un
+        motor, en términos de evolución histórica de la vibración, a base de
+        una tabla histórica o gráfica (histórica).
+    %
+    \item Definición del tipo de transformada de Fourier a graficar para el
+        análisis exhaustivo (por gustos y costumbres en la industria).
+    %
+    \item Entrega de una base de datos histórica con mediciones reales y esporádicas
+        del estado de los motores en una fabrica.
+    %
+    \item Especificación de los parámetros a considerar para determinar un nivel
+        básico del estado de un motor, en términos de velocidad y aceleración.
+        Se debe resaltar que estos valores difieren de los establecidos a nivel
+        teórico y recomendado en los estándares por factores inherentes a las
+        empresas (malas instalaciones,
+        utilización de bases artesanales, políticas de daños mínimos) los cuales
+        amplían los rangos teóricos.
+    %
+    \item Selección de las unidades en las que se tomaran las medidas, siguiendo
+        estándares, y siendo $\frac{mm}{s}(rms)$ para la velocidad y $g$ para la
+        aceleración.
+\end{itemize}
 
-\subsubsection{Diseño del modelo estadistico}
+Es importante recalcar el hecho que los parámetros utilizados tanto
+para el establecimiento de niveles de daño en el modelo estadístico como
+en la vista general para distinguir el estado de los motores, son el resultado
+empírico asociados a años de estudios del comportamiento de los motores en la
+planta utilizada. Esto se tomo en consideración al momento del diseño y se puede
+modificar, vía modificación de constantes en el código, los rangos de valores
+en velocidad y vibración adecuados a los estándares de cada planta o ingeniero
+que utilice el sistema.
+
+\subsubsection{Revisión documental}
+Relacionada parcialmente con los primeros dos objetivos de la investigación,
+se baso en los estudios necesarios para poder tomar la decisión del tipo de modelo
+y lenguajes a utilizar, el planteamiento de requerimientos para los
+lenguajes, dada la gran variedad de posibilidades disponibles para las distintas
+tareas a realizar; de esta forma, se pueden enumerar las siguientes actividades
+realizadas:
+
+\begin{itemize}
+    \item Recolección de información de diversos lenguajes de programación.
+    \item Estudio de estadística y los distintos modelos y distribuciones existentes.
+    \item Estructurar los criterios y requerimientos mínimos para poder seleccionar
+        las herramientas a utilizar.
+\end{itemize}
+
+\subsubsection{Análisis de la información}
+Todavía una fase previa a la implementación pero relacionada al primer objetivo
+de la investigación. Se procedió a analizar la información en la bases de datos,
+comparar con los requerimientos mínimos por el cliente y estructurar mas detalladamente
+tanto la nueva base de datos (creada posteriormente en MongoDB), los parámetros
+necesarios para el modelo estadístico y la selección del tipo, orientado a una
+distribución de probabilidad. Asimismo, se tomaron decisiones conforme a los
+lenguajes utilizados y la estructura, de microservicios, que se utiliza en el
+desarrollo. De esta forma, se distinguen los siguientes puntos en esta fase:
+
+\begin{itemize}
+    \item Organización de la información recolectada.
+    \item Toma de decisión de los lenguajes y herramientas a utilizar, basada
+        en los criterios previamente establecidos.
+    \item Estructuración de los modelos para la base de datos.
+    \item Justificación de las decisiones tomadas.
+    \item Estructuración y separación de las tareas a realizar por los distintos
+        microservicios (sensorica, web, BBDD).
+\end{itemize}
+
+\subsubsection{Diseño del modelo estadístico}
 
 \subsubsection{Diseño de las vistas para mostrar la información}
+Este apartado guarda relación con los objetivos 5 y 6. Se trabajo en la
+estructuración y diseño gráfico de las vistas, además de las funcionalidades
+implementadas para poder ser creada la pagina web. Las tareas realizadas
+fueron las siguientes:
 
-
+\begin{itemize}
+    \item Toma de decisión en utilizar una aproximación multipagina (multipage app).
+    \item Diseño básico, barra de navegación, encabezado y pie de pagina.
+    \item Diseño de la vista General y su funcionalidad.
+    \item Diseño de la vista Especifica y su funcionalidad.
+    \item Diseño de la vista Exhaustiva y su funcionalidad.
+\end{itemize}
 
 \subsubsection{Implementación}
+Dada la gran cantidad de tareas a desarrollar, la implementación se subdivide
+en un gran grupo de tareas, con la finalidad de cumplir los objetivos 2,3,4,5,6
+estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
 
-    \subsubsection{Generación de la base de datos}
-    \subsubsection{Analisis de fallas en frecuencia}
+\begin{itemize}
+    \item Generación del modelo estadístico:
 
-\subsubsection{Comprobación de los resultados}
+    \item Elaboración de la base de datos:
+        \begin{enumerate}
+            \item Registro y creación del cluster en MongoDB Atlas.
+            \item Creación de la base de datos ``tesis"\  y las colecciones
+                ``MotorData"\  y ``MotoresInDB".
+            \item Llenado mediante el servidor de sensorica.
+        \end{enumerate}
 
-%Procedimiento de recoleccion de datos e informacion
-    %Fases de la investigacion
+    \item Microservicios de sensorica:
+        \begin{enumerate}
+            \item Creación de las estructuras de datos necesarias para manejar
+                la comunicación con MongoDB.
+            \item Obtención de un certificado y tls/ssl.
+            \item Creación del servidor https.
+            \item Creación de un cliente de sensorica, para facilitar la emulación
+                de los sensores
+            \item Implementación de las conexiones bidireccionales para el trafico
+                de información.
+            \item Creación del punto de conexión ``/sensormessage" para permitir
+                la conexión de múltiples clientes y recibir la información.
+            \item Creación del punto de conexión ``/exhaustive?idMotor\=identificador"
+                para poder enviar la información de la vista exhaustiva.
+            \item Intercomunicaciones internas en el servidor para poder comunicar,
+                solicitar y verificar información entre los dos puntos de conexión.
+            \item Verificaciones de seguridad y conexiones.
+        \end{enumerate}
+
+    \item Análisis en frecuencia:
+
+    \item Servidor Web:
+        \begin{enumerate}
+            \item Configuración para el envió de información estática
+                (html, css, js, imágenes).
+            \item Creación del punto de conexión ``/" para la vista general.
+            \item Creación del punto de conexión ``/especifica?IdMotor\= identificador"
+                para la vista especifica.
+            \item Creación del punto de conexión ``/exhaustiva?IdMotor\=identficadore"
+                para la vista exhaustiva.
+            \item Creación de gráficas históricas.
+            \item Solicitud de información y análisis en frecuencia, creación de
+                la gráfica de frecuencia.
+            \item Establecimientos de los puntos de conexión para las APIs que
+                suministran las informaciones necesarias para las vistas (
+                uno para cada vista).
+        \end{enumerate}
+
+    \item Muestreo de información, mediante las vistas:
+        \begin{enumerate}
+            \item Solicitudes de información a las apis (fetch).
+            \item Configuración de los valores y los niveles de daño.
+            \item Establecimiento del motor svg con colores dependiendo del nivel
+                de daño.
+            \item Mecanismo de paginación y búsqueda para hacer mas fácil y agradable
+                la UI.
+            \item Creación de la vista general.
+            \item Implementación de la tabla y la funcionalidad para exportar a
+                excel.
+            \item Solicitud y establecimiento de las imágenes-gráficas.
+            \item Implementación de la vista especifica.
+            \item Implementación de la vista exhaustiva.
+            \item Diseño y estilizado mediante CSS.
+        \end{enumerate}
+
+    \item Interconexiones:
+        \begin{enumerate}
+            \item Interconexiones entre cliente y servidor de sensorica, mediante
+                http2 para poder establecer una comunicación bidireccional (full dúplex).
+            \item Interconexión entre servidor de sensorica y API de modelo
+                estadístico para información normal, grupo de 10
+                mediciones de velocidad y aceleración por cada sensor.
+            \item Interconexión entre servidor de sensorica y API del modelo
+                estadístico para información exhaustiva, grupo de 1K de mediciones
+                de aceleraciones, por sensor registrado al motor.
+            \item Interconexiones entre el servidor de sensorica y la base de datos
+                (MongoDB Atlas).
+            \item Interconexiones entre el servidor web y la base de datos (MongoDB Atlas).
+            \item Interconexión entre servidor Web y servidor de sensorica, para
+                solicitar la vista información asociada a la vista exhaustiva.
+            \item Interconexión entre cliente web y servidor web para obtener
+                información de archivos estáticos.
+            \item Interconexión entre cliente web y APIs del servidor web para
+                obtener la información referente a las vistas general, especifica
+                y exhaustiva. Una interconexión y una API para cada vista.
+        \end{enumerate}
+\end{itemize}
+
+
+\subsubsection{Comprobar los resultados}
+Esta fase hace referencia al ultimo objetivo de la investigación: Comprobar los
+resultados de la herramienta de análisis. Dada la extensión de la herramienta,
+estas pruebas se pueden desglosar en dos niveles, resultados finales (evaluación
+del análisis de la herramienta) y pruebas técnicas (también llamado testing).
+Esto da origen a las siguientes tareas:
+
+\begin{itemize}
+    \item Testing: La elaboración modular del sistema permite  corroborar su
+        funcionamiento de múltiples formas, dado que unas pruebas automatizadas
+        escapan de esta investigación (por factores de tiempo y cantidad de pruebas
+        y complejidad de las mismas a nivel de código) se toman pruebas manuales
+        de sistemas e interconexión entre los mismos:
+        \begin{enumerate}
+            \item Prueba de no unicidad de la información, al haber múltiples
+                clientes de sensorica enviando información sobre el mismo motor.
+            \item Prueba de falla en la conexión de la base de datos.
+            \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
+                establecida.
+            \item Prueba de petición de información invalida en el cliente web
+                (motor no existente).
+        \end{enumerate}
+
+    \item Evaluación de resultados:
+        \begin{enumerate}
+            \item Corroboración del análisis en nivel de daño básico (vista general)
+                que se ajuste a los parámetros requeridos por el cliente.
+            \item Corroboración de las gráficas históricas.
+            \item Corroboración de la gráfica de la transformada de Fourier.
+        \end{enumerate}
+\end{itemize}
+
+

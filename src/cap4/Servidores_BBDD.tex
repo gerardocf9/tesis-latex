@@ -79,7 +79,7 @@
 
     Cabe relatar que ``uint64"\  hace referencia a un número natural de 64 bits
     y es usado en los identificadores de sensores ya que permite el uso de 64
-    bits (16 bytes) los cuales son codificados de
+    bits (16 nibbles (gripos de cuatro)) los cuales son codificados de
     la forma expuesta en la tabla \ref{tab:CodIdSensor}, para
     poder transmitir mas información y facilitar la escalabilidad del sistema en
     un futuro.
@@ -95,8 +95,8 @@
             \vspace{0.3cm}
             \begin{tabular}{|c|c|c|c|}
                 \hline
-                Tipo de sensor & Ubicación & Reservado  & Serial \\\hline
-                $ B_{15} $ & $ B_{14} $  & $ B_{13}B_{12} $ & $ B_{11}\cdots B_{0} $\\
+                Tipo de sensor & Reservado& Ubicación   & Serial \\\hline
+                $ B_{15} $ & $ B_{14}B_{13} $ &$ B_{12} $  &  $ B_{11}\cdots B_{0} $\\
                 \hline
             \end{tabular}
 
