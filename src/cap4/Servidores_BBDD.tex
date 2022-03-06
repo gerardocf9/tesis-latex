@@ -12,7 +12,7 @@
     en la colección ``MotorData"\ , es decir, hay información registrada de su actividad.
 
     Cada colección tiene una estructura fija definida para facilitar el manejo y
-    la consistencia de los documentos, esta es similar un json y sus campos
+    la consistencia de los documentos, esta es similar un Json y sus campos
     están explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y
     \ref{tab:MotorInDBbson} para ``MotorInDB"\ .
 
@@ -79,7 +79,7 @@
 
     Cabe relatar que ``uint64"\  hace referencia a un número natural de 64 bits
     y es usado en los identificadores de sensores ya que permite el uso de 64
-    bits (16 nibbles (gripos de cuatro)) los cuales son codificados de
+    bits (16 nibbles (grupos de cuatro)) los cuales son codificados de
     la forma expuesta en la tabla \ref{tab:CodIdSensor}, para
     poder transmitir mas información y facilitar la escalabilidad del sistema en
     un futuro.
@@ -126,35 +126,35 @@
 
 
 \subsection{LLENADO DE LA BASE DE DATOS}
-    Para el llenado con la informacion se desarrollo un script en Golang,
+    Para el llenado con la información se desarrollo un Script en Golang,
     llamado ``LlenarBBDD"\ , este
     se encarga de hacer las peticiones al modelo y a la base de datos de forma
-    automatica, realiza 120 peticiones, equivalentes a 120 dias, con un aumento
-    progresivo del nivel de daño cada 40 dias-peticiones. Al ser un script funciona
+    automática, realiza 120 peticiones, equivalentes a 120 días, con un aumento
+    progresivo del nivel de daño cada 40 días-peticiones. Al ser un Script funciona
     mediante la terminal y utiliza las banderas expuestas en la tabla
-    \ref{tab:BanderasLLenadoBBDD} para tomar la informacion.
+    \ref{tab:BanderasLLenadoBBDD} para tomar la información.
 
 \begin{table}[ht]
         \begin{center}
-            Banderas utilizadas en el llamado del script LlenarBBDD \\
+            Banderas utilizadas en el llamado del Script LlenarBBDD \\
 
             \vspace{0.3cm}
             \begin{tabular}{|c|p{7cm}|p{5cm}|}
                 \hline
-                Bandera & Descripcion & Requerimiento \\\hline
+                Bandera & Descripción & Requerimiento \\\hline
                 -i & Para especificar el Id del Motor. & Requerida.\\\hline
                 -d & Para indicar el nivel de daño  & Opcional, por defecto 1.\\\hline
-                -c & Indicar las caracteristicas e informacion del motor & Opcional, por defecto ``Estado del motor".\\\hline
+                -c & Indicar las características e información del motor & Opcional, por defecto ``Estado del motor".\\\hline
                 -s1& Especificar el Id del sensor 1 &Requerida.\\\hline
                 -s2& Especificar el Id del sensor 2 &Requerida.\\\hline
                 -s3& Especificar el Id del sensor 3 & Opcional, por defecto se omite.\\\hline
                 -s4& Especificar el Id del sensor 4  &Opcional, por defecto se omite.\\\hline
-                -r & Reiniciar la base de datos si su vaulor es ``true"& opcional, por defecto false.
+                -r & Reiniciar la base de datos si su valor es ``true"& opcional, por defecto false.
                 \\\hline
             \end{tabular}
         \end{center}
         \caption[Banderas Script para el llenado de la BBDD]{
-        Banderas utilizables al momento de llamar el script para llenar la informacion
+        Banderas utilizables al momento de llamar el Script para llenar la información
         de la base de datos}
         \label{tab:BanderasLLenadoBBDD}
     \end{table}
@@ -178,8 +178,8 @@
     a sensorica}, desarrollado como un micro-servicio en el lenguaje de programación
     Go (también conocido como Golang) por las razones previamente expuestas, y
     a un \textbf{servidor dedicado al tratamiento web} desarrollado con una
-    combinación de Python y el framework Django para el Backend y html-css-javascript
-    con el framework de React en un paradigma multipaginas de renderizado desde
+    combinación de Python y el Framework Django para el Backend y HTML-CSS-JavaScript
+    con el Framework de React en un paradigma multipaginas de renderizado desde
     el servidor para el frontend-cliente Web.
 
     \subsubsection{Servidor dedicado a Sensorica}
@@ -189,7 +189,7 @@
     con la red de sensorica, la cual es implementada por el cliente de la simulación
     y el modelo estadístico, así mismo envía la información relacionada con la
     vista exhaustiva (para esta se requieren mediciones a tiempo real y por esto
-    este servidor tiene una conexión full duplex con los sensores).
+    este servidor tiene una conexión full dúplex con los sensores).
 
     Como se observa en la tabla \ref{tab:ServerSensorica}
 
@@ -205,7 +205,7 @@
                 DireccionIP/sensormessage &
                 Se encarga del comportamiento, acceso
                 e intercambio de información sensor-servidor. Es una comunicación
-                bidireccional con http2 (https) y se intercambian por el canal
+                bidireccional con Http2 (Https) y se intercambian por el canal
                 establecido tanto la información de medición diaria, (después es
                 subida a la base de datos) como la
                 información de medición exhaustiva (es enviada al cliente que
@@ -215,7 +215,7 @@
                 DireccionIP/exhaustive \textbf{?idMotor=identificador}   &
                 Se encarga de solicitar la información para la vista exhaustiva,
                 el identificador único del motor que se solicitara la data
-                es enviado por el url (?idMotor=identificador) .
+                es enviado por el Url (?idMotor=identificador) .
                 \\\hline
             \end{tabular}
 
@@ -223,7 +223,7 @@
             Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
             que sera montado (Host) el sitio, en caso de un ambiente local, por
             ejemplo, es ``localhost:8080" (este es el usado para las pruebas,
-            cuando se cambia a producción se modifica por el del host contratado)
+            cuando se cambia a producción se modifica por el del Host contratado)
         \end{center}
         \caption[Funciones Servidor Sensorica]{ Relación de punto de acceso y
         funcionalidad implementada en el servidor de sensorica}
@@ -234,7 +234,7 @@
     El primer ``Endpoint"\ (DireccionIP/sensormessage) realiza las siguientes tareas:
 
     \begin{itemize}
-        \item Establecer una conexión http2 con los solicitantes, para esto se intercambian,
+        \item Establecer una conexión Http2 con los solicitantes, para esto se intercambian,
             además de los paquetes e información necesarios para establecer el protocolo,
             unos mensajes que permiten identificar el motor y la cadena de sensores
             correspondientes a esta información.
@@ -288,10 +288,10 @@
     \subsubsection{Servidor web}
     Este servidor fue realizado en Python con el Framework Django
     por los motivos expuestos anteriormente y cumple la función de servidor Web,
-    es el servidor principal ya que se encarga de enviar y solicitar informacion
-    para crear la visualizacion del cliente, ademas de estudiar y crear las graficas
-    y enviar informacion al cliente web para analisis.
-    Sus conecciones son por el protoclo http, y https para la pedicion de informacion
+    es el servidor principal ya que se encarga de enviar y solicitar información
+    para crear la visualización del cliente, además de estudiar y crear las gráficas
+    y enviar información al cliente web para análisis.
+    Sus conexiones son por el protocolo Http, y Https para la petición de información
     exhaustiva con el microservicio de sensorica. y realiza las tareas expuestas
     en la tabla \ref{tab:serWeb}
 
@@ -317,33 +317,33 @@
                 para mostrar la vista exhaustiva en el navegador.
                 \\\hline
                 DireccionIP/ static/... &
-                Es una funcionalidad del servidor la cual permite el envio de
-                archivos estaticos por solicitudes externas, ya sea por un
+                Es una funcionalidad del servidor la cual permite el envío de
+                archivos estáticos por solicitudes externas, ya sea por un
                 requerimiento del HTML o del JavaScript.
                 \\\hline
                 DireccionIP/ get\_data\_motores &
                 API que entrega  una lista, formato JSON,
-                con la ultima medicion almacenada de cada sensor en la base de
+                con la ultima medición almacenada de cada sensor en la base de
                 datos.
                 \\\hline
                 DireccionIP/ get\_list\_motores &
                 API que entrega una lista, formato JSON,
                 con todos los motores de los que se
-                dispone informacion en la base de datos.
+                dispone información en la base de datos.
                 \\\hline
                 DireccionIP/get\_especifica \textbf{?IdMotor=identificador}&
-                API que se encarga de devolver un JSON con toda la informacion
+                API que se encarga de devolver un JSON con toda la información
                 en la base de datos referente al motor con el Id pasado en el
-                Url, ademas de las direcciones, en el mismo servidor que seran
-                entregadas mediante el endpoint ``DireccionIP/static/... ", que
-                ocupan las graficas historicas referente a ese motor.
+                Url, además de las direcciones, en el mismo servidor que serán
+                entregadas mediante el Endpoint ``DireccionIP/static/... ", que
+                ocupan las gráficas históricas referente a ese motor.
                 \\\hline
                 DireccionIP/get\_exhaustiva \textbf{?IdMotor=identificador}&
-                API que se encarga de devolver un JSON con toda la informacion
+                API que se encarga de devolver un JSON con toda la información
                 en la base de datos referente al motor con el Id pasado en el
-                Url, ademas de las direcciones, en el mismo servidor que seran
-                entregadas mediante el endpoint ``DireccionIP/static/... ", que
-                ocupan las graficas historicas y del estudio de Fourier
+                Url, además de las direcciones, en el mismo servidor que serán
+                entregadas mediante el Endpoint ``DireccionIP/static/... ", que
+                ocupan las gráficas históricas y del estudio de Fourier
                 referente a ese motor.
                 \\\hline
             \end{tabular}
@@ -352,13 +352,13 @@
             Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
             que sera montado (Host) el sitio, en caso de un ambiente local, por
             ejemplo, es ``localhost:8000" (este es el usado para las pruebas,
-            cuando se cambia a producción se modifica por el del host contratado)
+            cuando se cambia a producción se modifica por el del Host contratado)
         \end{center}
         \caption[Funciones Servidor Web]{ Relación de punto de acceso y
         funcionalidad implementada en el servidor Web }
         \label{tab:serWeb}
     \end{table}
 
-    Cada endpoint realiza las siguientes tareas
+    Cada Endpoint realiza las siguientes tareas
 
 

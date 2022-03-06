@@ -15,7 +15,7 @@ de igual forma aprovechar el paralelismo y la multiplataforma que el
 lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 
 \begin{itemize}
-    \item GUI: Es la interfaz gráfica de usuario, utiliza el framework fyne por
+    \item GUI: Es la interfaz gráfica de usuario, utiliza el Framework fyne por
         facilidades
         de diseño y es una ventana que permite ingresar datos equivalentes
         a las características del motor y conectar con el servidor (además de
@@ -40,7 +40,7 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 
     \item Conexión al servidor: Es un protocolo que ocurre cada vez que se presiona
         el botón de conectar, se encarga de intercambiar información con el servidor
-        para poder conectarse (bajo el protocolo https) y envía los datos de
+        para poder conectarse (bajo el protocolo Https) y envía los datos de
         que motor se va a conectar (simular) y que sensores tiene asociados, espera
         una aprobación de conexión (no exista un motor con el mismo id enviando
         información), obtiene las características especificadas en la GUI y
@@ -86,15 +86,15 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 Este cliente es el mas conocido, ya que es el que permite que se muestre la
 información en el navegador web. Esta constituido por las vistas general,
 específica y exhaustiva, cada una de estas representa una pagina web separada y
-todas fueron construidas utilizando el framework de JavaScript \textbf{React}
-y con html específicamente un template de Django y css para dar estructura
+todas fueron construidas utilizando el Framework de JavaScript \textbf{React}
+y con HTML específicamente un Template de Django y CSS para dar estructura
 básica y estilo respectivamente.
 
 Se optó por utilizar un
 estilo multi paginas con renderizado de lado servidor (específicamente del
 servidor web) por la necesidad de los cálculos avanzados y gráficas que
 se deben realizar, además de los llamados importantes e interconexiones con la
-api del servidor de Go, y la BBDD. Esto difiere con el paradigma tradicional de
+API del servidor de Go, y la BBDD. Esto difiere con el paradigma tradicional de
 React (monopagina de renderizado en servidor) pero permite optimizar recursos y
 facilita expansiones a futuro.
 
@@ -114,8 +114,8 @@ Su estructura viene dada por las 3 paginas o sub aplicaciones que permiten:
         \textbf{causados por ignorar las normas de instalación} afectan las medidas.
 
     \item Específica:  permite el estudio del estado de un motor específico,
-        este es enviado como parámetro en el url al servidor. Permite observar
-        una grafica historica y una tabla exportable a excel de sus características y
+        este es enviado como parámetro en el Url al servidor. Permite observar
+        una gráfica histórica y una tabla exportable a excel de sus características y
         evolución en el tiempo, siempre y cuando se tenga medición de ese periodo
         en la base de datos, asimismo permite solicitar la vista exhaustiva del
         mismo motor si es requerido un nivel mayor de análisis.
@@ -140,3 +140,30 @@ Su estructura viene dada por las 3 paginas o sub aplicaciones que permiten:
 
 
 \subsection{COMPROBACIÓN DE LOS RESULTADOS}
+
+\begin{itemize}
+    \item Testing: La elaboración modular del sistema permite  corroborar su
+        funcionamiento de múltiples formas, dado que unas pruebas automatizadas
+        escapan de esta investigación (por factores de tiempo y cantidad de pruebas
+        y complejidad de las mismas a nivel de código) se toman pruebas manuales
+        de sistemas e interconexión entre los mismos:
+        \begin{enumerate}
+            \item Prueba de no unicidad de la información, al haber múltiples
+                clientes de sensorica enviando información sobre el mismo motor.
+            \item Prueba de falla en la conexión de la base de datos.
+            \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
+                establecida.
+            \item Prueba de petición de información invalida en el cliente web
+                (motor no existente).
+        \end{enumerate}
+
+    \item Evaluación de resultados:
+        \begin{enumerate}
+            \item Corroboración del análisis en nivel de daño básico (vista general)
+                que se ajuste a los parámetros requeridos por el cliente.
+            \item Corroboración de las gráficas históricas.
+            \item Corroboración de la gráfica de la transformada de Fourier.
+        \end{enumerate}
+\end{itemize}
+
+
