@@ -119,7 +119,7 @@ desarrollo. De esta forma, se distinguen los siguientes puntos en esta fase:
     \item Estructuración de los modelos para la base de datos.
     \item Justificación de las decisiones tomadas.
     \item Estructuración y separación de las tareas a realizar por los distintos
-        microservicios (sensorica, web, BBDD).
+        microservicios (sensorica, Web, BBDD).
 \end{itemize}
 
 \subsubsection{Diseño del modelo estadístico}
@@ -141,7 +141,7 @@ tareas:
 \subsubsection{Diseño de las vistas para mostrar la información}
 Este apartado guarda relación con los objetivos 5 y 6. Se trabajo en la
 estructuración y diseño gráfico de las vistas, además de las funcionalidades
-implementadas para poder ser creada la pagina web. Las tareas realizadas
+implementadas para poder ser creada la pagina Web. Las tareas realizadas
 fueron las siguientes:
 
 \begin{itemize}
@@ -158,8 +158,8 @@ en un gran grupo de tareas, con la finalidad de cumplir los objetivos 2,3,4,5,6
 estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
 
 \begin{itemize}
-    \begin{enumerate}
         \item Generación del modelo estadístico:
+    \begin{enumerate}
         \item Inspección manual de la data.
         \item Limpieza de las variables de interés.
         \item Elaboración de histogramas para observar la distribución de los datos.
@@ -207,6 +207,7 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
 
     \item Análisis en frecuencia:
         \begin{enumerate}
+                \item Falta escribir
         \end{enumerate}
 
     \item Servidor Web:
@@ -255,12 +256,12 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
                 de aceleraciones, por sensor registrado al motor.
             \item Interconexiones entre el servidor de sensorica y la base de datos
                 (MongoDB Atlas).
-            \item Interconexiones entre el servidor web y la base de datos (MongoDB Atlas).
+            \item Interconexiones entre el servidor Web y la base de datos (MongoDB Atlas).
             \item Interconexión entre servidor Web y servidor de sensorica, para
                 solicitar la vista información asociada a la vista exhaustiva.
-            \item Interconexión entre cliente web y servidor web para obtener
+            \item Interconexión entre cliente Web y servidor Web para obtener
                 información de archivos estáticos.
-            \item Interconexión entre cliente web y APIs del servidor web para
+            \item Interconexión entre cliente Web y APIs del servidor Web para
                 obtener la información referente a las vistas general, especifica
                 y exhaustiva. Una interconexión y una API para cada vista.
         \end{enumerate}
@@ -286,7 +287,7 @@ Esto da origen a las siguientes tareas:
             \item Prueba de falla en la conexión de la base de datos.
             \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
                 establecida.
-            \item Prueba de petición no completada en el cliente web,
+            \item Prueba de petición no completada en el cliente Web,
             información invalida (motor no existente) o error del servidor.
         \end{enumerate}
 

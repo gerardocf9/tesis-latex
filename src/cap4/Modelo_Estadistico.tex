@@ -13,7 +13,7 @@ siempre positivas, todas muestran en su distribución una asimetría con
 tendencia hacia la izquierda, lo cual las hace similar a distribuciones como la
 exponencial, la weibull o la log-normal. Cuando se calcula la correlación entre
 la variables velocidad horizontal y velocidad vertical obtenemos una
-correlación de Pearson del 56.71\%, el cuadrado de este valor o R^2 (también
+correlación de Pearson del 56.71\%, el cuadrado de este valor o $R^2$ (también
 conocido como coeficiente de determinación) es del 32.16\% y se puede
 interpretar como que el valor de la velocidad horizontal predice 32\% del valor
 de la velocidad vertical, estos valores son muy elevados para considerar las
@@ -28,7 +28,7 @@ aleatorias. Como la velocidad es un vector y tenemos las componentes del mismo,
 un cambio de variables lógico es el de coordenadas polares ya que como esta es
 una transformación biyectiva no perderemos información aplicando la misma y a
 su vez es fácil de interpretar. La correlación entre las nuevas variables
-magnitud y ángulo fue del -25.18\% y un valor de R^2 del 6.34\% lo cual para
+magnitud y ángulo fue del -25.18\% y un valor de $R^2$ del 6.34\% lo cual para
 efectos prácticos se puede considerar como dos variables aleatorias
 independientes. Similarmente con las velocidades con componentes cartesianos la
 correlación con la aceleración es no significante.
@@ -70,7 +70,7 @@ esperado según el modelo de la aceleración y para expresar el ruido de la
 medición a los parámetros del modelo se les suma una señal de ruido de tipo
 gaussiana.
 
-Una vez obtenido el modelo, se implementó una API web usando FastAPI con dos
+Una vez obtenido el modelo, se implementó una API Web usando FastAPI con dos
 endpoints, uno utilizado para la vista general y específica y otro para la
 vista exhaustiva. Ambos endpoints solicitan el nivel de daño el cual es un
 número entre 0 y 10 que indica el grado de daño del motor y solicitan el id del

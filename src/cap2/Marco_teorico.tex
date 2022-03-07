@@ -3,7 +3,7 @@
 Esta parte del capítulo expone el contenido teórico necesario para la
 realización de este proyecto. Esto incluye información sobre los motores
 eléctricos,  análisis de la vibración, las herramientas computacionales, los
-sistemas, y el modelado estadístico.
+sistemas y el modelado estadístico.
 
 %https://es.wikipedia.org/wiki/Motor_el%C3%A9ctrico
 
@@ -20,7 +20,7 @@ de inducción, síncronas, entre otros y los \textbf{motores de corriente contin
 como lo son los motores de escobillas,  sin escobillas, de imán permanente,
 entre otros.
 
-El motor más usado en el sector industrial, es el motor de inducción, debido
+El motor más usado, en el sector industrial, es el motor de inducción debido
 principalmente a su bajo costo y al poco mantenimiento que requiere para estar
 completamente operativo, esto en particular es debido a su sencillo diseño
 en comparación al de otros motores de igual potencia, ya que requiere  menor
@@ -58,23 +58,23 @@ como pueden ser bolas o rodillos, una jaula que se encarga de mantener los
 elementos de rodadura separados además de guiados y un lubricante o un sistema
 de lubricación.
 
-Dado que son un elemento mecánico el cual es continuamente usado, sufre mucho
-desgaste y es el elemento más propenso a dañarse, según los estudios realizados
+Dado que son un elemento mecánico, el cual es continuamente usado, sufre mucho
+desgaste y es el elemento más propenso a dañarse; según los estudios realizados
 por ~\textcite{Kammermann} el 59\% de las fallas son causadas por los rodamientos
 y asimismo su principal falla es el desgaste, de igual forma se presentan
-otras fallas estructurales. Y por estas razones es fundamental tener bajo continuo
+otras fallas estructurales. Por estas razones es fundamental tener bajo continuo
 monitoreo este elemento, esto se suele hacer a través de un análisis de vibración.
 
 
 \subsubsection{Análisis de Vibración}
 
-Como se explica en \Cite{wiki:Vibration}, la vibración, es el  movimiento
+Como se explica en \Cite{wiki:Vibration}, la vibración es el  movimiento
 periódico de un cuerpo o medio
 elástico, alrededor de un punto de equilibrio. En general podemos decir que una
 vibración es un caso específico de una oscilación, cuando esta es de origen
 mecánico.
 
-Asimismo, se conoce como análisis de vibración, al conjunto de técnicas que permiten
+Asimismo, se conoce como análisis de vibración, al conjunto de técnicas que permite
 obtener información de un equipo, a partir de sus vibraciones. Es una de las
 técnicas más usadas en el mantenimiento predictivo de equipos mecánicos, debido
 a que es un proceso poco invasivo y de bajo costo. El análisis de vibración
@@ -124,11 +124,11 @@ señal digital y se guardará en un formato deseado y en una unidad de
 almacenamiento masivo (ROM, flash, etc.).
 El primer paso en la toma de  datos comienza con el sensor, que es un
 dispositivo el cual transforma la unidad física de interés, en una señal que
-pueda ser procesada con mayor facilidad, luego esta se adecuará mediante un
+pueda ser procesada con mayor facilidad, luego se adecuará mediante un
 circuito especializado a las características y requerimientos del sistema,
-luego será procesada por un convertidor Analógico-Digital, el cual se encarga de
-muestrear, retener y procesar la señal y, de esta forma, obtener una versión
-digital de la misma, la cual se procesará o guardará mediante un software desde
+posteriormente será procesada por un convertidor Analógico-Digital, el cual se encarga de
+muestrear, retener y procesarla  y, de esta forma, obtener una versión
+digital de la misma, la cual se  guardará mediante un software desde
 una computadora.
 
 En el caso de las vibraciones, los sensores más usados son los
@@ -136,9 +136,9 @@ acelerómetros.  Esto se debe principalmente a que tienen mayor ancho de banda
 que los sensores de posición y los de velocidad, lo que les permite detectar
 vibraciones de mayor frecuencia. Adicionalmente, dado que las vibraciones en los
 rodamientos, por naturaleza, son de alta frecuencia y, como se mencionó anteriormente,
-estos son componentes críticos en los motores eléctricos.
+son componentes críticos en los motores eléctricos.
 Estas características hacen al acelerómetro el sensor más utilizado para las
-mediciones de vibración en motores eléctrico. Sin embargo,
+mediciones de vibración en motores eléctricos. Sin embargo,
 en casos más especializados, como podría ser el análisis de vibración
 de maquinaria de larga envergadura, son también usados los otros tipos de
 sensores ya que sus características pueden facilitar el estudio.
@@ -169,7 +169,7 @@ por lo que su respuesta en frecuencia posee un pico de resonancia.
         Los acelerómetros capacitivos son uno de los modelos más sencillos
         capaces de medir
         aceleración, además de ser fácilmente utilizables y reproducibles en masa.
-        Funcionan mediante una masa sísmica, dado que, al  experimentar una fuerza
+        Funcionan mediante una masa sísmica dado que al  experimentar una fuerza
         se desplaza con una aceleración proporcional a la fuerza aplicada.
         Si a la masa se le agregan unos resortes unidos a una carcasa, los resortes
         ejercerán una fuerza proporcional al desplazamiento de la masa generando un
@@ -184,11 +184,11 @@ por lo que su respuesta en frecuencia posee un pico de resonancia.
         El sensor de desplazamiento más
         popular para este tipo de medidores es el capacitivo.
 
-        En su mayoría los acelerómetros capacitivos vienen como dispositivos
-        microelectromecánicos, \textbf{mems} por sus siglas en inglés, que son
+        En su mayoría, los acelerómetros capacitivos vienen como dispositivos
+        microelectromecánicos (\textbf{mems} por sus siglas en inglés) que son
         dispositivos
         fabricados con técnicas similares a las de fabricación de circuitos
-        integrados, a su vez poseen componentes mecánicos microscópicos. Son los
+        integrados; a su vez, poseen componentes mecánicos microscópicos. Son los
         acelerómetros más populares en aplicaciones no industriales, sin embargo,
         en aplicaciones de bajo consumo, bajo coste o cuando las frecuencias con
         las que se trabajan no son tan altas, pueden ser usados a niveles
@@ -206,8 +206,8 @@ por lo que su respuesta en frecuencia posee un pico de resonancia.
 
         Son, después de los acelerómetros piezoeléctricos, los más usados a nivel
         industrial. Su funcionamiento es similar al de los acelerómetros
-        capacitivos, ante una aceleración de entrada se produce un desplazamiento
-        de salida, más en este caso, estos están constituidos por una o varias
+        capacitivos; ante una aceleración de entrada se produce un desplazamiento
+        de salida más, en este caso, están constituidos por una o varias
         galgas extensiométricas, una masa de prueba y unos resortes de soporte.
         La galga sujeta a la masa sísmica y, al esta recibir una fuerza, produce
         un desplazamiento proporcional a la fuerza aplicada, lo que deforma a
@@ -220,7 +220,7 @@ por lo que su respuesta en frecuencia posee un pico de resonancia.
 
     \item Acelerómetros piezoeléctricos:
 
-        Según \cite{WeberPiezoelectricAT}, son el acelerómetro más usado en
+        Según \cite{WeberPiezoelectricAT}, es el acelerómetro más usado en
         aplicaciones industriales ya que
         poseen características como:
 
@@ -235,7 +235,7 @@ por lo que su respuesta en frecuencia posee un pico de resonancia.
 
         Su construcción es bastante sencilla, se tiene disco de un cristal
         piezoeléctrico unido por dos terminales circulares, de forma similar a
-        la de un condensador, y justo encima tienen una masa de prueba.
+        la de un condensador, y justo encima, tienen una masa de prueba.
         Al experimentar una fuerza el cristal se deforma lo que produce una
         diferencia de carga y un voltaje proporcional a la fuerza aplicada.
         Como la aceleración de la masa de prueba es también proporcional a la
@@ -248,7 +248,7 @@ por lo que su respuesta en frecuencia posee un pico de resonancia.
 \subsubsection{Procesamiento de señales}
 
 Después de ser almacenada la información, debe ser estudiada, procesada, para lo
-cual se utilizan una serie de herramientas, técnicas o software especializados
+cual se utiliza una serie de herramientas, técnicas o software especializados
 a cada necesidad. Este estudio se puede categorizar en dos ramas principales:
 
 \begin{itemize}
@@ -279,7 +279,7 @@ dominios.
 		\centering
         \caption{ Diagrama de los dominios temporal y frecuencial}
         \includegraphics[width=\linewidth]{Dominios.png}
-        Realizada con el Software Octave a partir de los datos de.
+        Realizada con el Software Octave a partir de los datos de
                 \Cite{HUANG20181745}
         \label{Dominios}
 
@@ -290,7 +290,7 @@ El análisis en frecuencia suele ser más utilizado debido a que
 la mayoría de las fallas poseen frecuencias características y, dado que en  el
 análisis de frecuencia se descompone en frecuencias la señal, se facilita la
 detección de fallas características, así mismo, la amplitud de la frecuencia es
-directamente proporcional al nivel de la falla. Por lo tanto se obtiene un
+directamente proporcional al nivel de la falla. Por lo tanto, se obtiene un
 espectro amplio del estado de la pieza.
 Cabe resaltar que cuando las frecuencias son bajas o muy cercanas entre si,
 se dificulta determinar e identificar alguna falla, suele suceder cuando se
@@ -320,7 +320,7 @@ Todas comparten la peculiaridad de que son un \textbf{sistema} y,  por ende, pue
 ser accedidas con facilidad desde cualquier punto con un dispositivo capaz de
 tener conexión a Internet y un navegador. Esta facilidad se debe a que un
 \textbf{servidor} se encarga de hacer el procesamiento de la información y envía
-el resultado con un formato específico, típicamente son  JSON, por \comillas{notación de
+el resultado con un formato específico, típicamente  JSON, por \comillas{notación de
 objeto de JavaScript} el cual es un formato de texto sencillo para el intercambio de
 datos, este se renderiza (proceso para generar una representación gráfica por
 medio de programas informáticos) en una pagina Web.
@@ -331,7 +331,7 @@ Los sistemas Web, de acuerdo a \cite{SistWeb1} y \cite{wiki:systemWeb}, o
 también conocidos como aplicaciones Web son sistemas que
 utilizan la tecnología Web y el Internet o Intranet para transmitir la
 información y los
-servicios a usuarios o otros sistemas/aplicaciones. Estos sistemas utilizan los
+servicios a usuarios u otros sistemas/aplicaciones. Estos sistemas utilizan los
 principios del hipertexto para renderizar la información en cualquier
 navegador o \textbf{pagina Web} y el poder de los \textbf{servidores} para
 almacenar y procesar la información. Por estas características son independientes
@@ -342,7 +342,7 @@ rapidez de obtención de información.
 
 
 \subsubsection*{Página Web}
-Una página Web, como se explica en \cite{webpageMozila},  es un documento
+Una página Web, como se explica en \cite{WebpageMozila},  es un documento
 accesible desde cualquier navegador con acceso
 a Internet que puede incluir audio, vídeo, texto y sus diferentes
 combinaciones.
@@ -356,16 +356,16 @@ de estructura cliente-servidor, esto implica que una petición de datos es
 iniciada por el elemento que recibirá los datos (el cliente), normalmente un
 navegador Web, y es cubierta por el elemento que envía los datos (el servidor).
 Este protocolo comenzó siendo estático y dirigido usualmente a la transmisión de
-texto pero se fue convirtiendo en más que eso y en la actualidad permite la
+texto pero se fue convirtiendo en más que eso y, en la actualidad, permite la
 transferencia de documentos de todo tipo, Scripts, vídeos, entre otros; a tal
 punto que es fácilmente categorizado como el protocolo más usado en todo el
 mundo, siendo incluso utilizado como sinónimo de Internet cuando es solo una
 parte de él.
 
-Debido a la invención de tecnologías como JavaScript y AJAX hoy en día es
-posible tener aplicaciones Web, que son programas junto a una interfaz gráfica,
-que permite comunicarse con servidores que realizan la mayor parte del trabajo.
- Es posible el desarrollo de aplicaciones complejas que funcionen desde la
+Debido a la invención de tecnologías, como JavaScript y AJAX, hoy en día es
+posible tener aplicaciones Web que son programas, junto a una interfaz gráfica,
+que permiten comunicarse con servidores que realizan la mayor parte del trabajo.
+ Permitiendo el desarrollo de aplicaciones complejas que funcionen desde la
 comodidad de dispositivos móviles. La Web permite, por tanto, facilidad a la hora
 de transmitir información así como el poder acceder a cualquier contenido desde
 cualquier dispositivo en cualquier momento.
@@ -490,7 +490,7 @@ sistemas estructurados
 que permiten a las personas o programadores interactuar y dar instrucciones a un
 programa o software con la finalidad de lograr objetivos.
 
-En la actualidad existen una gran cantidad de lenguajes de programación, algunos
+En la actualidad existe una gran cantidad de lenguajes de programación, algunos
 desarrollados en la antigüedad que todavía desarrollan un papel importante en
 los sistemas, como lo son C, C++, Java y otros más modernos como lo pueden ser
 Go, Rust y Python.
@@ -518,7 +518,7 @@ de C o C++. Como se especifica en su pagina y documentación oficial
 \cite{GolangDocumentacion}: Go es un proyecto de código abierto (open source)
 para hacer a los programadores más productivos, es un lenguaje expresivo, conciso,
 limpio y eficiente con mecanismos de concurrencia (paralelismo) que permiten fácilmente
-obtener el máximo rendimiento posible de las máquinas multinucleo y redes de máquinas
+obtener el máximo rendimiento posible de las máquinas multinúcleo y redes de máquinas
 actuales, mientras permite una programación flexible y modular, además de un compilado
 rápido con un recolector de basura (el lenguaje se encarga de liberar memoria
 no utilizada).
@@ -556,7 +556,7 @@ el bloque más básico para la Web ya que define y estructura el contenido de la
 misma.
 
 ``Hipertexto"\  se refiere a los enlaces que se utilizan para conectar la pagina
-web con otras partes, ya sean de la misma pagina o paginas externas a la misma.
+Web con otras partes, ya sean de la misma pagina o paginas externas a la misma.
 Estos enlaces son fundamentales en la Web ya que permiten la actualización y el
 entrelazamiento de las paginas creadas por otras personas, esto permite
 una participación activa el la\  ``World Wide Web".
@@ -568,7 +568,7 @@ una correcta muestra del contenido, estos elementos sintaxicos son por ejemplo:
  <span>, <img>, <aside>, <audio>, <canvas>, <datalist>, <details>, <embed>,
  <nav>, <output>, <progress>, <video>, <ul>, <ol>, <li>, entre otros.
 
- De esta forma, el mismo texto entre etiquetas distintas va a tener características
+ De esta forma, el mismo texto entre etiquetas distintas, va a tener características
  visuales distintas, por ejemplo, <h1>Algo<h1> es un título, negritas y tamaño de
  fuente muy superior a <p>Algo<p> que sería un párrafo.
 
@@ -578,7 +578,7 @@ una correcta muestra del contenido, estos elementos sintaxicos son por ejemplo:
 CSS al igual que HTML no es considerado un lenguaje de programación, por las mismas
 razones, en cambio, como se describe en \cite{CSS} es una hoja de estilos en cascada,
 un lenguaje utilizado para describir y dar estilo a documentos escritos en HTML o
-XML, Esto lo consigue al describir como los elementos deberían ser mostrados en la
+XML, Esto lo consigue al describir cómo los elementos deberían ser mostrados en la
 pantalla, papel, habla u otra tipo de multimedia.
 
 Dado estas características CSS es una parte fundamental en el desarrollo Web, ya
@@ -601,16 +601,16 @@ interpretado, débilmente tipado y es comúnmente conocido como el lenguaje est�
 de los Scripts en las paginas Webs; sin embargo, también puede ser utilizado en
 otros ambientes como a nivel de servidor y en aplicaciones multiplataforma.
 JavaScript es un lenguaje basado en prototipos, multiparadigma, dinámico y de
-ejecución en un silo hilo (no aprovecha la paralelización de los múltiples
+ejecución en un solo hilo (no aprovecha la paralelización de los múltiples
 núcleos) y soporta todo tipo de estilo de programación.
 
 Sus estándares han ido evolucionando con el tiempo y son conocidos como
 `` ECMAScript Language Specification"; comúnmente JavaScript corre del lado del
-cliente y es utilizado para diseñar como las paginas web se ven o se comportan
+cliente y es utilizado para diseñar como las paginas Web se ven o se comportan
 ante algún evento especifico.
 
 Al ser un lenguaje tan popular y común, posee una gran comunidad y una cantidad
-muy significativa de ``Frameworks"  y librerías, facilitando su aprendizaje
+muy significativa de Frameworks  y librerías, facilitando su aprendizaje
 y maximizando la cantidad de cosas que permite hacer. Entre las más conocidas
 están: Node.js para el servidor, React, Angular y Vue para el cliente, además
 existen librerías como JQuerry que facilitan el lenguaje.
@@ -624,7 +624,7 @@ de pagina única (singlepage) pero puede ser utilizada para desarrollar aplicaci
 de múltiples paginas. Esta librería tiene la característica de ser declarativa
 y basada en componentes.
 
-Como se mencionó anteriormente, React hace sencillo la creación de interfaces
+Como se mencionó anteriormente, React hace sencilla la creación de interfaces
 de usuario al permitir la combinación de JavaScript con XML-HTML en ``jsx"\  dando
 la posibilidad de devolver y renderizar HTML desde funciones con componentes
 lógicos. Además, es completamente modular por lo que se pueden desarrollar
@@ -652,11 +652,11 @@ como lo son estadística, sistemas Webs, ciencia de datos entre otros.
 
 \subsubsection{Django}
 
-Django es un Framework web de alto nivel de Python el cual fomenta un
+Django es un Framework Web de alto nivel de Python el cual fomenta un
 desarrollo rápido, limpio y pragmático. Como se especifica en su documentación
 oficial,
 \cite{DjangoDoc} Fue creado para desarrolladores con experiencia que necesitan
-un desarrollo rápido y completo en un proyecto web, con la finalidad de
+un desarrollo rápido y completo en un proyecto Web, con la finalidad de
 permitir al programador desarrollar la aplicación propiamente dicha, es
 completamente gratuito y de código libre.
 
@@ -712,7 +712,7 @@ con la flexibilidad y facilidad de uso de Python.
 \subsubsection{FastApi}
 \cite{FastApi} define FastApi como un Framework moderno y rápido, con alto
 rendimiento, diseñado para
-la construcción de APIs web en Python, tiene una versión mínima de 3.6. Sus
+la construcción de APIs Web en Python, tiene una versión mínima de 3.6. Sus
 características principales son:
 
 \begin{itemize}
@@ -764,7 +764,7 @@ de equipos de trabajo sin el impedimento de la ubicación geográfica.
 
 \subsubsection{Hosting}
 Según \cite{Hosting} un ``Hosting"\ es el servicio que permite que un sitio
-web o dominio permanezca en internet, permite guardar la información de un sitio
+Web o dominio permanezca en internet, permite guardar la información de un sitio
 y acceder a este, además en este espacio permite acceder a  APIs o servidores.
 
 Existen múltiples tipos de Hosting y múltiples servicios o empresas que se

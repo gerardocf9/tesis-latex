@@ -3,7 +3,7 @@
 \subsection{IMPLEMENTACIÓN DE LA BASE DE DATOS}
 
     Como se ha mencionado anteriormente, se ha escogido una base de datos no
-    relacional, específicamente MongoDB, dentro de esta se han desarrollado
+    relacional, específicamente MongoDB, dentro de ella se han desarrollado
     una base de datos llamada ``tesis"\   y dos colecciones llamadas ``MotorData"\  y
     ``MotoresInDB"\ ; la primera colección se encarga de almacenar toda la información
     enviada por los sensores (en este caso el cliente simulado con los datos
@@ -12,13 +12,14 @@
     en la colección ``MotorData"\ , es decir, hay información registrada de su actividad.
 
     Cada colección tiene una estructura fija definida para facilitar el manejo y
-    la consistencia de los documentos, esta es similar un Json y sus campos
-    están explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y
-    \ref{tab:MotorInDBbson} para ``MotorInDB"\ .
+    la consistencia de los documentos, esta es similar a un JSON y sus campos
+    están explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y\
+    \ref{tab:MotorInDBbson}\  para ``MotorInDB"\ .
 
     \begin{table}[ht]
         \begin{center}
-            Tabla de la estructura seguida para la colección ``MotorData"\ .\\
+        \caption[Estructura de MotorData]{Estructura de la colección MotorData}
+        \label{tab:MotorDatabson}
 
             \vspace{0.3cm}
             \begin{tabular}{|c|c|p{9cm}|}
@@ -50,8 +51,6 @@
                 \hline
             \end{tabular}
         \end{center}
-        \caption[Estructura de MotorData]{Estructura de la colección MotorData}
-        \label{tab:MotorDatabson}
     \end{table}
 
 \vspace{1cm}
@@ -59,7 +58,8 @@
 
     \begin{table}[ht]
         \begin{center}
-            Tabla de la estructura seguida para la colección ``MotorInDB"\ \\
+        \caption[Estructura de MotorInDB]{Estructura de la colección MotorInDB}
+        \label{tab:MotorInDBbson}
             \vspace{0.3cm}
             \begin{tabular}{|c|c|p{11cm}|}
                 \hline
@@ -73,8 +73,6 @@
                 clientes Webs\\\hline
             \end{tabular}
         \end{center}
-        \caption[Estructura de MotorInDB]{Estructura de la colección MotorInDB}
-        \label{tab:MotorInDBbson}
     \end{table}
 
     Cabe relatar que ``uint64"\  hace referencia a un número natural de 64 bits
@@ -90,7 +88,9 @@
 
     \begin{table}[ht]
         \begin{center}
-            Tabla de la estructura seguida para ``IdSensor"\  \\
+        \caption[Estructura IdSensor]{Estructura seguida en el identificador de
+        los sensores para permitir y facilitar la escalabilidad del sistema}
+        \label{tab:CodIdSensor}
 
             \vspace{0.3cm}
             \begin{tabular}{|c|c|c|c|}
@@ -119,9 +119,6 @@
                 \\\hline
             \end{tabular}
         \end{center}
-        \caption[Estructura IdSensor]{Estructura seguida en el identificador de
-        los sensores para permitir y facilitar la escalabilidad del sistema}
-        \label{tab:CodIdSensor}
     \end{table}
 
 
@@ -136,7 +133,10 @@
 
 \begin{table}[ht]
         \begin{center}
-            Banderas utilizadas en el llamado del Script LlenarBBDD \\
+        \caption[Banderas Script para el llenado de la BBDD]{
+        Banderas utilizables al momento de llamar el Script para llenar la información
+        de la base de datos}
+        \label{tab:BanderasLLenadoBBDD}
 
             \vspace{0.3cm}
             \begin{tabular}{|c|p{7cm}|p{5cm}|}
@@ -153,10 +153,7 @@
                 \\\hline
             \end{tabular}
         \end{center}
-        \caption[Banderas Script para el llenado de la BBDD]{
-        Banderas utilizables al momento de llamar el Script para llenar la información
-        de la base de datos}
-        \label{tab:BanderasLLenadoBBDD}
+
     \end{table}
 
 
@@ -165,9 +162,9 @@
     Los servidores son necesarios para recolectar la información de los sensores,
     establecer una comunicación full dúplex la cual permita obtener información
     a tiempo real del comportamiento del sensor, además de permitir toda la
-    interacción web que da la visibilidad. Dado que estas tareas pueden ser
-    separadas y manejadas en forma de APIs se crearon 2 servidores, permitiendo
-    de esta forma la división de la carga de trabajo y por ende disminuyendo los
+    interacción Web que da la visibilidad. Dado que estas tareas pueden ser
+    separadas y manejadas en forma de API se crearon 2 servidores, permitiendo
+    de esta forma la división de la carga de trabajo y, por ende, disminuyendo los
     requerimientos mínimos del equipo en donde se monta cada servidor individual.
     Así mismo, esto permite una mayor escalabilidad y paralelismo, dado que en el
     caso de ser necesaria una ampliación en la capacidad de cómputo se puede colocar
@@ -177,25 +174,33 @@
     La implementación de estos 2 servidores da origen a un \textbf{servidor dedicado
     a sensorica}, desarrollado como un micro-servicio en el lenguaje de programación
     Go (también conocido como Golang) por las razones previamente expuestas, y
-    a un \textbf{servidor dedicado al tratamiento web} desarrollado con una
+    a un \textbf{servidor dedicado al tratamiento Web} desarrollado con una
     combinación de Python y el Framework Django para el Backend y HTML-CSS-JavaScript
     con el Framework de React en un paradigma multipaginas de renderizado desde
     el servidor para el frontend-cliente Web.
 
     \subsubsection{Servidor dedicado a Sensorica}
 
+
     Este servidor fue realizado en Go por los motivos expuestos anteriormente y
     cumple la función de micro-servicio, se encarga de la recolección y comunicación
-    con la red de sensorica, la cual es implementada por el cliente de la simulación
+    con la red de sensorica, la cual es implementada por el cliente de la simulación,
     y el modelo estadístico, así mismo envía la información relacionada con la
     vista exhaustiva (para esta se requieren mediciones a tiempo real y por esto
     este servidor tiene una conexión full dúplex con los sensores).
 
     Como se observa en la tabla \ref{tab:ServerSensorica}
 
+    Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
+    que sera montado (Host) el sitio, en caso de un ambiente local, por
+    ejemplo, es ``localhost:8080" (este es el usado para las pruebas,
+    cuando se cambia a producción se modifica por el del Host contratado)
+
     \begin{table}[ht]
         \begin{center}
-            Tabla de las funcionalidades del servidor dedicado a sensorica   \\
+        \caption[Funciones Servidor Sensorica]{ Relación de punto de acceso y
+        funcionalidad implementada en el servidor de sensorica}
+        \label{tab:ServerSensorica}
 
             \vspace{0.3cm}
             \begin{tabular}{|p{5cm}|p{10cm}|}
@@ -209,39 +214,30 @@
                 establecido tanto la información de medición diaria, (después es
                 subida a la base de datos) como la
                 información de medición exhaustiva (es enviada al cliente que
-                la solicito).
+                la solicitó).
 
                 \\\hline
                 DireccionIP/exhaustive \textbf{?idMotor=identificador}   &
                 Se encarga de solicitar la información para la vista exhaustiva,
-                el identificador único del motor que se solicitara la data
+                el identificador único del motor que se solicita la data
                 es enviado por el Url (?idMotor=identificador) .
                 \\\hline
             \end{tabular}
-
-            \vspace{0.3cm}
-            Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
-            que sera montado (Host) el sitio, en caso de un ambiente local, por
-            ejemplo, es ``localhost:8080" (este es el usado para las pruebas,
-            cuando se cambia a producción se modifica por el del Host contratado)
         \end{center}
-        \caption[Funciones Servidor Sensorica]{ Relación de punto de acceso y
-        funcionalidad implementada en el servidor de sensorica}
-        \label{tab:ServerSensorica}
     \end{table}
 
 
     El primer ``Endpoint"\ (DireccionIP/sensormessage) realiza las siguientes tareas:
 
     \begin{itemize}
-        \item Establecer una conexión Http2 con los solicitantes, para esto se intercambian,
+        \item Establecer una conexión Http2 con los solicitantes; para esto se intercambian,
             además de los paquetes e información necesarios para establecer el protocolo,
             unos mensajes que permiten identificar el motor y la cadena de sensores
             correspondientes a esta información.
             %
-        \item Posteriormente se revisa si el motor
-            tiene una conexión activa (no debe de existir por unicidad de la información)
-            y si ya se ha recibido información de este motor previamente, de no ser así,
+        \item Posteriormente, se revisa si el motor
+            tiene una conexión activa (no debe  existir por unicidad de la información)
+            y si ya se ha recibido información de este motor previamente; de no ser así,
             se agrega a la lista de motores de la que se posee información.
             %
         \item En este punto el servidor se dedica a escuchar la llegada o solicitud
@@ -249,14 +245,14 @@
             conexión (mediante un canal interno) o  de la solicitud de información
             para una vista exhaustiva. Para cada caso se hace lo siguiente:
             \begin{itemize}
-                \item[*] Si es información, se verifica que venga en formado valido
+                \item[*] Si es información, se verifica que venga en formado válido
                     y se sube a la base de datos.
                 \item[*] Si es una solicitud de información, se verifica que
                     la conexión con el motor sea la indicada y se solicita la
                     información, se espera la respuesta y se envía por el mismo
                     canal interno. Esta solicitud es hecha por el segundo Endpoint.
                 \item[*] No se dio ninguno de los casos, entonces el cliente se
-                    desconectara. Se procede a eliminar la conexión y la lista
+                    desconecta. Se procede a eliminar la conexión y la lista,
                     mediante un procedimiento de cierre de conexión.
             \end{itemize}
             %
@@ -272,32 +268,39 @@
         \item Decodifica el URL enviado para obtener el parámetro (idMotor) y
             comprueba su existencia. En caso de error se envía un mensaje
             de petición incorrecta.
-        %
+            %
         \item Se comprueba que el motor solicitado exista en las conexiones
             actuales. Es importante resaltar que se refiere a la conexión
             bidireccional, ya que de caso contrario no se puede obtener información
             a tiempo real. Por esto, si la conexión es inexistente, se envía un
             mensaje de petición incorrecta, no se puede conectar al motor.
-        %
+            %
         \item Se solicita por un canal interno al otro Endpoint la información
             deseada y se espera su respuesta.
-        %
+            %
         \item Se envía la respuesta con estado de creado y la información.
     \end{itemize}
 
-    \subsubsection{Servidor web}
+    \subsubsection{Servidor Web}
     Este servidor fue realizado en Python con el Framework Django
     por los motivos expuestos anteriormente y cumple la función de servidor Web,
     es el servidor principal ya que se encarga de enviar y solicitar información
     para crear la visualización del cliente, además de estudiar y crear las gráficas
-    y enviar información al cliente web para análisis.
+    y enviar información al cliente Web para análisis.
     Sus conexiones son por el protocolo Http, y Https para la petición de información
     exhaustiva con el microservicio de sensorica. y realiza las tareas expuestas
     en la tabla \ref{tab:serWeb}
 
+    Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
+    que sera montado (Host) el sitio, en caso de un ambiente local, por
+    ejemplo, es ``localhost:8000" (este es el usado para las pruebas,
+    cuando se cambia a producción se modifica por el del Host contratado)
+
     \begin{table}[ht]
         \begin{center}
-            Tabla de las funcionalidades del servidor Web   \\
+        \caption[Funciones Servidor Web]{ Relación de punto de acceso y
+        funcionalidad implementada en el servidor Web }
+        \label{tab:serWeb}
 
             \vspace{0.3cm}
             \begin{tabular}{|p{5cm}|p{10cm}|}
@@ -348,15 +351,8 @@
                 \\\hline
             \end{tabular}
 
-            \vspace{0.3cm}
-            Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
-            que sera montado (Host) el sitio, en caso de un ambiente local, por
-            ejemplo, es ``localhost:8000" (este es el usado para las pruebas,
-            cuando se cambia a producción se modifica por el del Host contratado)
         \end{center}
-        \caption[Funciones Servidor Web]{ Relación de punto de acceso y
-        funcionalidad implementada en el servidor Web }
-        \label{tab:serWeb}
+
     \end{table}
 
     Cada Endpoint realiza las siguientes tareas
