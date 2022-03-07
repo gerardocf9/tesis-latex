@@ -1,2 +1,79 @@
-
 \subsection{IMPLEMENTACIÓN DEL MODELO ESTADÍSTICO}
+
+El diseño del modelo comenzó con la limpieza de los datos y la selección de las
+variables de interés de la base de datos proporcionada. Las variables de
+interés fueron la velocidad horizontal, la velocidad vertical, la aceleración,
+la potencia del equipo, el tipo de equipo y el código del mismo. Una vez
+obtenida la data se realizó un análisis exploratorio de la data, el cual
+consistió principalmente en la elaboración de gráficas y sacar estadísticos de
+las variables de interés de lo cual se obtuvieron las siguientes observaciones:
+
+Las variables de velocidad horizontal, velocidad vertical y aceleración son
+siempre positivas, todas muestran en su distribución una asimetría con
+tendencia hacia la izquierda, lo cual las hace similar a distribuciones como la
+exponencial, la weibull o la log-normal. Cuando se calcula la correlación entre
+la variables velocidad horizontal y velocidad vertical obtenemos una
+correlación de Pearson del 56.71\%, el cuadrado de este valor o R^2 (también
+conocido como coeficiente de determinación) es del 32.16\% y se puede
+interpretar como que el valor de la velocidad horizontal predice 32\% del valor
+de la velocidad vertical, estos valores son muy elevados para considerar las
+variables como independientes. En el caso de la aceleración las correlaciones
+no fueron significativas.
+
+Debido a la correlación considerable entre las dos velocidades no era posible
+modelar las variables como independientes pero tampoco no era tan elevada para
+realizar una regresión lineal, por lo tanto se recurrió a buscar un cambio de
+variables en el cual desapareciera la dependencia entre las dos variables
+aleatorias. Como la velocidad es un vector y tenemos las componentes del mismo,
+un cambio de variables lógico es el de coordenadas polares ya que como esta es
+una transformación biyectiva no perderemos información aplicando la misma y a
+su vez es fácil de interpretar. La correlación entre las nuevas variables
+magnitud y ángulo fue del -25.18\% y un valor de R^2 del 6.34\% lo cual para
+efectos prácticos se puede considerar como dos variables aleatorias
+independientes. Similarmente con las velocidades con componentes cartesianos la
+correlación con la aceleración es no significante.
+
+Una vez obtenidas las tres variables de intereses para modelar se busco la
+distribución que mejor se aproxima a los datos, la escogencia de la
+distribución de probabilidad por lo general no es un proceso cuantitativo sino
+que el investigador conociendo en profundidad el problema escoge entre un grupo
+de distribuciones conocidas cuál se adapta mejor al problema planteado, pero
+debido a que hoy en día existen herramientas computacionales para la
+estadística este proceso se puede hacer un poco más cuantitativo. Para la
+selección de los modelos de cada variable se itero entre 84 distribuciones
+pertenecientes a Scipy y se aplicó a cada una la prueba de Kolmogorov–Smirnov,
+se filtraron aquellas distribuciones con valores P mayores a 5\% y finalmente se
+ordenaron de mayor a menor según el mismo, debido a que la hipótesis nula de la
+prueba de Kolmogorov-Smirnov es que las distribuciones poseen la misma
+distribución un valor elevado de P indica que la distribución se aproxima al
+valor teórico.
+
+Finalmente el modelo estadístico seleccionado fue el siguiente, tenemos 3
+variables independientes: magnitud de la velocidad, ángulo de la velocidad y
+aceleración. Para la magnitud de la velocidad se seleccionó una distribución
+Burr de tipo III debido a que es una distribución netamente positiva y la
+prueba de Kolmogorov dio un valor P del 78,01\% siendo este el segundo valor más
+alto y el primero que cumple la condición de ser positiva siempre, en el caso
+del ángulo múltiples distribuciones satisfacen pero como la distribución normal
+tenía un valor P del 93.79\% y es una distribución conocida se seleccionó esta,
+finalmente en el caso de la aceleración la distribución de Burr tipo III poseía
+un valor P de 99.28\% si bien había otras distribuciones con valores ligeramente
+mayor se obto escoger esta porque ya la magnitud de la velocidad seguía esta
+distribución y simplifica la implementación.
+
+En el caso de la vista exhaustiva se utilizó una mezcla entre un modelo de la
+señal no estadístico y el modelo estadístico previamente seleccionado de tal
+forma que se pueda obtener una gran cantidad de datos para poder realizar el
+análisis de frecuencia pero a la vez conservar la coherencia con el resto de
+mediciones, para esto se ajustó la amplitud de la señal de acuerdo al valor
+esperado según el modelo de la aceleración y para expresar el ruido de la
+medición a los parámetros del modelo se les suma una señal de ruido de tipo
+gaussiana.
+
+Una vez obtenido el modelo, se implementó una API web usando FastAPI con dos
+endpoints, uno utilizado para la vista general y específica y otro para la
+vista exhaustiva. Ambos endpoints solicitan el nivel de daño el cual es un
+número entre 0 y 10 que indica el grado de daño del motor y solicitan el id del
+motor el cual es un número entero  que identifica el motor. Esta API fue hostea
+de de forma independiente en Digital Ocean y la accede el microservicio de Go
+para obtener los valores del modelo.
