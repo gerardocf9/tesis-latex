@@ -123,6 +123,20 @@ desarrollo. De esta forma, se distinguen los siguientes puntos en esta fase:
 \end{itemize}
 
 \subsubsection{Diseño del modelo estadístico}
+Corresponde al segundo objetivo del trabajo pero guarda relación con los
+objetivos 3 y 4. Se utilizaron técnicas de exploración de data para la
+selección de las variables de interés así como la formulación de hipótesis y se
+usaron pruebas estadísticas para seleccionar las distribuciones de probabilidad
+que mejor modelan las variables de interés. Se realizaron las siguientes
+tareas:
+
+\begin{itemize}
+    \item Limpieza de los datos.
+    \item Análisis exploratorio de la data.
+    \item Cálculo de estadísticos de interés.
+    \item Cálculo de pruebas de bondad de ajuste para cada variable de interés.
+    \item Selección de la distribuciones que mejor modelan cada variable.
+\end{itemize}
 
 \subsubsection{Diseño de las vistas para mostrar la información}
 Este apartado guarda relación con los objetivos 5 y 6. Se trabajo en la
@@ -144,7 +158,25 @@ en un gran grupo de tareas, con la finalidad de cumplir los objetivos 2,3,4,5,6
 estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
 
 \begin{itemize}
-    \item Generación del modelo estadístico:
+    \begin{enumerate}
+        \item Generación del modelo estadístico:
+        \item Inspección manual de la data.
+        \item Limpieza de las variables de interés.
+        \item Elaboración de histogramas para observar la distribución de los datos.
+        \item Seleccionadas las variables velocidad horizontal, velocidad
+            vertical y aceleración como variables para el modelo.
+        \item Cálculo de correlación entre variables.
+        \item Cambio de variables para reducir la correlación entre velocidad
+            horizontal y velocidad vertical.
+        \item Búsqueda de distribuciones que mejor modelan la data utilizando
+            múltiples pruebas de Kolmogorov-Smirnov.
+        \item Selección de distribuciones de Burr tipo III para modelar la
+            magnitud de la velocidad y aceleración y distribución normal para
+            modelar el ángulo.
+        \item Calculo de parámetros de las diferentes distribuciones. Creación
+            de API en FastAPI para servir los datos.
+        \item Conexión de la API con el microservicio de Go.
+    \end{enumerate}
 
     \item Elaboración de la base de datos:
         \begin{enumerate}
@@ -174,6 +206,8 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
         \end{enumerate}
 
     \item Análisis en frecuencia:
+        \begin{enumerate}
+        \end{enumerate}
 
     \item Servidor Web:
         \begin{enumerate}
