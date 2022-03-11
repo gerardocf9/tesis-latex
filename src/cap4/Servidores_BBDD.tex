@@ -5,7 +5,7 @@
     Como se ha mencionado anteriormente, se ha escogido una base de datos no
     relacional, específicamente MongoDB, dentro de ella se han desarrollado
     una base de datos llamada ``tesis"\   y dos colecciones llamadas ``MotorData"\  y
-    ``MotoresInDB"\ ; la primera colección se encarga de almacenar toda la información
+    ``MotoresInDB"\ como se observa en \ref{img:clusterBBDD}; la primera colección se encarga de almacenar toda la información
     enviada por los sensores (en este caso el cliente simulado con los datos
     proporcionados por el modelo estadístico) y la segunda colección contiene una
     lista con los identificadores únicos de cada motor que tenga al menos un documento
@@ -121,6 +121,12 @@
         \end{center}
     \end{table}
 
+	\begin{figure}[htb]
+		\centering
+        \caption{Base de datos MongoDB Atlas}
+        \includegraphics[width=\linewidth]{servers/clusterBBDD.png}
+        Base de datos implementada en MongoDB Atlas.    \label{img:clusterBBDD}
+	\end{figure}
 
 \subsection{LLENADO DE LA BASE DE DATOS}
     Para el llenado con la información se desarrollo un Script en Golang,
@@ -129,7 +135,8 @@
     automática, realiza 120 peticiones, equivalentes a 120 días, con un aumento
     progresivo del nivel de daño cada 40 días-peticiones. Al ser un Script funciona
     mediante la terminal y utiliza las banderas expuestas en la tabla
-    \ref{tab:BanderasLLenadoBBDD} para tomar la información.
+    \ref{tab:BanderasLLenadoBBDD} para tomar la información. La utilizacion del
+    mismo puede verse en \ref{img:scriptBBDD}
 
 \begin{table}[ht]
         \begin{center}
@@ -149,13 +156,20 @@
                 -s2& Especificar el Id del sensor 2 &Requerida.\\\hline
                 -s3& Especificar el Id del sensor 3 & Opcional, por defecto se omite.\\\hline
                 -s4& Especificar el Id del sensor 4  &Opcional, por defecto se omite.\\\hline
-                -r & Reiniciar la base de datos si su valor es ``true"& opcional, por defecto false.
+                -r & Reiniciar la base de datos si su valor es ``true"& opcional, por defecto false.\\\hline
+                -fi& Fecha de inicio, una cantidad de dias contados hacia atras desde la fecha actual& Opcional, por defecto 90\\\hline
+                -ci& Cantidad de interaciones a ejecutarse&Opcional, por defecto, 90
                 \\\hline
             \end{tabular}
         \end{center}
-
     \end{table}
 
+	\begin{figure}[htb]
+		\centering
+        \caption{Llenado de la BBDD}
+        \includegraphics[width=\linewidth]{servers/scriptBBDD.png}
+        Llamados al script para llenar la BBDD.    \label{img:scriptBBDD}
+	\end{figure}
 
 \subsection{IMPLEMENTACIÓN DE LOS SERVIDORES}
 
@@ -281,6 +295,16 @@
         \item Se envía la respuesta con estado de creado y la información.
     \end{itemize}
 
+    El servidor corriento es simplemente una terminal ejecutando un programa,
+    puede ser visto en la imagen \ref{img:serverSensoricaRunning}.
+
+	\begin{figure}[htb]
+		\centering
+        \caption{Servidor de sensorica}
+        \includegraphics[width=\linewidth]{servers/serverSensoricaRunning.png}
+        Inicio de ejecucion del servidor de sensorica.    \label{img:serverSensoricaRunning}
+	\end{figure}
+
     \subsubsection{Servidor Web}
     Este servidor fue realizado en Python con el Framework Django
     por los motivos expuestos anteriormente y cumple la función de servidor Web,
@@ -356,5 +380,15 @@
     \end{table}
 
     Cada Endpoint realiza las siguientes tareas
+
+    El servidor corriento es simplemente una terminal ejecutando un programa,
+    puede ser visto en la imagen \ref{img:serverWebRunning}.
+
+	\begin{figure}[htb]
+		\centering
+        \caption{Servidor Web}
+        \includegraphics[width=\linewidth]{servers/serverDjangoRunning.png}
+        Inicio de ejecucion del servidor Web.    \label{img:serverWebRunning}
+	\end{figure}
 
 

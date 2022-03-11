@@ -29,16 +29,16 @@ poder ser recuperado finaliza el proceso.
 
 La finalización del servidor es una practica relativamente común ya que permite
 el reinicio del proceso, esto se hace mediante una configuración interna al
-momento de hacer deploy en el servidor, como se observa en la figura \ref{ProcesosLinux}
+momento de hacer deploy en el servidor, como se observa en la figura \ref{img:ProcesosLinux}
 es la configuración recomendada por DigitalOcean para un reinicio, en caso de falla,
 continuo a intervalos de 5 segundos.
 
 	\begin{figure}[htb]
 		\centering
         \caption{Configuración de proceso en Linux para reinicio automático de procesos}
-        \includegraphics[width=\linewidth]{reinicio_servidor.png}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/reinicio_servidor.png}
         Configuración recomendada de \Cite{ConfiguracionProcesos}.
-        \label{ProcesosLinux}
+        \label{img:ProcesosLinux}
 	\end{figure}
 
 Por esta razón, las pruebas mas considerables son interconexiones y configuraciones
@@ -51,20 +51,20 @@ de seguridad y problemas de datos. es decir:
         Para esta posibilidad, se opto por una configuración que rechaza el
         segundo intento de conexión, es decir, se rechaza cualquier intento de
         conexión de motor con una conexión establecida previamente (que todavía
-        exista), y su implementación se observa en la figura \ref{NoUnicidad}.
+        exista), y su implementación se observa en la figura \ref{img:NoUnicidad}.
 %
     \item Prueba de falla en la conexión de la base de datos.
 
         Cada servidor toma esta falla de una forma especifica, en el caso del
         servidor de sensorica, esta es considerada una falla catastrófica, por
         lo que se finaliza la ejecución, como se observa en la figura
-        \ref{NoBBDDSensorica}.
+        \ref{img:NoBBDDSensorica}.
 
         Por otro lado, el servidor Web arroja una excepción, la cual es manejada
         internamente por Django y resuelta de forma que la petición es respondida
         con un error 500, falla interna del servidor, este error en la respuesta
         dada es manejado por el cliente y se observa en la figura
-        \ref{NoBBDDWeb} .
+        \ref{img:NoBBDDWeb} .
 %
     \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
         establecida.
@@ -72,7 +72,7 @@ de seguridad y problemas de datos. es decir:
         Este caso corresponde al servidor de sensorica, al no haber una conexión
         con el sensor establecida no se pueden tomar las mediciones para una vista
         exhaustiva, estas deben ser a tiempo real, por lo tanto se responde
-        con una error en la respuesta como se observa en \ref{ErrorExhaustiva}.
+        con una error en la respuesta como se observa en \ref{img:ErrorExhaustiva}.
 %
     \item Prueba de petición no completada en el cliente Web,
         información invalida (motor no existente) o error del servidor Web.
@@ -85,35 +85,35 @@ de seguridad y problemas de datos. es decir:
 	\begin{figure}[htb]
 		\centering
         \caption{Prueba de error, no unicidad de información}
-        \includegraphics[width=\linewidth]{NoUnicidadSensorica.png}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/NoUnicidadSensorica.png}
         logs: Izquierda cliente conectado, Centro cliente Rechazado, Derecha.
         Servidor.
-        \label{NoUnicidad}
+        \label{img:NoUnicidad}
 	\end{figure}
 
     \begin{figure}[htb]
 		\centering
         \caption{Prueba de error, no BBDD Sensorica}
-        \includegraphics[width=\linewidth]{conexionInvalidaNoBBDDSensorica.png}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDSensorica.png}
         El sistema no inicia por no poder conectarse a la BBDD.
-        \label{NoBBDDSensorica}
+        \label{img:NoBBDDSensorica}
 	\end{figure}
 
     \begin{figure}[htb]
 		\centering
         \caption{Prueba de error, no BBDD Web}
-        \includegraphics[width=\linewidth]{conexionInvalidaNoBBDDWeb.png}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDWeb.png}
         El sistema continua ejecución y resuelve el error con un error 500.
-        \label{NoBBDDWeb}
+        \label{img:NoBBDDWeb}
 	\end{figure}
 
     \begin{figure}[htb]
 		\centering
         \caption{Prueba de error, petición exhaustiva invalida}
-        \includegraphics[width=\linewidth]{conexionInvalidaNoMotorSensorica.png}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
         Solicitud desde el navegador, para facilitar vista, al servidor
         sin motores conectados.
-        \label{ErrorExhaustiva}
+        \label{img:ErrorExhaustiva}
 	\end{figure}
 
 
