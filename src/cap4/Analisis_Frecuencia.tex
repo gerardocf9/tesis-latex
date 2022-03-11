@@ -1,2 +1,27 @@
 
 \subsection{IMPLEMENTACIÓN DEL ANÁLISIS EN FRECUENCIA}
+
+Una de las herramientas mas importantes para tomar una decision en cuanto
+al daño del motor es el analisis en frecuencia de la vibracion, esto es porque
+permite obtener un mayor conocimiento del estado de los rodamientos y de cual
+puede ser la falla, en el caso de que exista alguna, que estos presentan. Para
+porder observar esta informacion, se procedio a realizar una transformacion de
+dominio, mediante una FFT, para llevar las mediciones al dominio de la frecuencia
+y mediante una grafica permitir el analisis.
+
+Cabe destacar que este analisis y la generacion de la grafica son parte de la
+api del analisis exhaustiva, en el servidor Web y el resultado es visualizado
+mediante el cliente Web, en el endpoint correspondiente a la vista exhaustiva.
+
+Para comenzar este proceso se debe de solicitar la informacion al servidor de
+sensorica, esto se hace mediante una \textbf{peticion Web GET} al endpoint
+correspondiente (DireccionIP/exhaustive\textbf{?idMotor=identificador}), posteriormente
+se examina el \textbf{header} de la respuesta para determinar si fue exitosa
+la solicitud, si esta no lo fue, no se puede generar este estudio por lo se envia una
+imagen de error asociada al cliente; en caso de que si se pueda proceder, se
+obtiene la informacion, proveniente en formato JSON, y mediante la libreria
+numpy se obtiene un array con las mediciones, se procede a utilizar la transformada
+\textbf{fft} de la misma libreria, se convierte a una transformada unilateral,
+por estandard en la industria, y se grafica mediande la libreria \textbf{matplotlib}
+y se guarda en disco, para despues ser enviada como un archivo estatico por otro
+puerto del servidor Web.
