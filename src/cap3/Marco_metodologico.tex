@@ -38,7 +38,7 @@ la investigación:
 \subsubsection{Definición de los requerimientos de usuario}
 Esta fase tiene relación directa con la concepción del proyecto ya que fue el
 planteamiento de los problemas y posibles soluciones, separación de vistas,
-mecanismos de análisis, entre otros. Sin una concepción compleja de las estructuras
+mecanismos de análisis, entre otros. Sin una concepción  de las estructuras
 de datos y los lenguajes necesarios para elaborarla.
 Como en todo proyecto, esta fase requirió de la interacción con el cliente (ingeniero
 mecánico que propuso la idea) con la finalidad de puntualizar los requerimientos
@@ -56,14 +56,14 @@ De esta manera, la primera fase ha constado de las siguientes actividades:
         usuario, por la demora necesaria para generar este estudio.
     %
     \item Definición de la estructura mínima necesaria para poder evaluar un
-        motor, en términos de evolución histórica de la vibración, a base de
+        motor, en términos de evolución histórica de la vibración, con base en
         una tabla histórica o gráfica (histórica).
     %
     \item Definición del tipo de transformada de Fourier a graficar para el
         análisis exhaustivo (por gustos y costumbres en la industria).
     %
     \item Entrega de una base de datos histórica con mediciones reales y esporádicas
-        del estado de los motores en una fabrica.
+        del estado de los motores en una fábrica.
     %
     \item Especificación de los parámetros a considerar para determinar un nivel
         básico del estado de un motor, en términos de velocidad y aceleración.
@@ -73,23 +73,23 @@ De esta manera, la primera fase ha constado de las siguientes actividades:
         utilización de bases artesanales, políticas de daños mínimos) los cuales
         amplían los rangos teóricos.
     %
-    \item Selección de las unidades en las que se tomaran las medidas, siguiendo
+    \item Selección de las unidades en las que se tomarán las medidas, siguiendo
         estándares, y siendo $\frac{mm}{s}(rms)$ para la velocidad y $g$ para la
         aceleración.
 \end{itemize}
 
-Es importante recalcar el hecho que los parámetros utilizados tanto
+Es importante recalcar el hecho de que los parámetros utilizados, tanto
 para el establecimiento de niveles de daño en el modelo estadístico como
 en la vista general para distinguir el estado de los motores, son el resultado
 empírico asociados a años de estudios del comportamiento de los motores en la
-planta utilizada. Esto se tomo en consideración al momento del diseño y se puede
+planta utilizada. Esto se tomó en consideración al momento del diseño y se puede
 modificar, vía modificación de constantes en el código, los rangos de valores
 en velocidad y vibración adecuados a los estándares de cada planta o ingeniero
 que utilice el sistema.
 
 \subsubsection{Revisión documental}
 Relacionada parcialmente con los primeros dos objetivos de la investigación,
-se baso en los estudios necesarios para poder tomar la decisión del tipo de modelo
+se basó en los estudios necesarios para poder tomar la decisión del tipo de modelo
 y lenguajes a utilizar, el planteamiento de requerimientos para los
 lenguajes, dada la gran variedad de posibilidades disponibles para las distintas
 tareas a realizar; de esta forma, se pueden enumerar las siguientes actividades
@@ -103,20 +103,20 @@ realizadas:
 \end{itemize}
 
 \subsubsection{Análisis de la información}
-Todavía una fase previa a la implementación pero relacionada al primer objetivo
-de la investigación. Se procedió a analizar la información en la bases de datos,
+Fase previa a la implementación pero relacionada al primer objetivo
+de la investigación. Se procedió a analizar la información en las bases de datos,
 comparar con los requerimientos mínimos por el cliente y estructurar mas detalladamente
-tanto la nueva base de datos (creada posteriormente en MongoDB), los parámetros
+la nueva base de datos (creada posteriormente en MongoDB), los parámetros
 necesarios para el modelo estadístico y la selección del tipo, orientado a una
 distribución de probabilidad. Asimismo, se tomaron decisiones conforme a los
-lenguajes utilizados y la estructura, de microservicios, que se utiliza en el
+lenguajes utilizados y la estructura de microservicios que se utiliza en el
 desarrollo. De esta forma, se distinguen los siguientes puntos en esta fase:
 
 \begin{itemize}
     \item Organización de la información recolectada.
     \item Toma de decisión de los lenguajes y herramientas a utilizar, basada
         en los criterios previamente establecidos.
-    \item Estructuración de los modelos para la base de datos.
+    \item Estructuración de los modelos para las bases de datos.
     \item Justificación de las decisiones tomadas.
     \item Estructuración y separación de las tareas a realizar por los distintos
         microservicios (sensorica, Web, BBDD).
@@ -135,18 +135,18 @@ tareas:
     \item Análisis exploratorio de la data.
     \item Cálculo de estadísticos de interés.
     \item Cálculo de pruebas de bondad de ajuste para cada variable de interés.
-    \item Selección de la distribuciones que mejor modelan cada variable.
+    \item Selección de las distribuciones que mejor modelan cada variable.
 \end{itemize}
 
 \subsubsection{Diseño de las vistas para mostrar la información}
 Este apartado guarda relación con los objetivos 5 y 6. Se trabajo en la
 estructuración y diseño gráfico de las vistas, además de las funcionalidades
-implementadas para poder ser creada la pagina Web. Las tareas realizadas
+implementadas para poder ser creada la página Web. Las tareas realizadas
 fueron las siguientes:
 
 \begin{itemize}
-    \item Toma de decisión en utilizar una aproximación multipagina (multipage app).
-    \item Diseño básico, barra de navegación, encabezado y pie de pagina.
+    \item Toma de decisión en utilizar una aproximación multipágina (multipage app).
+    \item Diseño básico, barra de navegación, encabezado y pie de página.
     \item Diseño de la vista General y su funcionalidad.
     \item Diseño de la vista Especifica y su funcionalidad.
     \item Diseño de la vista Exhaustiva y su funcionalidad.
@@ -168,12 +168,12 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
         \item Cálculo de correlación entre variables.
         \item Cambio de variables para reducir la correlación entre velocidad
             horizontal y velocidad vertical.
-        \item Búsqueda de distribuciones que mejor modelan la data utilizando
+        \item Búsqueda de distribuciones que mejor modelan la data, utilizando
             múltiples pruebas de Kolmogorov-Smirnov.
         \item Selección de distribuciones de Burr tipo III para modelar la
             magnitud de la velocidad y aceleración y distribución normal para
             modelar el ángulo.
-        \item Calculo de parámetros de las diferentes distribuciones. Creación
+        \item Cálculo de parámetros de las diferentes distribuciones. Creación
             de API en FastAPI para servir los datos.
         \item Conexión de la API con el microservicio de Go.
     \end{enumerate}
@@ -194,7 +194,7 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
             \item Creación del servidor Https.
             \item Creación de un cliente de sensorica, para facilitar la emulación
                 de los sensores
-            \item Implementación de las conexiones bidireccionales para el trafico
+            \item Implementación de las conexiones bidireccionales para el tráfico
                 de información.
             \item Creación del punto de conexión ``/sensormessage" para permitir
                 la conexión de múltiples clientes y recibir la información.
@@ -215,7 +215,7 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
 
     \item Servidor Web:
         \begin{enumerate}
-            \item Configuración para el envió de información estática
+            \item Configuración para el envío de información estática
                 (HTML, CSS, Js, imágenes).
             \item Creación del punto de conexión ``/" para la vista general.
             \item Creación del punto de conexión ``/especifica?IdMotor\= identificador"
@@ -225,22 +225,22 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
             \item Creación de gráficas históricas.
             \item Solicitud de información y análisis en frecuencia, creación de
                 la gráfica de frecuencia.
-            \item Establecimientos de los puntos de conexión para las APIs que
-                suministran las informaciones necesarias para las vistas (
-                uno para cada vista).
+            \item Establecimientos de los puntos de conexión para las API que
+                suministran las informaciones necesarias para las vistas (uno
+                para cada vista).
         \end{enumerate}
 
     \item Muestreo de información, mediante las vistas:
         \begin{enumerate}
-            \item Solicitudes de información a las APIs (fetch).
+            \item Solicitudes de información a las API (fetch).
             \item Configuración de los valores y los niveles de daño.
             \item Establecimiento del motor svg con colores dependiendo del nivel
                 de daño.
-            \item Mecanismo de paginación y búsqueda para hacer mas fácil y agradable
+            \item Mecanismo de páginación y búsqueda para hacer mas fácil y agradable
                 la UI.
             \item Creación de la vista general.
             \item Implementación de la tabla y la funcionalidad para exportar a
-                excel.
+                Excel.
             \item Solicitud y establecimiento de las imágenes-gráficas.
             \item Implementación de la vista especifica.
             \item Implementación de la vista exhaustiva.
@@ -272,7 +272,7 @@ estas divisiones, y subdiviones, pueden ser expresada de la siguiente forma:
 
 
 \subsubsection{Comprobar los resultados}
-Esta fase hace referencia al ultimo objetivo de la investigación: Comprobar los
+Esta fase hace referencia al último objetivo de la investigación: Comprobar los
 resultados de la herramienta de análisis. Dada la extensión de la herramienta,
 estas pruebas se pueden desglosar en dos niveles, resultados finales (evaluación
 del análisis de la herramienta) y pruebas técnicas (también llamado testing).
@@ -291,7 +291,7 @@ Esto da origen a las siguientes tareas:
             \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
                 establecida.
             \item Prueba de petición no completada en el cliente Web,
-            información invalida (motor no existente) o error del servidor.
+            información inválida (motor no existente) o error del servidor.
         \end{enumerate}
 
     \item Evaluación de resultados:
