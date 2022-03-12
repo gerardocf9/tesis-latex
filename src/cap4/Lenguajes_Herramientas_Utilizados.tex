@@ -6,23 +6,23 @@
 Esta parte del proyecto es bastante extensa así que debe de ser dividida en dos
 categorías, investigación de campo e investigación documental.
 
-La investigación de campo, según \cite{MetodologiaInvestigacion}
+La investigación de campo, según \textcite{MetodologiaInvestigacion}
 es aquella que consiste en la recolección de datos directamente de los sujetos
 investigados, o de la realidad donde ocurren los hechos,
 sin manipular o controlar variable alguna, es decir, el investigador obtiene la
-información pero no altera las  condiciones existentes.De allí su carácter de
+información pero no altera las  condiciones existentes. De allí su carácter de
 investigación no experimental.
 
 De esta forma, análisis de campo juega un rol importantísimo para obtener la
 información y los requerimientos mínimos para el diseño de la interfaz de usuario
 y del modelo estadísticos.
 
-Asimismo, la investigación documental, según \cite{MetodologiaInvestigacion} es un proceso
+Asimismo, la investigación documental, según \textcite{MetodologiaInvestigacion}
+es un proceso
 basado en la búsqueda, recuperación, análisis, critica e interpretación de datos
 secundarios, es decir, los obtenidos y registrados por otros investigadores en
-fuentes documentales impresas, audiovisuales o electrónicas.
-
-Siendo esta fundamental para la creación de clasificaciones, comparaciones, tablas
+fuentes documentales impresas, audiovisuales o electrónicas,
+siendo esta fundamental para la creación de clasificaciones,comparaciones, tablas
 y la implementación propiamente dicha del trabajo. Para esto se revisaron
 libros, trabajos de investigación, documentos de fuente electrónicas, cursos,
 entre otros.
@@ -30,22 +30,21 @@ entre otros.
 \subsection{ELECCIÓN DE LAS HERRAMIENTAS Y LENGUAJES}
 Se debe resaltar que los valores otorgados a las características en los lenguajes
 fueron decisión tomadas a juicios y criterios  personales entre los miembros
-del trabajo, y orientada a conocimientos obtenidos, en los momentos de investigación,
-y pre-existentes; Por esta razón pueden ser tomados como guía mas no como juicio
-absoluto del lenguaje.
+del trabajo y orientada a conocimientos obtenidos en los momentos de investigación,
+y pre-existentes.
 
-    Dada la gran cantidad de actividades y los requerimientos que tenían las mismas,
+    Dada la gran cantidad de actividades y los requerimientos que tenían,
     se hizo un estudio de los lenguajes y herramientas mas utilizados en
     la actualidad para tareas similares y junto a esto, se establecieron
     ciertos criterios y requerimientos mínimos para cada tarea a realizar, de
     esta forma, se tomaron las siguientes decisiones:
 
     \subsubsection{Servidor}
-    La decisión del servidor se puede a su vez dividir de acuerdo a los
-    microservicios realizados, es decir, el servidor dedicado a sensorica y
+    La decisión del servidor se puede  dividir de acuerdo a los
+    microservicios a realizar, es decir, el servidor dedicado a sensorica y
     el servidor Web. En ambos casos se manejaron los mismos lenguajes, asimismo, debido a
     las características variantes entre estos y la posibilidad, dada la arquitectura
-    distribuida utilizada, de utilizar múltiples herramientas se opto por utilizar
+    distribuida empleada de utilizar múltiples herramientas, se optó por utilizar
     el que mejor cumplía los requerimientos establecidos; como se observa en la
     tabla \ref{tab:LenguajesServidor}, se comparan los lenguajes Golang, Python
     con Framework Django y NodeJs, esto es debido a que los servidores siguen un
@@ -76,31 +75,31 @@ absoluto del lenguaje.
 
     Para el microservicio de sensorica, las características mas importantes fueron
     el paralelismo y la facilidad de implementar una conexión Http2, por la
-    necesidad de una conexión full dúplex, y por estos motivos Golang fue un claro
-    ganador, dado que es un lenguaje diseñado para microservicios y paralelismo y
+    necesidad de una conexión full dúplex; por estos motivos Golang fue un claro
+    ganador dado que es un lenguaje diseñado para microservicios y paralelismo y
     el uso de librerías facilitan increíblemente el establecer una conexión Http2.
 
-    Por otro lado, en términos del servidor Web, las necesidades giraban entorno
+    Por otro lado, en términos del servidor Web, las necesidades giraban en torno
     a la facilidad de implementación, robustez y escalabilidad que otorgaban los
     lenguajes siendo en este caso Python + Django el ganador indiscutible.
 
 
     Cabe resaltar que paralelismo hace referencia al mejor uso posible de los
-    recursos de hardware del servidor por la gran cantidad de conexiones
-    continuas y tareas adicionales que deben de ser realizadas y estar
+    recursos de hardware del servidor, por la gran cantidad de conexiones
+    continuas y tareas adicionales que deben  ser realizadas y estar
     establecidas, no a la cantidad de peticiones que recibe el servidor.
 
     \subsubsection{Cliente}
 
     En términos de clientes también se debe hacer diferencia entre los 2 sistemas
     creados, cliente de sensorica y cliente Web. El cliente de sensorica se
-    implemento en Golang por las mismas razones dadas para el servidor de sensorica.
+    implementó en Golang por las mismas razones dadas para el servidor de sensorica.
 
-    Por otro lado, en la actualidad los clientes Webs están compuestos casi en
+    Por otro lado, en la actualidad los clientes Web están compuestos casi en
     su totalidad de una combinación de HTML-CSS-JavaScript, existen casos en los
     que no se usa JavaScript o clientes escritos en otros lenguajes e interpretados
-    en la web; de esta forma, la decisión esta en que Framework de JavaScript se
-    va a utilizar, existen una gran variedad que cubre desde JavaScript ``vainilla",
+    en la web; de esta forma, la decisión está en qué Framework de JavaScript se
+    va a utilizar, existe una gran variedad que cubre desde JavaScript ``vainilla",
     sin Framework y JQuerry, que otorgan interactividad pero se complica rápidamente
     cuando la aplicación crece, hasta los 3 gigantes en la actualidad, ReactJs,
     Angular y VueJs, que facilitan y agilizan increíblemente el proceso de desarrollo.
@@ -113,7 +112,7 @@ absoluto del lenguaje.
         los posibles lenguajes utilizables para clientes Webs}
         \label{tab:LenguajesCliente}
         \begin{center}
-            Distintas opciones manejadas al momento de desarrollar los clientes Webs.\\
+            Distintas opciones manejadas al momento de desarrollar los clientes Web.\\
 
             \vspace{0.3cm}
             \begin{tabular}{|c|c|c|c|}
@@ -127,7 +126,7 @@ absoluto del lenguaje.
 
 
 
-    \subsubsection{Modelo estadísticos}
+    \subsubsection{Modelo estadístico}
 
     \subsubsection{Análisis en frecuencia}
 

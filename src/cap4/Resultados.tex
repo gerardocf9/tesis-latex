@@ -2,14 +2,14 @@
 \subsection{COMPROBACIÓN DE LOS RESULTADOS}
 
 Como se ha mencionado anteriormente, el trabajo consta de una gran cantidad de
-puntos que han sido trabajado de forma modular, esto ha sido con la finalidad
+puntos que han sido trabajados de forma modular con la finalidad
 de maximizar la escalabilidad y de facilitar al máximo posible el realizar pruebas
-a los módulos y a los acoples realizados. Al momento de comprobar los realizados
-se deben de tomar en consideración 2 factores, los resultados técnicos, es decir
-funcionalidades de la aplicación, lo cual como se menciono anteriormente no se
-automatizaron por factores tiempo y cantidad de pruebas, y los resultados finales,
+a los módulos y a los acoples realizados. La comprobación debe de
+ tomar en consideración 2 factores, los resultados técnicos, es decir
+funcionalidades de la aplicación las cuales, como se mencionó anteriormente, no se
+automatizaron por factores tiempo y cantidad de pruebas y, los resultados finales,
 es decir la capacidad de la herramienta de facilitar el trabajo, mediante
-las paginas generales, especificas y exhaustivas.
+las páginas generales, específicas y exhaustivas.
 
 \subsubsection{Comprobación de resultados a nivel técnico}
 
@@ -20,24 +20,25 @@ agregar el error o falla catastrófica a un archivo (log) que sirve para seguir 
 comportamiento del servidor.
 
 En el caso del servidor de sensorica, estos errores son manejados de forma manual
-y se utiliza la característica de Go ``panic" para detener la ejecución, mas
-específicamente un paquete de la librería estándar ``log" con la función ``log.Faltalf",
-por otro lado, el Framework de Django se encarga de esto, si el error es manejable,
-algún problema en una petición o algo no catastrófico, arroja una excepción y un
+y se utiliza la característica de Go \textbf{``panic"} para detener la ejecución, mas
+específicamente un paquete de la librería estándar \textbf{``log"} con la función
+\textbf{``log.Faltalf"}.
+Por otro lado, el Framework de Django se encarga de esto, si el error es manejable;
+algún problema en una petición, o algo no catastrófico, arroja una excepción y un
 error 500, fallo interno en el servidor, y finaliza la petición; en el caso de no
 poder ser recuperado finaliza el proceso.
 
-La finalización del servidor es una practica relativamente común ya que permite
+La finalización del servidor es una práctica relativamente común ya que permite
 el reinicio del proceso, esto se hace mediante una configuración interna al
-momento de hacer deploy en el servidor, como se observa en la figura \ref{img:ProcesosLinux}
-es la configuración recomendada por DigitalOcean para un reinicio, en caso de falla,
-continuo a intervalos de 5 segundos.
+momento de hacer \textbf{deploy} en el servidor, como se observa en la figura \ref{img:ProcesosLinux}
+es la configuración recomendada por DigitalOcean para un reinicio
+continuo, en caso de falla, a intervalos de 5 segundos.
 
 	\begin{figure}[htb]
 		\centering
         \caption{Configuración de proceso en Linux para reinicio automático de procesos}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/reinicio_servidor.png}
-        Configuración recomendada de \Cite{ConfiguracionProcesos}.
+        \textcite{ConfiguracionProcesos}.
         \label{img:ProcesosLinux}
 	\end{figure}
 
@@ -48,14 +49,14 @@ de seguridad y problemas de datos. es decir:
     \item Prueba de no unicidad de la información, al haber múltiples
         clientes de sensorica enviando información sobre el mismo motor.
 
-        Para esta posibilidad, se opto por una configuración que rechaza el
+        Para esta posibilidad, se optó por una configuración que rechaza el
         segundo intento de conexión, es decir, se rechaza cualquier intento de
         conexión de motor con una conexión establecida previamente (que todavía
         exista), y su implementación se observa en la figura \ref{img:NoUnicidad}.
 %
     \item Prueba de falla en la conexión de la base de datos.
 
-        Cada servidor toma esta falla de una forma especifica, en el caso del
+        Cada servidor toma esta falla de una forma específica, en el caso del
         servidor de sensorica, esta es considerada una falla catastrófica, por
         lo que se finaliza la ejecución, como se observa en la figura
         \ref{img:NoBBDDSensorica}.
@@ -69,16 +70,16 @@ de seguridad y problemas de datos. es decir:
     \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
         establecida.
 
-        Este caso corresponde al servidor de sensorica, al no haber una conexión
+        Este caso corresponde al servidor de sensorica; al no haber una conexión
         con el sensor establecida no se pueden tomar las mediciones para una vista
-        exhaustiva, estas deben ser a tiempo real, por lo tanto se responde
-        con una error en la respuesta como se observa en \ref{img:ErrorExhaustiva}.
+        exhaustiva, estas deben ser en tiempo real, por lo tanto se responde
+        con una error en la respuesta como se observa en la imagen \ref{img:ErrorExhaustiva}.
 %
     \item Prueba de petición no completada en el cliente Web,
         información invalida (motor no existente) o error del servidor Web.
 
-        En este caso el cliente muestra un error por pantalla, como ventana
-        emergente, y redirige a la vista general, se observa en las figuras y  .
+        En este caso se muestra al cliente un error por pantalla, como ventana
+        emergente, y se redirige a la vista general como se observa en la figura \ref{imga:SolicitudNoCompletada}  .
 \end{itemize}
 
 
@@ -109,13 +110,19 @@ de seguridad y problemas de datos. es decir:
 
     \begin{figure}[htb]
 		\centering
-        \caption{Prueba de error, petición exhaustiva invalida}
+        \caption{Prueba de error, petición no completada en el cliente Web}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
-        Solicitud desde el navegador, para facilitar vista, al servidor
+        Solicitud  desde el navegador, para facilitar vista, al servidor
         sin motores conectados.
         \label{img:ErrorExhaustiva}
 	\end{figure}
 
+    \begin{figure}[htb]
+		\centering
+        \caption{Prueba de error, petición exhaustiva inválida}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
+        Solicitud no completada en el cliente Web. \label{imga:SolicitudNoCompletada}
+	\end{figure}
 
 \subsubsection{Comprobación de resultados finales}
 \begin{itemize}

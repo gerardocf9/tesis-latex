@@ -19,9 +19,9 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
         facilidades
         de diseño y es una ventana que permite ingresar datos equivalentes
         a las características del motor y conectar con el servidor (además de
-        especificar en que dirección esta el motor), y posee una ventana de
+        especificar en qué dirección está el motor), y posee una ventana de
         \textbf{log}  en la cual se comunica al usuario acciones como la conexión exitosa y
-        el envió de información al servidor. esta puede ser vista
+        el envío de información al servidor. esta puede ser vista
         en la figura \ref{img:fyne} y como se observa, permite especificar:
         \begin{enumerate}
             \item Dirección Ip: Lugar a conectar.
@@ -66,7 +66,7 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 
             \item \textbf{listen}, Es un proceso que se encarga de verificar si
                 hay una
-                solicitud de información, ya sea del subproceso timer (como un
+                solicitud de información, ya sea del subproceso \textbf{imer} (como un
                 mensaje normal) o del servidor para solicitar información de la
                 vista exhaustiva (la cantidad de información enviada es sustancialmente
                 diferente) o para la terminación del proceso e informa a \textbf{handler}
@@ -94,8 +94,8 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 \subsubsection{Cliente Web}
 
 Este cliente es el mas conocido, ya que es el que permite que se muestre la
-información en el navegador Web. Esta constituido por las vistas general,
-específica y exhaustiva, cada una de ellas representa una pagina Web separada y
+información en el navegador Web. Está constituido por las vistas general,
+específica y exhaustiva, cada una de ellas representa una página Web separada y
 todas fueron construidas utilizando el Framework de JavaScript \textbf{React}
 y con HTML específicamente un Template de Django y CSS para dar estructura
 básica y estilo respectivamente.
@@ -105,10 +105,10 @@ estilo multi páginas con renderizado de lado servidor (específicamente del
 servidor Web) por la necesidad de los cálculos avanzados y gráficas que
 se deben realizar, además de los llamados importantes e interconexiones con la
 API del servidor de Go y de las BBDD. Esto difiere con el paradigma tradicional de
-React (monopagina de renderizado en servidor) pero permite optimizar recursos y
+React (monopágina de renderizado en servidor) pero permite optimizar recursos y
 facilita expansiones a futuro.
 
-Su estructura viene dada por las 3 paginas o sub aplicaciones que permiten:
+Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
 
 \begin{itemize}
     \item General: conocer el estado general de un grupo de motores, indicando

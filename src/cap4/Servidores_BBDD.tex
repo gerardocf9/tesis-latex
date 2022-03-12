@@ -83,7 +83,7 @@
     un futuro.
     Asimismo, se utiliza
     ``float64"\ para representar  a un número racional representado como punto
-    flotante de 64 bits, Esta es una unidad común porque permite maximizar la
+    flotante de 64 bits, esta es una unidad común porque permite maximizar la
     precisión en la medida.
 
     \begin{table}[ht]
@@ -129,8 +129,8 @@
 	\end{figure}
 
 \subsection{LLENADO DE LA BASE DE DATOS}
-    Para el llenado con la información se desarrollo un Script en Golang,
-    llamado ``LlenarBBDD"\ , este
+    Para el llenado con la información se desarrolló un Script en Golang,
+    llamado ``LlenarBBDD"\ , que
     se encarga de hacer las peticiones al modelo y a la base de datos de forma
     automática, realiza 120 peticiones, equivalentes a 120 días, con un aumento
     progresivo del nivel de daño cada 40 días-peticiones. Al ser un Script funciona
@@ -198,12 +198,11 @@
 
     Este servidor fue realizado en Go por los motivos expuestos anteriormente y
     cumple la función de micro-servicio, se encarga de la recolección y comunicación
-    con la red de sensorica, la cual es implementada por el cliente de la simulación,
+    con la red de sensorica, la cual es implementada por el cliente de la simulación
     y el modelo estadístico, así mismo envía la información relacionada con la
     vista exhaustiva (para esta se requieren mediciones a tiempo real y por esto
-    este servidor tiene una conexión full dúplex con los sensores).
-
-    Como se observa en la tabla \ref{tab:ServerSensorica}
+    este servidor tiene una conexión full dúplex con los sensores);
+    como se observa en la tabla \ref{tab:ServerSensorica}
 
     Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
     que sera montado (Host) el sitio, en caso de un ambiente local, por
@@ -316,7 +315,7 @@
     en la tabla \ref{tab:serWeb}
 
     Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
-    que sera montado (Host) el sitio, en caso de un ambiente local, por
+    que será montado (Host) el sitio, en caso de un ambiente local, por
     ejemplo, es ``localhost:8000" (este es el usado para las pruebas,
     cuando se cambia a producción se modifica por el del Host contratado)
 
