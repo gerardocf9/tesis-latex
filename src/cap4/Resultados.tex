@@ -40,6 +40,7 @@ continuo, en caso de falla, a intervalos de 5 segundos.
 		\centering
         \caption{Configuración de proceso en Linux para reinicio automático de procesos}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/reinicio_servidor.png}
+
         \textcite{ConfiguracionProcesos}.
         \label{img:ProcesosLinux}
 	\end{figure}
@@ -60,6 +61,7 @@ de seguridad y problemas de datos. es decir:
 		\centering
         \caption{Prueba de error, no unicidad de información}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/NoUnicidadSensorica.png}
+
         logs: Izquierda cliente conectado, Centro cliente Rechazado, Derecha.
         Servidor.
         \label{img:NoUnicidad}
@@ -82,6 +84,7 @@ de seguridad y problemas de datos. es decir:
 		\centering
         \caption{Prueba de error, no BBDD Sensorica}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDSensorica.png}
+
         El sistema no inicia por no poder conectarse a la BBDD.
         \label{img:NoBBDDSensorica}
 	\end{figure}
@@ -90,6 +93,7 @@ de seguridad y problemas de datos. es decir:
 		\centering
         \caption{Prueba de error, no BBDD Web}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDWeb.png}
+
         El sistema continua ejecución y resuelve el error con un error 500.
         \label{img:NoBBDDWeb}
 	\end{figure}
@@ -102,14 +106,7 @@ de seguridad y problemas de datos. es decir:
         exhaustiva, estas deben ser en tiempo real, por lo tanto se responde
         con una error en la respuesta como se observa en la imagen \ref{img:ErrorExhaustiva}.
 %
-    \begin{figure}[H]
-		\centering
-        \caption{Prueba de error, petición no completada en el cliente Web}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
-        Solicitud  desde el navegador, para facilitar vista, al servidor
-        sin motores conectados.
-        \label{img:ErrorExhaustiva}
-	\end{figure}
+
 %
     \item Prueba de petición no completada en el cliente Web,
         información invalida (motor no existente) o error del servidor Web.
@@ -120,8 +117,19 @@ de seguridad y problemas de datos. es decir:
 
     \begin{figure}[H]
 		\centering
+        \caption{Prueba de error, petición no completada en el cliente Web}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
+
+        Solicitud  desde el navegador, para facilitar vista, al servidor
+        sin motores conectados.
+        \label{img:ErrorExhaustiva}
+	\end{figure}
+
+    \begin{figure}[H]
+		\centering
         \caption{Prueba de error, petición exhaustiva inválida}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
+
         Solicitud no completada en el cliente Web. \label{img:SolicitudNoCompletada}
 	\end{figure}
 \end{itemize}
