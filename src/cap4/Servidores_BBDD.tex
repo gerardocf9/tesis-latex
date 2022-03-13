@@ -26,17 +26,17 @@
                 \hline
                 Elemento        & tipo de dato & Descripción \\\hline\hline
                 %
-                $\_$id      & []bytes  & Elemento utilizado por MongoDB para
+                $\_$id      & [ ]bytes  & Elemento utilizado por MongoDB para
                 identificar y facilitar la búsqueda de los documentos\\\hline
                 %
                 IdMotor         & string   & Identificador único del motor.\\\hline
                 %
                 Características & string   & Descripción e información del motor.\\\hline
                 %
-                IdSensor        & []uint64 & lista de los identificadores-sensores
+                IdSensor        & [ ]uint64 & lista de los identificadores-sensores
                 que tiene conectado este motor.\\\hline
                 %
-                Data            & []DataSensor & lista en forma de sub colección
+                Data            & [ ]DataSensor & lista en forma de sub colección
                 que contiene los resultados del sensor.\\\hline
                 %
                 Time            & time  & Estampa de tiempo, fecha y hora de la muestra.\\\hline
@@ -50,6 +50,9 @@
                 VelocidadZ & float64 & Muestra de velocidad en el eje Z.\\
                 \hline
             \end{tabular}
+
+            \vspace{0.5cm}
+            El simbolo ``[  ]"\  indica que es un arreglo de ese tipo de datos.
         \end{center}
     \end{table}
 
@@ -65,13 +68,16 @@
                 \hline
                 Elemento & tipo     & Descripción \\\hline\hline
                 %
-                \_id      & []bytes  & Elemento utilizado por MongoDB para
+                \_id      & [ ]bytes  & Elemento utilizado por MongoDB para
                 identificar y facilitar la búsqueda de los documentos\\\hline
                 %
-                IdMotor  & []string & Lista que contiene todos los identificadores
+                IdMotor  & [ ]string & Lista que contiene todos los identificadores
                 únicos de los motores. Facilita búsqueda e implementación de los
                 clientes Webs\\\hline
             \end{tabular}
+
+            \vspace{0.5cm}
+            El simbolo ``[ ]"\ indica que es un arreglo de ese tipo de datos.
         \end{center}
     \end{table}
 
