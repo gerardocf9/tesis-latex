@@ -95,7 +95,7 @@
             \vspace{0.3cm}
             \begin{tabular}{|c|c|c|c|}
                 \hline
-                Tipo de sensor & Reservado& Ubicación   & Serial \\\hline
+                Tipo de sensor & Reservado& Ubicación   & Serial \\\hline\hline
                 $ B_{15} $ & $ B_{14}B_{13} $ &$ B_{12} $  &  $ B_{11}\cdots B_{0} $\\
                 \hline
             \end{tabular}
@@ -149,6 +149,7 @@
             \begin{tabular}{|c|p{7cm}|p{5cm}|}
                 \hline
                 Bandera & Descripción & Requerimiento \\\hline
+                \hline
                 -i & Para especificar el Id del Motor. & Requerida.\\\hline
                 -d & Para indicar el nivel de daño  & Opcional, por defecto 1.\\\hline
                 -c & Indicar las características e información del motor & Opcional, por defecto ``Estado del motor".\\\hline
@@ -385,23 +386,23 @@
     específica y exhaustiva a su vez toman un parámetro GET llamado IdMotor el
     cual indica el motor que va a ser visualizado.
 
-    DireccionIP/get_data_motores retorna las últimas mediciones de todos los
+    DireccionIP/get\_data\_motores retorna las últimas mediciones de todos los
     motores almacenados en la base de datos en formato JSON, para esto realiza
     una petición directamente a la base de datos, coloca la respuesta en
     formato correcto y la devuelve al cliente.
 
-    DireccionIP/get_list_motores retorna todos los motores guardados en la base
+    DireccionIP/get\_list\_motores retorna todos los motores guardados en la base
     de datos para esto solicita el campo en la base de datos que contiene la
     lista de todos los motores almacenados, la coloca en el formato correcto y
     la devuelve al cliente.
 
-    DireccionIP/get_especifica requiere de un parámetro GET llamado IdMotor y
+    DireccionIP/get\_especifica requiere de un parámetro GET llamado IdMotor y
     lo utiliza para obtener todas las mediciones correspondientes a ese motor,
     después de obtenida las mediciones se realizan los histogramas se guardan
     como imágenes y se devuelve los urls de los mismas junto a todas las
     mediciones.
 
-    DireccionIP/get_exhaustiva su funcionamiento es similar al get_especifica
+    DireccionIP/get\_exhaustiva su funcionamiento es similar al get\_especifica
     pero a su vez realiza al servidor de Go las mediciones de la vista
     exhaustiva, saca la transformada rápida de fourier y retorna un gráfico de
     la magnitud de la misma junto a los datos y los histogramas de igual forma
