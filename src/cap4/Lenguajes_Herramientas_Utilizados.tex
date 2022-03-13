@@ -127,7 +127,82 @@ y pre-existentes.
 
 
     \subsubsection{Modelo estadístico}
+    La elección de herramientas para el modelo estadístico se realizó en dos
+    etapas, primero fue necesario escoger qué herramientas iban a ser usadas
+    para el análisis exploratorio y después fue necesario escoger en cuales iba
+    a ser implementado.
+
+    Para el análisis de datos hoy en día se cuenta con una amplia gama de
+    herramientas pero por cuestiones de costo y versatilidad el enfoque fue
+    realizado a lenguajes de programación usados en análisis de datos. En
+    específico se compararon Julia, Python y R de acuerdo a su velocidad de
+    implementación, conocimiento previo, versatilidad y madurez del lenguaje.
+
+    \begin{table}[ht]
+        \caption[Comparativa de posibles lenguajes para el análisis exploratorio]{Comparativa de posibles lenguajes para el análisis exploratorio}
+        \label{tab:LenguajesServidor}
+        \begin{center}
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Característica              & Python & R & Julia\\\hline
+                velocidad de implementación & 8     & 9     & 5 \\\hline
+                Conocimiento previo         & 9     & 7     & 2 \\\hline
+                Versatibilidad              & 9     & 3     & 7 \\\hline
+                Madurez del lenguaje        & 10    & 8     & 4 \\\hline
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
+
+    Python fue un claro ganador, R era una buena segunda opción pero su mayor
+    limitante es el hecho que es un lenguaje de casi uso exclusivo para
+    estadística y la versatilidad de Python  permite extender el modelo en un
+    futuro.
+
+    Finalmente para la implementación del modelo se tenían dos opciones,
+    hacerlo directamente en Go o utilizar tambien Python y se optó por la
+    segunda principalmente porque la mayoría de los modelos ya están
+    implementados en Scipy mientras que Go no dispone de muchas librerías
+    enfocadas en la estadística y el código se tenía que escribir de forma
+    manual. Para interconectar estos dos componentes se decidió utilizar una
+    API Web con FastAPI porque es por mucho la forma más rápida de implementar
+    una API Web en Python.
 
     \subsubsection{Análisis en frecuencia}
+    En el caso del análisis de frecuencia se requiere una herramienta que
+    permita tanto el cálculo de la transformada rápida de Fourier como su
+    visualización, siendo el segundo la mayor limitante a la hora de escoger
+    las herramientas porque la mayoría de los lenguajes poseen alguna librería
+    para el cálculo de la transformada de Fourier pero el software de
+    visualización es más escaso. Surgieron tres opciones naturales Python,
+    Octave y Julia los cuales fueron comparados de acuerdo a su facilidad de
+    conexión con el resto de componentes, modificabilidad de las gráficas,
+    velocidad de ejecución y madurez del lenguaje.
 
+    \begin{table}[ht]
+        \caption[Comparativa de posibles lenguajes para el análisis de frecuencia]{Comparativa de posibles lenguajes para el análisis de frecuencia}
+        \label{tab:LenguajesServidor}
+        \begin{center}
+            \vspace{0.3cm}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                Característica              & Python & Octave & Julia\\\hline
+                Facilidad de conexión       & 10    & 2     & 6 \\\hline
+                Modificabilidad graficas    & 9     & 5     & 7 \\\hline
+                Velocidad ejecución         & 7     & 6     & 9 \\\hline
+                Madurez del lenguaje        & 10    & 7     & 4 \\\hline
+                \hline
+            \end{tabular}
+        \end{center}
+    \end{table}
 
+    En el caso del análisis de frecuencia se requiere una herramienta que
+    permita tanto el cálculo de la transformada rápida de Fourier como su
+    visualización, siendo el segundo la mayor limitante a la hora de escoger
+    las herramientas porque la mayoría de los lenguajes poseen alguna librería
+    para el cálculo de la transformada de Fourier pero el software de
+    visualización es más escaso. Surgieron tres opciones naturales Python,
+    Octave y Julia los cuales fueron comparados de acuerdo a su facilidad de
+    conexión con el resto de componentes, modificabilidad de las gráficas,
+    velocidad de ejecución y madurez del lenguaje.
