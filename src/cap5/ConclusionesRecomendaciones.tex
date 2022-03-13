@@ -1,0 +1,62 @@
+\thispagestyle{empty}
+
+\section{CONCLUSIONES Y RECOMENDACIONES}
+Tras la exposición de los resultados plasmados en el Capítulo IV, se pueden
+plantear las siguientes conclusiones:
+
+\begin{itemize}
+    \item La investigación realizada ha sido de tipo aplicada y su naturaleza
+        la clasifica como proyecto especial. Ésta ha consisitido en la creación
+        de una herramienta computacional para el análisis de la vibracion en motores
+        eléctricos mediante la implementación de dos servidores, uno de estilo
+        microservicio, y un cliente Web, la cual puede ser alimentada mediante
+        simulaciones, como es el caso del modelo estadistico y el sistema de
+        sensorica, o mediante mediciones a tiempo real de cualquier sistema
+        que respete las estructuras de datos empleadas.
+        %
+    \item Se deciden implementar multiples servicios, cada uno escrito con un
+        lenguaje de programacion que satisface los requerimientos de velocidad,
+        paralelismo y robustez necesarios para satisfacer los requerimientos de
+        uso, ademas de una facil adecuacion y modificacion a las necesidades,
+        de multiples clientes.
+        %
+    \item Existe una gran cantidad de lenguajes de programacion en la actualidad
+        diseñados para satisfacer una gran cantidad de tareas en multiples campos,
+        siendo Golang y Python herramientas de gran poder y facil implementacion
+        al momento de realizar servidores y API, ademas de la creacion de scripts
+        para la automatizacion de procesos; de igual forma Python es increiblemente
+        polifacetico y cuenta con una gran cantidad de librerias y Frameworks
+        especialmente en el area de la ciencia de datos y estadistica; sin embargo
+        en terminos de programacion Web a nivel cliente, es casi la unica
+        posibilidad el utilizar HTML, CSS, JavaScript, presentando el ultimo la
+        mayor variedad de Frameworks para agilizar el trabajo, siendo React uno
+        de los mas grandes en la industria.
+        %
+    \item Se escoge implementar dos modelos estadisticos, uno para entregar el
+        equivalente a mediciones diarias y otro para mediciones continuas a tiempo
+        real necesarias para hacer un analisis en frecuencia; de esta forma se
+        utilizaron distribuciones de probabilidad para representar 3 variables de interes,
+        velocidad vertical, horizontal y aceleracion, expresadas de forma independiente
+        como magnitud y angulo de la velocidad y aceleracion con las dos primeras
+        siendo la representacion en coordenadas polares; las distribuciones que
+        satisfacen de mejor manera estas variables fueron la distribucion Burr
+        de tipo III para la magnitud de velocidad y aceleración, y la distribucion
+        normal para el angulo. De esta forma, se obtienen las mediciones diarias
+        y con un modelo de señal no estadistico ajustado a la amplitud dada por
+        el modelo de la aceleración y una gaussiana para simular ruido, se obtienen
+        las mediciones continuas.
+        %
+    \item Para facilitar la accesibilidad al modelo se implementó una API Web con
+        el framework FastAPI y dos endpoints que entregan la información especificada
+        en el Url via parametros de configuracion, nivel de daño (un numero del 0 al 10)
+        y el identificador unico del motor que tiene asociado.
+        %
+    \item La automatización de procesos es fundamental para agilizar las tareas y
+        la forma mas sencilla y optima de hacerlo es mediante un script; para
+        llenar la base de datos se utilizo uno escrito en Golang el cual acepta
+        configuracion al momento de la ejecucion via parametros, siendo obligatorios
+        la especificación de los identificadores unicos correspondientes al motor
+        y los primeros 2 sensores.
+        %
+
+\end{itemize}
