@@ -378,7 +378,35 @@
 
     \end{table}
 
-    Cada Endpoint realiza las siguientes tareas
+    Los Endpoint DireccionIP/, DireccionIP/especifica y DireccionIP/exhaustiva
+    están encargados de retornar el código HTML correspondiente a cada una de
+    las vistas  para esto utilizan el sistema de Templates de Django el cual
+    renderiza el código HTML desde el servidor. Los Endpoint para la vista
+    específica y exhaustiva a su vez toman un parámetro GET llamado IdMotor el
+    cual indica el motor que va a ser visualizado.
+
+    DireccionIP/get_data_motores retorna las últimas mediciones de todos los
+    motores almacenados en la base de datos en formato JSON, para esto realiza
+    una petición directamente a la base de datos, coloca la respuesta en
+    formato correcto y la devuelve al cliente.
+
+    DireccionIP/get_list_motores retorna todos los motores guardados en la base
+    de datos para esto solicita el campo en la base de datos que contiene la
+    lista de todos los motores almacenados, la coloca en el formato correcto y
+    la devuelve al cliente.
+
+    DireccionIP/get_especifica requiere de un parámetro GET llamado IdMotor y
+    lo utiliza para obtener todas las mediciones correspondientes a ese motor,
+    después de obtenida las mediciones se realizan los histogramas se guardan
+    como imágenes y se devuelve los urls de los mismas junto a todas las
+    mediciones.
+
+    DireccionIP/get_exhaustiva su funcionamiento es similar al get_especifica
+    pero a su vez realiza al servidor de Go las mediciones de la vista
+    exhaustiva, saca la transformada rápida de fourier y retorna un gráfico de
+    la magnitud de la misma junto a los datos y los histogramas de igual forma
+    que la vista específica.
+
 
     El servidor corriento es simplemente una terminal ejecutando un programa,
     puede ser visto en la imagen \ref{img:serverWebRunning}.
