@@ -1,3 +1,42 @@
+\documentclass[12pt]{article}
+
+%\usepackage{src/cap/fontspec}
+%\setmainfont{src/cap/Times New Roman}
+
+\usepackage{tocbibind}
+
+\usepackage[a4paper]{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=3.2cm, right=2.54cm}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[none]{hyphenat}
+
+\hyphenation{mi-cro-elec-tro-me-cá-ni-cos}
+\hyphenation{ace-le-ró-me-tros}
+\hyphenation{ca-pa-ci-ti-vos}
+
+\usepackage{float}
+\usepackage{graphicx} % graficos
+\graphicspath{ {./images/} }
+\usepackage{setspace}%interlineado agrega:
+% \doublespacing \onehalfspace \singlespace \spacing{src/cap/x}
+\spacing{1.5}
+\setlength{\parindent}{0pt}
+\pagestyle{headings}
+
+%\usepackage {src/cap/ natbib }
+\setlength{\parskip}{12pt}
+
+\usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = apa]{biblatex}
+\bibliography{referencias}
+
+\usepackage{csquotes}
+\usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
+
+
+\begin{document}
 \section{Manual de Uso e Instalación}
 
 La herramienta computacional para el análisis de vibración en motores eléctricos
@@ -174,3 +213,4 @@ la figura \ref{img:exhaustivaGraficaFourierManual}
 
 
 
+\end{document}
