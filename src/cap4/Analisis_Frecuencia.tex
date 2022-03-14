@@ -1,27 +1,27 @@
 
 \subsection{IMPLEMENTACIÓN DEL ANÁLISIS EN FRECUENCIA}
 
-Una de las herramientas mas importantes para tomar una decision en cuanto
-al daño del motor es el analisis en frecuencia de la vibracion, esto es porque
+Una de las herramientas mas importantes para tomar una decisión en cuanto
+al daño del motor es el análisis en frecuencia de la vibración, esto es porque
 permite obtener un mayor conocimiento del estado de los rodamientos y de cual
 puede ser la falla, en el caso de que exista alguna, que estos presentan. Para
-porder observar esta informacion, se procedio a realizar una transformacion de
+poder observar esta información, se procedió a realizar una transformación de
 dominio, mediante una FFT, para llevar las mediciones al dominio de la frecuencia
-y mediante una grafica permitir el analisis.
+y mediante una gráfica permitir el análisis.
 
-Cabe destacar que este analisis y la generacion de la grafica son parte de la
-api del analisis exhaustiva, en el servidor Web y el resultado es visualizado
+Cabe destacar que este análisis y la generación de la gráfica son parte de la
+API del análisis exhaustiva, en el servidor Web y el resultado es visualizado
 mediante el cliente Web, en el endpoint correspondiente a la vista exhaustiva.
 
-Para comenzar este proceso se debe de solicitar la informacion al servidor de
+Para comenzar este proceso se debe de solicitar la información al servidor de
 sensorica, esto se hace mediante una \textbf{peticion Web GET} al endpoint
 correspondiente (DireccionIP/exhaustive\textbf{?idMotor=identificador}), posteriormente
 se examina el \textbf{header} de la respuesta para determinar si fue exitosa
-la solicitud, si esta no lo fue, no se puede generar este estudio por lo se envia una
+la solicitud, si esta no lo fue, no se puede generar este estudio por lo se envía una
 imagen de error asociada al cliente; en caso de que si se pueda proceder, se
-obtiene la informacion, proveniente en formato JSON, y mediante la libreria
+obtiene la información, proveniente en formato JSON, y mediante la librería
 numpy se obtiene un array con las mediciones, se procede a utilizar la transformada
-\textbf{FFT} de la misma libreria, se convierte a una transformada unilateral,
-por estandard en la industria, y se grafica mediande la libreria \textbf{matplotlib}
-y se guarda en disco, para despues ser enviada como un archivo estatico por otro
+\textbf{FFT} de la misma librería, se convierte a una transformada unilateral,
+por estándar en la industria, y se gráfica mediante la librería \textbf{matplotlib}
+y se guarda en disco, para después ser enviada como un archivo estático por otro
 puerto del servidor Web.

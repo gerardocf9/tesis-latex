@@ -52,7 +52,7 @@
             \end{tabular}
 
             \vspace{0.5cm}
-            El simbolo ``[  ]"\  indica que es un arreglo de ese tipo de datos.
+            El símbolo ``[  ]"\  indica que es un arreglo de ese tipo de datos.
         \end{center}
     \end{table}
 
@@ -77,7 +77,7 @@
             \end{tabular}
 
             \vspace{0.5cm}
-            El simbolo ``[ ]"\ indica que es un arreglo de ese tipo de datos.
+            El símbolo ``[ ]"\ indica que es un arreglo de ese tipo de datos.
         \end{center}
     \end{table}
 
@@ -141,7 +141,7 @@
     automática, realiza 120 peticiones, equivalentes a 120 días, con un aumento
     progresivo del nivel de daño cada 40 días-peticiones. Al ser un Script funciona
     mediante la terminal y utiliza las banderas expuestas en la tabla
-    \ref{tab:BanderasLLenadoBBDD} para tomar la información. La utilizacion del
+    \ref{tab:BanderasLLenadoBBDD} para tomar la información. La utilización del
     mismo puede verse en \ref{img:scriptBBDD}
 
 \begin{table}[ht]
@@ -164,8 +164,8 @@
                 -s3& Especificar el Id del sensor 3 & Opcional, por defecto se omite.\\\hline
                 -s4& Especificar el Id del sensor 4  &Opcional, por defecto se omite.\\\hline
                 -r & Reiniciar la base de datos si su valor es ``true"& opcional, por defecto false.\\\hline
-                -fi& Fecha de inicio, una cantidad de dias contados hacia atras desde la fecha actual& Opcional, por defecto 90\\\hline
-                -ci& Cantidad de interaciones a ejecutarse&Opcional, por defecto, 90
+                -fi& Fecha de inicio, una cantidad de días contados hacia atrás desde la fecha actual& Opcional, por defecto 90\\\hline
+                -ci& Cantidad de interacciones a ejecutarse&Opcional, por defecto, 90
                 \\\hline
             \end{tabular}
         \end{center}
@@ -175,7 +175,7 @@
 		\centering
         \caption{Llenado de la BBDD}
         \includegraphics[width=\linewidth]{servers/scriptBBDD.png}
-        Llamados al script para llenar la BBDD.    \label{img:scriptBBDD}
+        Llamados al Script para llenar la BBDD.    \label{img:scriptBBDD}
 	\end{figure}
 
 \subsection{IMPLEMENTACIÓN DE LOS SERVIDORES}
@@ -301,14 +301,14 @@
         \item Se envía la respuesta con estado de creado y la información.
     \end{itemize}
 
-    El servidor corriento es simplemente una terminal ejecutando un programa,
+    El servidor corriendo es simplemente una terminal ejecutando un programa,
     puede ser visto en la imagen \ref{img:serverSensoricaRunning}.
 
 	\begin{figure}[htb]
 		\centering
         \caption{Servidor de sensorica}
         \includegraphics[width=\linewidth]{servers/serverSensoricaRunning.png}
-        Inicio de ejecucion del servidor de sensorica.    \label{img:serverSensoricaRunning}
+        Inicio de ejecución del servidor de sensorica.    \label{img:serverSensoricaRunning}
 	\end{figure}
 
     \subsubsection{Servidor Web}
@@ -379,50 +379,62 @@
                 ocupan las gráficas históricas y del estudio de Fourier
                 referente a ese motor.
                 \\\hline
+                DireccionIP/help&
+                Endpoint que se encarga de enviar el HTML referente al manual
+                de usuario.
+                \\\hline
             \end{tabular}
 
         \end{center}
 
     \end{table}
 
-    Los Endpoint DireccionIP/, DireccionIP/especifica y DireccionIP/exhaustiva
-    están encargados de retornar el código HTML correspondiente a cada una de
-    las vistas  para esto utilizan el sistema de Templates de Django el cual
-    renderiza el código HTML desde el servidor. Los Endpoint para la vista
-    específica y exhaustiva a su vez toman un parámetro GET llamado IdMotor el
-    cual indica el motor que va a ser visualizado.
+    Es decir, se realiza lo siguiente:
 
-    DireccionIP/get\_data\_motores retorna las últimas mediciones de todos los
-    motores almacenados en la base de datos en formato JSON, para esto realiza
-    una petición directamente a la base de datos, coloca la respuesta en
-    formato correcto y la devuelve al cliente.
+    \begin{itemize}
+        \item Los Endpoint DireccionIP/, DireccionIP/especifica y DireccionIP/exhaustiva
+            están encargados de retornar el código HTML correspondiente a cada una de
+            las vistas  para esto utilizan el sistema de Templates de \textbf{Django} el cual
+            renderiza el código HTML desde el servidor. Los Endpoint para la vista
+            específica y exhaustiva a su vez toman un parámetro GET llamado IdMotor el
+            cual indica el motor que va a ser visualizado.
+        \item DireccionIP/get\_data\_motores, es una \textbf{API}  la cual
+            retorna las últimas mediciones de todos los
+            motores almacenados en la base de datos en formato JSON, para esto realiza
+            una petición directamente a la base de datos, posteriormente
+            coloca la respuesta en el
+            formato correcto y la devuelve al cliente.
+        \item  DireccionIP/get\_list\_motores, es una \textbf{API} que
+            retorna todos los identificadores de los  motores guardados en la base
+            de datos para esto solicita el campo en la base de datos que contiene la
+            lista de todos los motores almacenados, la coloca en el formato correcto y
+            la devuelve al cliente.
+        \item DireccionIP/get\_especifica, una \textbf{API} la cual
+            requiere de un parámetro en la petición \textbf{GET} llamado IdMotor;
+            este es utilizado para obtener todas las mediciones correspondientes a ese motor,
+            después de obtenida estas, se realizan los histogramas se guardan
+            como imágenes y se devuelve los Urls que direccionan las mismas junto a todas las
+            mediciones.
+        \item DireccionIP/get\_exhaustiva, es una \textbf{API}
+            cuyo funcionamiento es similar al get\_especifica
+            pero a su vez realiza una petición al microservicio de \textbf{sensorica}
+            para obtener las mediciones de la vista
+            exhaustiva, calcula la transformada rápida de Fourier y retorna un gráfico de
+            la magnitud de esta en conjunto a los datos y los histogramas de la misma forma
+            que la \textbf{API} anterior.
 
-    DireccionIP/get\_list\_motores retorna todos los motores guardados en la base
-    de datos para esto solicita el campo en la base de datos que contiene la
-    lista de todos los motores almacenados, la coloca en el formato correcto y
-    la devuelve al cliente.
+        \item DireccionIP/help, es un endpoint básico el cual envía, mediante
+            templates de \textbf{Django} la información del manual de usuario.
+    \end{itemize}
 
-    DireccionIP/get\_especifica requiere de un parámetro GET llamado IdMotor y
-    lo utiliza para obtener todas las mediciones correspondientes a ese motor,
-    después de obtenida las mediciones se realizan los histogramas se guardan
-    como imágenes y se devuelve los urls de los mismas junto a todas las
-    mediciones.
-
-    DireccionIP/get\_exhaustiva su funcionamiento es similar al get\_especifica
-    pero a su vez realiza al servidor de Go las mediciones de la vista
-    exhaustiva, saca la transformada rápida de fourier y retorna un gráfico de
-    la magnitud de la misma junto a los datos y los histogramas de igual forma
-    que la vista específica.
-
-
-    El servidor corriento es simplemente una terminal ejecutando un programa,
+    El servidor corriendo es simplemente una terminal ejecutando un programa,
     puede ser visto en la imagen \ref{img:serverWebRunning}.
 
 	\begin{figure}[htb]
 		\centering
         \caption{Servidor Web}
         \includegraphics[width=\linewidth]{servers/serverDjangoRunning.png}
-        Inicio de ejecucion del servidor Web.    \label{img:serverWebRunning}
+        Inicio de ejecución del servidor Web.    \label{img:serverWebRunning}
 	\end{figure}
 
 
