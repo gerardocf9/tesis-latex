@@ -30,7 +30,9 @@
 \setlength{\parskip}{12pt}
 
 \usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = apa]{biblatex}
-\bibliography{referencias}
+
+
+\addbibresource{referencias.bib}
 
 \usepackage{csquotes}
 \usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
@@ -58,6 +60,7 @@
 \renewcommand{\tablename}{Tabla}
 \pagenumbering{roman}
 	\include{src/portada}
+    \include{src/contraportada}
 
 	%\newpage
 	\tableofcontents
@@ -66,11 +69,10 @@
 	\newpage
 	\listoftables
 
-
+\include{src/resumen}
 %***************************************************
 %**********  Capitulo 1  ***************************
 %***************************************************
-\begin{refsection}
 
 	\newpage
     \begingroup
@@ -88,6 +90,7 @@
 %***************************************************
 %\include{src/cap/solucion}
 
+\begin{refsegment}
 	\newpage
     \begingroup
     \let\clearpage\relax
@@ -100,6 +103,7 @@
     %Cuadros o graficas muy breve, que contenga la informacion
     %y dudas y permita recordar
 
+\end{refsegment}
 %***************************************************
 %**********  Capitulo 3  ***************************
 %***************************************************
@@ -155,14 +159,13 @@
     % No necesariamente debe de seguirse el orden del trabajo
 
 	\newpage
-	\printbibliography[title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
-\end{refsection}
+	\printbibliography[segment=1,title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
 
-    \nocite{*}
-	\printbibliography[title={\centering{BIBLIOGRAFÍA}}]
+	\printbibliography[segment=0,title={\centering{BIBLIOGRAFÍA}}]
 %***************************************************
 %**********  Anexos      ***************************
 %***************************************************
+    \include{src/anexos}
     \include{src/anexos/manualUsoInstalacion}
 
 \end{document}
