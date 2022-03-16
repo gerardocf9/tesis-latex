@@ -118,7 +118,8 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
         en código de colores (verde, amarillo, rojo) el nivel de daño que posee
         un motor. Este nivel es determinado por las muestras mas actuales de
         la información del motor y unos valores parámetros proporcionados en
-        conjunto con los datos de los cuales se elaboró el modelo estadístico.
+        conjunto con los datos de los cuales se elaboró el modelo estadístico;
+        se puede observar en la imagen \ref{img:VistaGeneral}.
 
         Cabe resaltar que estos valores son una extrapolación empírica de la
         vibración en una planta específica, es configurable y puede variar dadas
@@ -126,13 +127,38 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
         las bases utilizadas en la instalación, los soportes, entre otros factores
         \textbf{causados por ignorar las normas de instalación} afectan las medidas.
 
+\begin{center}
+    \begin{figure}[ht]
+		\centering
+        \caption{Vista General}
+        \includegraphics[width=10cm]{clients/general.png}
+        \label{img:VistaGeneral}
+	\end{figure}
+\end{center}
+
     \item Específica:  permite el estudio del estado de un motor específico,
         es enviado el parámetro que lo identifica en el Url, al servidor.
         Permite observar
         una gráfica histórica y una tabla exportable a Excel de sus características y
         evolución en el tiempo, siempre y cuando se tenga medición de ese periodo
         en la base de datos, asimismo permite solicitar la vista exhaustiva del
-        mismo motor si es requerido un nivel mayor de análisis.
+        mismo motor si es requerido un nivel mayor de análisis;
+        como se observa en la imagen \ref{img:VistaEspecifica}.
+
+\begin{center}
+    \begin{figure}[ht]
+		\centering
+        \caption{Vista Específica}
+            \begin{tabular}{m{6cm}m{6cm}}
+                \includegraphics[width=6cm]{clients/es1.png}&
+        \includegraphics[width=6cm]{clients/es3.png}\\
+                \includegraphics[width=6cm]{clients/es2.png}&
+        \includegraphics[width=6cm]{clients/es4.png}
+            \end{tabular}
+        \label{img:VistaEspecifica}
+	\end{figure}
+\end{center}
+
 
     \item Exhaustiva: esta vista incluye todo lo anterior de la vista específica,
         con la diferencia de que permite regresar al menú general en vez de hacer
@@ -141,7 +167,8 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
         se tiene acceso en tiempo real con el motor, es decir,
         el servidor de \textbf{sensorica} debe tener una conexión con un sensor que se
         encargue de monitorear el respectivo motor permitiéndole así solicitar
-        la información necesaria para hacer el análisis.
+        la información necesaria para hacer el análisis;
+        se puede observar en la imagen \ref{img:VistaExhaustiva}.
 
         Cabe resaltar que esta acción es tratada como una vista aparte ya que
         tiene un peso computacional relativamente alto asociado y, por ende,
@@ -152,4 +179,19 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
 
 
 
+
+
+\begin{center}
+    \begin{figure}[ht]
+		\centering
+        \caption{Vista exhaustiva}
+            \begin{tabular}{m{6cm}m{6cm}}
+                \includegraphics[width=6cm]{clients/ex1.png}&
+        \includegraphics[width=6cm]{clients/es3.png}\\
+                \includegraphics[width=6cm]{clients/es2.png}&
+        \includegraphics[width=6cm]{clients/es4.png}\\
+            \end{tabular}
+        \label{img:VistaExhaustiva}
+	\end{figure}
+\end{center}
 

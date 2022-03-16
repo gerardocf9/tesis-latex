@@ -40,6 +40,7 @@
 
 \usepackage{enumitem}%eliminar el espaciado entre items de lista
 
+\usepackage{array}%centrar verticalmente en tablas
 %****************************************************
 %     secciones con formato especifico
 \usepackage{titlesec}
@@ -141,6 +142,47 @@
     \include{src/cap4/Clientes}
     \include{src/cap4/Resultados}
     % UI, CLIENTE WEoB
+    \begin{figure}[H]
+        \centering
+        \caption{Comprobación de lo niveles en los motores}
+        \begin{tabular}{m{6cm}m{6cm}}
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/n1.png}&
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/n1mongo.png}\\
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/n2.png}&
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/n2mongo.png}\\
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/n3.png}&
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/n3mongo.png}
+        \end{tabular}
+        \label{img:NivelesMotores}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Comprobación de las fronteras en los motores}
+        \begin{tabular}{m{6cm}m{6cm}}
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/f1.png}&
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/f1mongo.png}\\
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/f2.png}&
+            \includegraphics[width=6cm]{comprobacion_resultados/finales/f2mongo.png}
+        \end{tabular}
+        \label{img:FronterasEnLosMotores}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \caption{Comprobación graficas historicas}
+        \begin{tabular}{m{8cm}m{8cm}}
+            \includegraphics[width=8cm]{comprobacion_resultados/finales/as_graficas1.png}&
+            \includegraphics[width=8cm]{comprobacion_resultados/finales/vxs_graficas1.png}\\
+            \includegraphics[width=8cm]{comprobacion_resultados/finales/vys_graficas1.png}&
+            \includegraphics[width=8cm]{comprobacion_resultados/finales/vzs_graficas1.png}\\
+            \includegraphics[width=8cm]{comprobacion_resultados/finales/graficas1Mongo1.png}&
+            \includegraphics[width=8cm]{comprobacion_resultados/finales/graficas1Mongo2.png}\\
+            \multicolumn{2}{c}{\includegraphics[width=12cm]{comprobacion_resultados/finales/tablaGraficas1.png}}
+        \end{tabular}
+        \label{img:GraficasHistoricas}
+    \end{figure}
+
 
     \endgroup
 

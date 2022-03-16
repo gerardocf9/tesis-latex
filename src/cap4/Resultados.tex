@@ -5,7 +5,7 @@ Como se ha mencionado anteriormente, el trabajo consta de una gran cantidad de
 puntos que han sido trabajados de forma modular con la finalidad
 de maximizar la escalabilidad y de facilitar al máximo posible el realizar pruebas
 a los módulos y a los acoples realizados. La comprobación debe de
- tomar en consideración 2 factores, los resultados técnicos, es decir
+tomar en consideración 2 factores, los resultados técnicos, es decir
 funcionalidades de la aplicación las cuales, como se mencionó anteriormente, no se
 automatizaron por factores tiempo y cantidad de pruebas y, los resultados finales,
 es decir la capacidad de la herramienta de facilitar el trabajo, mediante
@@ -36,14 +36,14 @@ es la configuración recomendada por DigitalOcean para un reinicio
 continuo, en caso de falla, a intervalos de 5 segundos.
 
 
-	\begin{figure}[H]
-		\centering
-        \caption{Configuración de proceso en Linux para reinicio automático de procesos}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/reinicio_servidor.png}
+\begin{figure}[H]
+    \centering
+    \caption{Configuración de proceso en Linux para reinicio automático de procesos}
+    \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/reinicio_servidor.png}
 
-        \textcite{configuracionprocesos}.
-        \label{img:ProcesosLinux}
-	\end{figure}
+    \textcite{configuracionprocesos}.
+    \label{img:ProcesosLinux}
+\end{figure}
 
 Por esta razón, las pruebas mas considerables son interconexiones y configuraciones
 de seguridad y problemas de datos. es decir:
@@ -56,17 +56,17 @@ de seguridad y problemas de datos. es decir:
         segundo intento de conexión, es decir, se rechaza cualquier intento de
         conexión de motor con una conexión establecida previamente (que todavía
         exista), y su implementación se observa en la figura \ref{img:NoUnicidad}.
-%
-	\begin{figure}[H]
-		\centering
-        \caption{Prueba de error, no unicidad de información}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/NoUnicidadSensorica.png}
+        %
+        \begin{figure}[H]
+            \centering
+            \caption{Prueba de error, no unicidad de información}
+            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/NoUnicidadSensorica.png}
 
-        logs: Izquierda cliente conectado, Centro cliente Rechazado, Derecha.
-        Servidor.
-        \label{img:NoUnicidad}
-	\end{figure}
-%
+            logs: Izquierda cliente conectado, Centro cliente Rechazado, Derecha.
+            Servidor.
+            \label{img:NoUnicidad}
+        \end{figure}
+        %
     \item Prueba de falla en la conexión de la base de datos.
 
         Cada servidor toma esta falla de una forma específica, en el caso del
@@ -79,25 +79,25 @@ de seguridad y problemas de datos. es decir:
         con un error 500, falla interna del servidor, este error en la respuesta
         dada es manejado por el cliente y se observa en la figura
         \ref{img:NoBBDDWeb} .
-%
-    \begin{figure}[H]
-		\centering
-        \caption{Prueba de error, no BBDD Sensorica}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDSensorica.png}
+        %
+        \begin{figure}[H]
+            \centering
+            \caption{Prueba de error, no BBDD Sensorica}
+            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDSensorica.png}
 
-        El sistema no inicia por no poder conectarse a la BBDD.
-        \label{img:NoBBDDSensorica}
-	\end{figure}
+            El sistema no inicia por no poder conectarse a la BBDD.
+            \label{img:NoBBDDSensorica}
+        \end{figure}
 
-    \begin{figure}[H]
-		\centering
-        \caption{Prueba de error, no BBDD Web}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDWeb.png}
+        \begin{figure}[H]
+            \centering
+            \caption{Prueba de error, no BBDD Web}
+            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDWeb.png}
 
-        El sistema continua ejecución y resuelve el error con un error 500.
-        \label{img:NoBBDDWeb}
-	\end{figure}
-%
+            El sistema continua ejecución y resuelve el error con un error 500.
+            \label{img:NoBBDDWeb}
+        \end{figure}
+        %
     \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
         establecida.
 
@@ -105,9 +105,9 @@ de seguridad y problemas de datos. es decir:
         con el sensor establecida no se pueden tomar las mediciones para una vista
         exhaustiva, estas deben ser en tiempo real, por lo tanto se responde
         con una error en la respuesta como se observa en la imagen \ref{img:ErrorExhaustiva}.
-%
+        %
 
-%
+        %
     \item Prueba de petición no completada en el cliente Web,
         información invalida (motor no existente) o error del servidor Web.
 
@@ -115,23 +115,23 @@ de seguridad y problemas de datos. es decir:
         emergente, y se redirige a la vista general como se observa en la
         figura \ref{img:SolicitudNoCompletada}.
 
-    \begin{figure}[H]
-		\centering
-        \caption{Prueba de error, petición no completada en el cliente Web}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
+        \begin{figure}[H]
+            \centering
+            \caption{Prueba de error, petición no completada en el cliente Web}
+            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
 
-        Solicitud  desde el navegador, para facilitar vista, al servidor
-        sin motores conectados.
-        \label{img:ErrorExhaustiva}
-	\end{figure}
+            Solicitud  desde el navegador, para facilitar vista, al servidor
+            sin motores conectados.
+            \label{img:ErrorExhaustiva}
+        \end{figure}
 
-    \begin{figure}[H]
-		\centering
-        \caption{Prueba de error, petición exhaustiva inválida}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
+        \begin{figure}[H]
+            \centering
+            \caption{Prueba de error, petición exhaustiva inválida}
+            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
 
-        Solicitud no completada en el cliente Web. \label{img:SolicitudNoCompletada}
-	\end{figure}
+            Solicitud no completada en el cliente Web. \label{img:SolicitudNoCompletada}
+        \end{figure}
 \end{itemize}
 
 \subsubsection{Comprobación de resultados finales}
@@ -147,14 +147,20 @@ coherencia, dado esto se procedió de la siguiente forma:
         Para esta prueba se ingresaron 5 motores a la BBDD cuya información fue
         estrictamente configurada para cumplir los 3 estados de daño, y los
         2 valores frontera. Consiguiendo de esta forma cubrir todas las
-        posibilidades, este resultado puede verse en la figura .
+        posibilidades, este resultado puede verse en las figuras
+        \ref{img:NivelesMotores}
+        y
+        \ref{img:FronterasEnLosMotores},     donde el color
+        implica el estado y la tabla los valores que tiene el motor
+        para los calculos .
 
-    \item Corroboración de las gráficas históricas.
+
+\item Corroboración de las gráficas históricas.
 
         Esta verificación es conseguida mediante la comparación con los valores
         históricos, igual que para la prueba anterior, se ingreso un motor
         con valores de medición fáciles de seguir para corroborar la legibilidad
-        y precisión de la gráfica, como se puede observar en la figura .
+        y precisión de la gráfica, como se puede observar en la figura \ref{img:GraficasHistoricas}.
 
     \item Corroboración de la gráfica de la transformada de Fourier.
 
@@ -162,5 +168,10 @@ coherencia, dado esto se procedió de la siguiente forma:
         algoritmo de Python con una obtenida mediante el software Octave (versión
         código abierta de Matlab), los resultados pueden verse en la figura .
 \end{itemize}
+
+
+
+
+
 
 
