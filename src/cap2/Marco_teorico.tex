@@ -484,6 +484,33 @@ es difícil su acceso o la naturaleza del
 sistema es extremadamente compleja y dicha tarea es simplemente imposible.
 
 
+\subsubsection{Prueba de bondad de ajuste}
+Una prueba de bondad de ajuste es una prueba estadística que se realiza a un
+modelo estadístico con el fin de obtener un valor que permita comparar qué tan
+bien se ajusta el modelo estadístico seleccionado a los datos experimentales.
+En general las pruebas de bondad suelen cuantificar las diferencias que existen
+entre la distribución teórica y la distribución experimental. Según \textcite{statisticsMit} la
+prueba estándar de bondad de ajuste es la prueba de kolmogorov-Smirnov, siendo
+esta la más usada porque representa intuitivamente la noción de distancia entre
+dos distribuciones.
+
+\subsubsection{Prueba de Kolmogorov-Smirnov}
+La prueba de Kolmogorov-Smirnov es una prueba estadística no paramétrica que
+permite medir la distancia entre dos distribuciones, su principal uso es para
+calcular pruebas de bondad de ajuste comparando los valores teóricos con los
+valores experimentales de un modelo estadístico. Para comparar la distancia
+entre distribuciones primero se consigue la función de distribución acumulada
+(FDA) para cada una de las distribuciones a comparar, una vez obtenidas las
+funciones se calcula el valor absoluto de su diferencia y se consigue el
+supremo del conjunto (para un número finito de puntos es el mayor valor) y
+finalmente una vez obtenido este valor se puede calcular con este un valor P
+donde la hipótesis nula es que las distribuciones provienen de la misma
+distribución. En el caso de pruebas de bondad solo se posee una muestra y el
+método sufre algunas modificaciones \textcite{GregoryW} explica que la prueba de
+Kolmogorov-Smirnov de una muestra compara la distribución observada con una
+distribución empírica modelada con los datos de la muestra.
+
+
 \subsubsection{Lenguaje de programación}
 Los lenguajes de programación pueden ser definidos, según \textcite{ETAC} como
 sistemas estructurados
