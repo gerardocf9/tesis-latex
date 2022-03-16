@@ -1,4 +1,43 @@
-\subsection{ANEXO A. Manual de Uso e Instalación}
+\documentclass[12pt]{article}
+
+%\usepackage{src/cap/fontspec}
+%\setmainfont{src/cap/Times New Roman}
+
+\usepackage{tocbibind}
+
+\usepackage[a4paper]{geometry}
+\geometry{top=2.54cm, bottom=2.54cm, left=3.2cm, right=2.54cm}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[none]{hyphenat}
+
+\hyphenation{mi-cro-elec-tro-me-cá-ni-cos}
+\hyphenation{ace-le-ró-me-tros}
+\hyphenation{ca-pa-ci-ti-vos}
+
+\usepackage{float}
+\usepackage{graphicx} % graficos
+\graphicspath{ {./images/} }
+\usepackage{setspace}%interlineado agrega:
+% \doublespacing \onehalfspace \singlespace \spacing{src/cap/x}
+\spacing{1.5}
+\setlength{\parindent}{0pt}
+\pagestyle{headings}
+
+%\usepackage {src/cap/ natbib }
+\setlength{\parskip}{12pt}
+
+\usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = apa]{biblatex}
+\bibliography{referencias}
+
+\usepackage{csquotes}
+\usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
+
+
+\begin{document}
+\section{Manual de Uso e Instalación}
 
 La herramienta computacional para el análisis de vibración en motores eléctricos
 facilita el conocimiento del estado actual de los motores en una planta al mismo
@@ -39,7 +78,7 @@ y copyright.
 El resto de la pantalla se modifica de acuerdo a que pestaña (vista) se observa,
 esto es:
 
-\subsubsection{Vista General}
+\subsection{Vista General}
 Es la vista principal de la aplicación, esta diseñada para un monitoreo constante
 lo que implica que recarga la información cada cierto tiempo (por defecto 30s)
 este periodo puede ser modificado únicamente por código y si se desea cambiar debe
@@ -85,7 +124,7 @@ de igual forma permite regresar directamente al principio con el botón de
 	\end{figure}
 
 
-\subsubsection{Vista Especifica}
+\subsection{Vista Especifica}
 Esta vista permite un nivel de estudio superior ya que es solamente enfocada
 a un motor y ofrece la información histórica del mismo, esto lo hace mediante
 gráficas y una tabla exportable a Excel.
@@ -144,7 +183,7 @@ pantalla.
 	\end{figure}
 
 
-\subsubsection{Vista Exhaustiva}
+\subsection{Vista Exhaustiva}
 Esta vista incluye las mismas características de la vista especifica pero sufre
 una modificación en el encabezado resumen, como se puede apreciar en la figura
 \ref{img:exhaustivaMensajeManual}
@@ -174,3 +213,4 @@ la figura \ref{img:exhaustivaGraficaFourierManual}
 
 
 
+\end{document}

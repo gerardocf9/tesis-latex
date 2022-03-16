@@ -30,14 +30,17 @@ poder ser recuperado finaliza el proceso.
 
 La finalización del servidor es una práctica relativamente común ya que permite
 el reinicio del proceso, esto se hace mediante una configuración interna al
-momento de hacer \textbf{deploy} en el servidor, como se observa en la figura \ref{img:ProcesosLinux}
+momento de hacer \textbf{deploy} en el servidor, como se observa en la figura
+\ref{img:ProcesosLinux}
 es la configuración recomendada por DigitalOcean para un reinicio
 continuo, en caso de falla, a intervalos de 5 segundos.
 
-	\begin{figure}[htb]
+
+	\begin{figure}[H]
 		\centering
         \caption{Configuración de proceso en Linux para reinicio automático de procesos}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/reinicio_servidor.png}
+
         \textcite{ConfiguracionProcesos}.
         \label{img:ProcesosLinux}
 	\end{figure}
@@ -54,6 +57,16 @@ de seguridad y problemas de datos. es decir:
         conexión de motor con una conexión establecida previamente (que todavía
         exista), y su implementación se observa en la figura \ref{img:NoUnicidad}.
 %
+	\begin{figure}[H]
+		\centering
+        \caption{Prueba de error, no unicidad de información}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/NoUnicidadSensorica.png}
+
+        logs: Izquierda cliente conectado, Centro cliente Rechazado, Derecha.
+        Servidor.
+        \label{img:NoUnicidad}
+	\end{figure}
+%
     \item Prueba de falla en la conexión de la base de datos.
 
         Cada servidor toma esta falla de una forma específica, en el caso del
@@ -67,6 +80,24 @@ de seguridad y problemas de datos. es decir:
         dada es manejado por el cliente y se observa en la figura
         \ref{img:NoBBDDWeb} .
 %
+    \begin{figure}[H]
+		\centering
+        \caption{Prueba de error, no BBDD Sensorica}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDSensorica.png}
+
+        El sistema no inicia por no poder conectarse a la BBDD.
+        \label{img:NoBBDDSensorica}
+	\end{figure}
+
+    \begin{figure}[H]
+		\centering
+        \caption{Prueba de error, no BBDD Web}
+        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDWeb.png}
+
+        El sistema continua ejecución y resuelve el error con un error 500.
+        \label{img:NoBBDDWeb}
+	\end{figure}
+%
     \item Prueba de solicitud de vista exhaustiva a un motor sin conexión
         establecida.
 
@@ -75,61 +106,61 @@ de seguridad y problemas de datos. es decir:
         exhaustiva, estas deben ser en tiempo real, por lo tanto se responde
         con una error en la respuesta como se observa en la imagen \ref{img:ErrorExhaustiva}.
 %
+
+%
     \item Prueba de petición no completada en el cliente Web,
         información invalida (motor no existente) o error del servidor Web.
 
         En este caso se muestra al cliente un error por pantalla, como ventana
-        emergente, y se redirige a la vista general como se observa en la figura \ref{imga:SolicitudNoCompletada}  .
-\end{itemize}
+        emergente, y se redirige a la vista general como se observa en la
+        figura \ref{img:SolicitudNoCompletada}.
 
-
-	\begin{figure}[htb]
-		\centering
-        \caption{Prueba de error, no unicidad de información}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/NoUnicidadSensorica.png}
-        logs: Izquierda cliente conectado, Centro cliente Rechazado, Derecha.
-        Servidor.
-        \label{img:NoUnicidad}
-	\end{figure}
-
-    \begin{figure}[htb]
-		\centering
-        \caption{Prueba de error, no BBDD Sensorica}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDSensorica.png}
-        El sistema no inicia por no poder conectarse a la BBDD.
-        \label{img:NoBBDDSensorica}
-	\end{figure}
-
-    \begin{figure}[htb]
-		\centering
-        \caption{Prueba de error, no BBDD Web}
-        \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoBBDDWeb.png}
-        El sistema continua ejecución y resuelve el error con un error 500.
-        \label{img:NoBBDDWeb}
-	\end{figure}
-
-    \begin{figure}[htb]
+    \begin{figure}[H]
 		\centering
         \caption{Prueba de error, petición no completada en el cliente Web}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
+
         Solicitud  desde el navegador, para facilitar vista, al servidor
         sin motores conectados.
         \label{img:ErrorExhaustiva}
 	\end{figure}
 
-    \begin{figure}[htb]
+    \begin{figure}[H]
 		\centering
         \caption{Prueba de error, petición exhaustiva inválida}
         \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
-        Solicitud no completada en el cliente Web. \label{imga:SolicitudNoCompletada}
+
+        Solicitud no completada en el cliente Web. \label{img:SolicitudNoCompletada}
 	\end{figure}
+\end{itemize}
 
 \subsubsection{Comprobación de resultados finales}
+Una vez terminado todo el proyecto se debieron rectificar que los requerimientos
+solicitados, en términos de parámetros, sean cumplidos al igual que las gráficas
+resultantes, para las históricas como para el análisis en frecuencia, tengan
+coherencia, dado esto se procedió de la siguiente forma:
+
 \begin{itemize}
     \item Corroboración del análisis en nivel de daño básico (vista general)
         que se ajuste a los parámetros requeridos por el cliente.
+
+        Para esta prueba se ingresaron 5 motores a la BBDD cuya información fue
+        estrictamente configurada para cumplir los 3 estados de daño, y los
+        2 valores frontera. Consiguiendo de esta forma cubrir todas las
+        posibilidades, este resultado puede verse en la figura .
+
     \item Corroboración de las gráficas históricas.
+
+        Esta verificación es conseguida mediante la comparación con los valores
+        históricos, igual que para la prueba anterior, se ingreso un motor
+        con valores de medición fáciles de seguir para corroborar la legibilidad
+        y precisión de la gráfica, como se puede observar en la figura .
+
     \item Corroboración de la gráfica de la transformada de Fourier.
+
+        En este caso se procedió a comparar la gráfica obtenida mediante el
+        algoritmo de Python con una obtenida mediante el software Octave (versión
+        código abierta de Matlab), los resultados pueden verse en la figura .
 \end{itemize}
 
 

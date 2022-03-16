@@ -30,7 +30,9 @@
 \setlength{\parskip}{12pt}
 
 \usepackage[backend=biber, autocite=inline, labeldateparts=true, maxcitenames=1,style = apa]{biblatex}
-\bibliography{referencias}
+
+\addbibresource{bibliografias.bib}
+\addbibresource{referencias.bib}
 
 \usepackage{csquotes}
 \usepackage[bookmarks = true, colorlinks=true, linkcolor = black, citecolor = black, menucolor = black, urlcolor = black]{hyperref}
@@ -58,6 +60,7 @@
 \renewcommand{\tablename}{Tabla}
 \pagenumbering{roman}
 	\include{src/portada}
+    \include{src/contraportada}
 
 	%\newpage
 	\tableofcontents
@@ -66,11 +69,11 @@
 	\newpage
 	\listoftables
 
-
+\begin{refsegment}
+\include{src/resumen}
 %***************************************************
 %**********  Capitulo 1  ***************************
 %***************************************************
-\begin{refsection}
 
 	\newpage
     \begingroup
@@ -125,6 +128,7 @@
 %***************************************************
 	\newpage
     \begingroup
+    \let\clearpage\relax
 
     \include{src/cap4/Lenguajes_Herramientas_Utilizados}%1 por objetivo
     % LENGUAJES Y HERRAMIENTAS UTILIZADOS
@@ -153,16 +157,15 @@
     % 1min aprox dedicado a cada lamina
     % No necesariamente debe de seguirse el orden del trabajo
 
+\end{refsegment}
+
+	\newpage
+	\printbibliography[segment=1,title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
+	\printbibliography[notkeyword=b1,title={\centering{BIBLIOGRAFÍA}}]
 %***************************************************
 %**********  Anexos      ***************************
 %***************************************************
-    %Anexos
-
-	\newpage
-	\printbibliography[title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
-\end{refsection}
-
-    \nocite{*}
-	\printbibliography[title={\centering{BIBLIOGRAFÍA}}]
+    \include{src/anexos}
+    \include{src/anexos/manualUsoInstalacion}
 
 \end{document}

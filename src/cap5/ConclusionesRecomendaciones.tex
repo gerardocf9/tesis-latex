@@ -1,62 +1,187 @@
 \thispagestyle{empty}
 
 \section{CONCLUSIONES Y RECOMENDACIONES}
+\subsection{Conclusiones}
 Tras la exposición de los resultados plasmados en el Capítulo IV, se pueden
 plantear las siguientes conclusiones:
 
 \begin{itemize}
     \item La investigación realizada ha sido de tipo aplicada y su naturaleza
-        la clasifica como proyecto especial. Ésta ha consisitido en la creación
-        de una herramienta computacional para el análisis de la vibracion en motores
+        la clasifica como proyecto especial. Ésta ha consistido en la creación
+        de una herramienta computacional para el análisis de la vibración en motores
         eléctricos mediante la implementación de dos servidores, uno de estilo
         microservicio, y un cliente Web, la cual puede ser alimentada mediante
-        simulaciones, como es el caso del modelo estadistico y el sistema de
+        simulaciones, como es el caso del modelo estadísticos y el sistema de
         sensorica, o mediante mediciones a tiempo real de cualquier sistema
         que respete las estructuras de datos empleadas.
         %
-    \item Se deciden implementar multiples servicios, cada uno escrito con un
-        lenguaje de programacion que satisface los requerimientos de velocidad,
+    \item Se deciden implementar múltiples servicios, cada uno escrito con un
+        lenguaje de programación que satisface los requerimientos de velocidad,
         paralelismo y robustez necesarios para satisfacer los requerimientos de
-        uso, ademas de una facil adecuacion y modificacion a las necesidades,
-        de multiples clientes.
+        uso, además de una fácil adecuación y modificación a las necesidades,
+        de múltiples clientes.
         %
-    \item Existe una gran cantidad de lenguajes de programacion en la actualidad
-        diseñados para satisfacer una gran cantidad de tareas en multiples campos,
-        siendo Golang y Python herramientas de gran poder y facil implementacion
-        al momento de realizar servidores y API, ademas de la creacion de scripts
-        para la automatizacion de procesos; de igual forma Python es increiblemente
-        polifacetico y cuenta con una gran cantidad de librerias y Frameworks
-        especialmente en el area de la ciencia de datos y estadistica; sin embargo
-        en terminos de programacion Web a nivel cliente, es casi la unica
+    \item Existe una gran cantidad de lenguajes de programación en la actualidad
+        diseñados para satisfacer una gran cantidad de tareas en múltiples campos,
+        siendo Go y Python herramientas de gran poder y fácil implementación
+        al momento de realizar servidores y API, además de la creación de Scripts
+        para la automatización de procesos; de igual forma Python es increíblemente
+        polifacético y cuenta con una gran cantidad de librerías y Frameworks
+        especialmente en el área de la ciencia de datos y estadística; sin embargo
+        en términos de programación Web a nivel cliente, es casi la única
         posibilidad el utilizar HTML, CSS, JavaScript, presentando el ultimo la
         mayor variedad de Frameworks para agilizar el trabajo, siendo React uno
         de los mas grandes en la industria.
         %
-    \item Se escoge implementar dos modelos estadisticos, uno para entregar el
+    \item Se escoge implementar dos modelos estadísticos, uno para entregar el
         equivalente a mediciones diarias y otro para mediciones continuas a tiempo
-        real necesarias para hacer un analisis en frecuencia; de esta forma se
-        utilizaron distribuciones de probabilidad para representar 3 variables de interes,
-        velocidad vertical, horizontal y aceleracion, expresadas de forma independiente
-        como magnitud y angulo de la velocidad y aceleracion con las dos primeras
-        siendo la representacion en coordenadas polares; las distribuciones que
-        satisfacen de mejor manera estas variables fueron la distribucion Burr
-        de tipo III para la magnitud de velocidad y aceleración, y la distribucion
-        normal para el angulo. De esta forma, se obtienen las mediciones diarias
-        y con un modelo de señal no estadistico ajustado a la amplitud dada por
+        real necesarias para hacer un análisis en frecuencia; de esta forma se
+        utilizaron distribuciones de probabilidad para representar 3 variables de interés,
+        velocidad vertical, horizontal y aceleración, expresadas de forma independiente
+        como magnitud y ángulo de la velocidad y aceleración con las dos primeras
+        siendo la representación en coordenadas polares; las distribuciones que
+        satisfacen de mejor manera estas variables fueron la distribución Burr
+        de tipo III para la magnitud de velocidad y aceleración, y la distribución
+        normal para el ángulo. De esta forma, se obtienen las mediciones diarias
+        y con un modelo de señal no estadísticos ajustado a la amplitud dada por
         el modelo de la aceleración y una gaussiana para simular ruido, se obtienen
         las mediciones continuas.
         %
     \item Para facilitar la accesibilidad al modelo se implementó una API Web con
-        el framework FastAPI y dos endpoints que entregan la información especificada
-        en el Url via parametros de configuracion, nivel de daño (un numero del 0 al 10)
-        y el identificador unico del motor que tiene asociado.
+        el Frameworks FastAPI y dos endpoints que entregan la información especificada
+        en el Url vía parámetros de configuración, nivel de daño (un numero del 0 al 10)
+        y el identificador único del motor que tiene asociado.
+        %
+    \item Una vez obtenidas las salidas del modelo estadísticos, se procede con
+        la implementación del análisis en frecuencia, esto se logra mediante una
+        transformada rápida de Fourier (FFT) lo que permite llevar la señal
+        discretizada (mediciones a tiempo real) al dominio de la frecuencia
+        y posteriormente graficarla; todo esto se logra mediante las librerías
+        \textbf{numpy} y \textbf{matplotlib} de Python.
+        %
+    \item  Se utilizo una base de datos no relacional, \textbf{MongoDB}, en forma
+        de microservicio con la empresa \textbf{MongoDB Atlas} la cual permite
+        la creación de un \textbf{cluster} gratuito para finalidades de practicas
+        y estudios, capaz de almacenar una cierta cantidad de información e
+        implementar diversas bases de datos y colecciones para las mismas, siempre
+        que no se exceda este limite; esta base de datos llamada \textbf{tesis}
+        contiene 2 colecciones, una se encarga de almacenar la información de las
+        mediciones diarias y la otra de almacenar los identificadores únicos que
+        representan a los motor de los que se posee información.
         %
     \item La automatización de procesos es fundamental para agilizar las tareas y
-        la forma mas sencilla y optima de hacerlo es mediante un script; para
-        llenar la base de datos se utilizo uno escrito en Golang el cual acepta
-        configuracion al momento de la ejecucion via parametros, siendo obligatorios
-        la especificación de los identificadores unicos correspondientes al motor
+        la forma mas sencilla y óptima de hacerlo es mediante un Scripts; para
+        llenar la base de datos se utilizo uno escrito en Go el cual acepta
+        configuración al momento de la ejecución vía parámetros, siendo obligatorios
+        la especificación de los identificadores únicos correspondientes al motor
         y los primeros 2 sensores.
         %
+    \item Se crearon 2 microservicios como servidores, el primero llamado
+        \textbf{servidor de sensorica}
+        se encarga de la comunicación con los sensores, simulados mediante el
+        \textbf{cliente de sensorica} y el \textbf{modelo estadísticos}, y la
+        entrega de la información tomada a tiempo real necesaria para el análisis
+        en frecuencia. Por otro lado, el otro microservicio, \textbf{servidor Web},
+        se encarga de satisfacer las peticiones Web al enviar el HTML-CSS-JavaScript
+        necesario para mostrar la pagina, además de los archivos estáticos e
+        información requeridos por los mismos para mostrar el estado de los motores
+        dependiendo del nivel de análisis solicitado.
+        %
+    \item Para facilitar la utilización del modelo estadísticos y la conexión con
+        el microservicio de \textbf{sensorica} se implemento un \textbf{cliente de
+        sensorica} escrito en Go el cual permite especificar las características
+        inherentes al motor (Identificador del motor y de los sensores, características, etc)
+        y al daño existente en el mismo (en una escala del 1 al 10), además permite
+        especificar la dirección IP, o puerto local, al cual se conectara.
+        %
+    \item Se crearon 3 vistas para el cliente Web, estas son:
+        \begin{enumerate}
+            \item \textbf{General},
+                tiene el menor grado de estudio ya que permite conocer el estado de todos
+                los motores registrados en la BBDD, esto se consigue mediante paginación
+                en una ventana, esta muestra 12 motores por vez y permite mover el índice
+                para mostrar los siguientes 12, regresar e ir automáticamente al inicio,
+                además existe una ventana de búsqueda que permite especificar el identificador
+                único del motor del cual se quiere obtener la información.
+                %
+            \item \textbf{específica}, tiene un grado de estudio intermedio dado que
+                permite conocer la evolución histórica del motor mediante gráficas
+                y una tabla exportable a Excel; adicionalmente permite solicitar
+                la vista exhaustiva.
+                %
+            \item \textbf{exhaustiva}, tiene el mayor grado de estudio ya que
+                solicita mediciones a tiempo real de la aceleración del motor
+                y las descompone en frecuencia, permitiendo observar una gráfica
+                de las frecuencias y magnitudes de las mismas en las que vibra
+                el motor; adicionalmente muestra toda la información de la
+                vista específica.
+        \end{enumerate}
+        %
+    \item Dado el tiempo de desarrollo y la complejidad del sistema no se
+        pueden escribir \textbf{test} automatizados, sin embargo es absolutamente
+        necesario el realizar pruebas a un software para garantizar su funcionamiento,
+        por esta razón se probó manualmente el sistema en los puntos claves
+        e interconexiones, es decir, se comprobó:
+        \begin{enumerate}
+            \item La unicidad de la información.
+            \item Fallas de conexión con el microservicio de base de datos.
+            \item Solicitud de información a tiempo real a un motor sin conexión
+                establecida.
+            \item Peticiones invalidas en el servidor Web
+        \end{enumerate}
+        %
+    \item Una vez establecido el sistema, se procedió a comprobar que cumpliera
+        los requerimientos mínimos solicitados por el cliente, es decir, se
+        verificaron la clasificación en los distintos niveles de daño de acuerdo
+        a las especificaciones del cliente, se corroboró la coherencia y legibilidad
+        de las gráficas históricas y de la gráfica del análisis en frecuencia.
+        %
+\end{itemize}
+
+
+
+\subsection{Recomendaciones}
+\begin{itemize}
+    \item Debido al costo que implica no se realizaron placas de adquisición de
+        datos y tampoco se obtuvo data en tiempo real de motores eléctricos
+        para la elaboración de este trabajo, pero el mismo puede ser
+        complementado implementando dichos dispositivos.
+
+    \item Para su uso empresarial la aplicación requiere de un sistema de
+        autenticación y de seguridad para que solo los usuarios con los
+        privilegios correctos puedan acceder a la información, esto
+        probablemente requiera el uso de otra base de datos preferiblemente una
+        base de datos relacional.
+
+    \item Un sistema de notificaciones configurable por el usuario, para
+        observar si algún motor recibe una medida fuera de los valores normales
+        puede ser una gran ayuda al operador de la aplicación en el diagnóstico
+        de fallas de forma temprana.
+
+    \item Debido a la complejidad de las conexiones HTTP2 una alternativa es el
+        uso de Websockets los cuales permiten una conexión bidireccional sin la
+        complejidad del nuevo protocolo pero posee su propia serie de
+        desventajas las cuales tienen que ser evaluadas con los requerimientos
+        de la aplicación. Otra alternativa aún no disponible pero en un futuro
+        cercano posiblemente lo este, es HTTP3 la cual está siendo discutida
+        por el comité del estándar HTTP para corregir las fallas de la última
+        versión.
+
+    \item Las pruebas fueron realizadas de forma manual pero una decisión que
+        puede minimizar el tiempo de depuración y evitar las fallas en
+        producción es el uso de pruebas automatizadas pero eso implica un coste
+        en el tiempo de desarrollo dedicado al diseño de las pruebas por lo
+        tanto la elección de usarlas o no dependerá de la experiencia previa
+        del programador con este tipo de metodología de desarrollo.
+
+    \item El ecosistema de librerías y Frameworks frontend es muy cambiante por
+        lo tanto la elección de las herramientas debe ser realizada de acuerdo
+        a las tecnologías más populares al momento del desarrollo.
+
+    \item  Si bien no se llegó a utilizar Julia sigue siendo un lenguaje con
+        mucho potencial tratando de incorporar ventajas de lenguajes
+        interpretados como Python y lenguajes compilados como Fortran. Su
+        principal desventaja es lo joven que es pero a futuro puede llegar ser
+        uno de los lenguajes más dominantes en el campo científico.
 
 \end{itemize}

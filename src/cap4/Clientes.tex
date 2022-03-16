@@ -66,7 +66,7 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 
             \item \textbf{listen}, Es un proceso que se encarga de verificar si
                 hay una
-                solicitud de información, ya sea del subproceso \textbf{imer} (como un
+                solicitud de información, ya sea del subproceso \textbf{timer} (como un
                 mensaje normal) o del servidor para solicitar información de la
                 vista exhaustiva (la cantidad de información enviada es sustancialmente
                 diferente) o para la terminación del proceso e informa a \textbf{handler}
@@ -84,12 +84,15 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
         entre ellos.
 \end{itemize}
 
-    \begin{figure}[htb]
+\begin{center}
+    \begin{figure}[ht]
 		\centering
         \caption{GUI del cliente de sensorica}
-        \includegraphics[width=\linewidth]{clients/ClienteSensoricaSinConectar.png}
-        Interfaz de usuario para la conexion del cliente de sensorica. \label{img:fyne}
+        \includegraphics[width=10cm]{clients/ClienteSensoricaSinConectar.png}
+
+        Interfaz de usuario para la conexión del cliente de sensorica. \label{img:fyne}
 	\end{figure}
+\end{center}
 
 \subsubsection{Cliente Web}
 
@@ -126,7 +129,7 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
     \item Específica:  permite el estudio del estado de un motor específico,
         es enviado el parámetro que lo identifica en el Url, al servidor.
         Permite observar
-        una gráfica histórica y una tabla exportable a excel de sus características y
+        una gráfica histórica y una tabla exportable a Excel de sus características y
         evolución en el tiempo, siempre y cuando se tenga medición de ese periodo
         en la base de datos, asimismo permite solicitar la vista exhaustiva del
         mismo motor si es requerido un nivel mayor de análisis.
