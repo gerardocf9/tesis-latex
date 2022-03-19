@@ -39,25 +39,24 @@
 La presente investigación ha tenido como propósito el desarrollo de una
 herramienta computacional para el análisis de la vibración en motores
 eléctricos, haciendo uso de  datos obtenidos mediante una simulación
-digital para verificar su funcionamiento y una metodología de desarrollo
-Web enfocada a microservicios. Para lograrlo se desarrolló un modelo
-estadístico, capaz de entregar las mediciones necesarias para la
-implementación, a partir de una base de datos existente; así mismo se
-crearon 3 microservicio para cubrir las necesidades de obtención de
-información y comunicación con el modelo, almacenar la información
-(database as a service DBaaS) y mostrar la información por medio de una
-página Web; se desarrollaron estructuras de datos y se diseñó una base de
+digital y una metodología de desarrollo
+Web, enfocada a microservicios. Para lograrlo se desarrolló un modelo
+estadístico, capaz de entregar las mediciones necesarias, a partir de una base
+de datos real. Se
+crearon 3 microservicios para la de obtención, almacenamiento
+(database as a service, DBaaS) y muestreo  de la información;
+se desarrollaron estructuras de datos y una base de
 datos no relacional para el almacenamiento de la información, se automatizó
 la interconexión entre el modelo estadístico, el servidor de adquisición de
-información y el DBaaS mediante un cliente y un Script y se despliega todo
-el servicio en una página Web con 3 vistas, General, específica,
-exhaustiva, en los cuales se puede obtener una vista global del estado de
-los motores en la base de datos, un recuento de la evolución histórica del
-motor (por medio de gráficas y una tabla)  y una gráfica de un análisis en
-frecuencia correspondiente al espectro de vibración que posee el motor;
-además la página consta de un  manual de usuario para facilitar su
-utilización. De esta forma de tiene un sistema completamente modular que
-puede escalar con el tiempo y puede ser alimentado por cualquier sistema de
+información y el DBaaS, mediante un cliente, y se despliega todo
+el servicio en una página Web con 3 vistas, general, específica y
+exhaustiva, que permiten observar una vista global del estado de
+los motores, un recuento de la evolución histórica del
+motor   y una gráfica  del espectro de
+vibración que este posee;
+además, la página consta de un  manual de usuario.
+Se tiene un sistema  modular
+ escalable en el tiempo que puede ser alimentado por cualquier sistema de
 adquisición de datos que respete los formatos y estructuras definidas.
 
 Palabras claves: servidor, microservicio, modelo estadístico, vibración,

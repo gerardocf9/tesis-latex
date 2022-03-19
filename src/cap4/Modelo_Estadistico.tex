@@ -43,22 +43,22 @@ debido a que hoy en día existen herramientas computacionales para la
 estadística este proceso se puede hacer un poco más cuantitativo. Para la
 selección de los modelos de cada variable se iteró entre 84 distribuciones
 pertenecientes a Scipy y se aplicó a cada una la prueba de Kolmogorov–Smirnov,
-se filtraron aquellas distribuciones con valores P mayores a $5\%$ y, finalmente, se
+se filtraron aquellas distribuciones con valores \textbf{P} mayores a $5\%$ y, finalmente, se
 ordenaron de mayor a menor, debido a que la hipótesis nula de la
 prueba de Kolmogorov-Smirnov es que si las distribuciones poseen la misma
-distribución un valor elevado de P indica que la distribución, se aproxima al
+distribución un valor elevado de \textbf{P} indica que la distribución, se aproxima al
 valor teórico.
 
 El modelo estadístico seleccionado fue el siguiente, se tienen 3
 variables independientes: magnitud de la velocidad, ángulo de la velocidad y
 aceleración. Para la magnitud de la velocidad se seleccionó una distribución
 Burr de tipo III debido a que es una distribución netamente positiva y la
-prueba de Kolmogorov dio un valor P del $78,01\%$ siendo este el segundo valor más
+prueba de Kolmogorov dio un valor \textbf{P} del $78,01\%$ siendo este el segundo valor más
 alto y el primero que cumple la condición de ser positiva siempre, en el caso
 del ángulo múltiples distribuciones satisfacen pero como la distribución normal
-tenía un valor P del $93.79\%$ y es una distribución conocida, se seleccionó esta;
+tenía un valor \textbf{P} del $93.79\%$ y es una distribución conocida, se seleccionó esta;
 finalmente, en el caso de la aceleración la distribución de Burr tipo III poseía
-un valor P de $99.28\%$ si bien había otras distribuciones con valores ligeramente
+un valor \textbf{P} de $99.28\%$ si bien había otras distribuciones con valores ligeramente
 mayor se optó por escoger esta porque ya la magnitud de la velocidad seguía esta
 distribución y simplifica la implementación.
 

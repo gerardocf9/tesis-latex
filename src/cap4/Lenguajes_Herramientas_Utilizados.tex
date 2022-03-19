@@ -22,7 +22,7 @@ es un proceso
 basado en la búsqueda, recuperación, análisis, critica e interpretación de datos
 secundarios, es decir, los obtenidos y registrados por otros investigadores en
 fuentes documentales impresas, audiovisuales o electrónicas,
-siendo esta fundamental para la creación de clasificaciones,comparaciones, tablas
+siendo esta fundamental para la creación de clasificaciones, comparaciones, tablas
 y la implementación propiamente dicha del trabajo. Para esto se revisaron
 libros, trabajos de investigación, documentos de fuente electrónicas, cursos,
 entre otros.
@@ -46,7 +46,7 @@ y pre-existentes.
     las características variantes entre estos y la posibilidad, dada la arquitectura
     distribuida empleada de utilizar múltiples herramientas, se optó por utilizar
     el que mejor cumplía los requerimientos establecidos; como se observa en la
-    tabla \ref{tab:LenguajesServidor}, se comparan los lenguajes Golang, Python
+    Tabla \ref{tab:LenguajesServidor}, se comparan los lenguajes Golang, Python
     con Framework Django y NodeJs, esto es debido a que los servidores siguen un
     sistema Web y es mas fácil el desarrollo en estos lenguajes especializados que
     en sistemas como Apache o Nginx mas robustos pero generales.
@@ -104,7 +104,7 @@ y pre-existentes.
     sin Framework y JQuerry, que otorgan interactividad pero se complica rápidamente
     cuando la aplicación crece, hasta los 3 gigantes en la actualidad, ReactJs,
     Angular y VueJs, que facilitan y agilizan increíblemente el proceso de desarrollo.
-    Como se explica en la tabla \ref{tab:LenguajesCliente}, La razón mas importante
+    Como se explica en la Tabla \ref{tab:LenguajesCliente}, La razón mas importante
     en la toma de la decisión fueron conocimientos previos con ReactJs.
 
 
@@ -131,15 +131,15 @@ y pre-existentes.
     \subsubsection{Modelo estadístico}
     La elección de herramientas para el modelo estadístico se realizó en dos
     etapas, primero fue necesario escoger qué herramientas iban a ser usadas
-    para el análisis exploratorio y después fue necesario escoger en cuales iba
+    para el análisis exploratorio y después fue necesario escoger en cuáles iba
     a ser implementado.
 
     Para el análisis de datos hoy en día se cuenta con una amplia gama de
     herramientas pero por cuestiones de costo y versatilidad el enfoque fue
-    realizado a lenguajes de programación usados en análisis de datos. En
+    realizado en lenguajes de programación usados en análisis de datos. En
     específico se compararon Julia, Python y R de acuerdo a su velocidad de
     implementación, conocimiento previo, versatilidad y madurez del lenguaje, como
-    se puede observar en la tabla \ref{tab:LenguajesAnalisisExploratorio}
+    se puede observar en la Tabla \ref{tab:LenguajesAnalisisExploratorio}
 
     \begin{table}[ht]
         \caption[Comparativa de posibles lenguajes para el análisis exploratorio]{Comparativa de posibles lenguajes para el análisis exploratorio}
@@ -163,7 +163,7 @@ y pre-existentes.
     estadística y la versatilidad de Python  permite extender el modelo en un
     futuro.
 
-    Finalmente para la implementación del modelo se tenían dos opciones,
+    Finalmente, para la implementación del modelo se tenían dos opciones,
     hacerlo directamente en Go o utilizar también Python y se optó por la
     segunda principalmente porque la mayoría de los modelos ya están
     implementados en Scipy mientras que Go no dispone de muchas librerías
@@ -175,14 +175,14 @@ y pre-existentes.
     \subsubsection{Análisis en frecuencia}
     En el caso del análisis de frecuencia se requiere una herramienta que
     permita tanto el cálculo de la transformada rápida de Fourier como su
-    visualización, siendo el segundo la mayor limitante a la hora de escoger
+    visualización, siendo el segundo la mayor limitante al escoger
     las herramientas porque la mayoría de los lenguajes poseen alguna librería
     para el cálculo de la transformada de Fourier pero el software de
     visualización es más escaso. Surgieron tres opciones naturales Python,
     Octave y Julia los cuales fueron comparados de acuerdo a su facilidad de
     conexión con el resto de componentes, modificabilidad de las gráficas,
     velocidad de ejecución y madurez del lenguaje. Esta comparativa se puede
-    ver en la tabla \ref{tab:LenguajesAnalisisFrecuencia}
+    ver en la Tabla \ref{tab:LenguajesAnalisisFrecuencia}
 
     \begin{table}[ht]
         \caption[Comparativa de posibles lenguajes para el análisis de frecuencia]{Comparativa de posibles lenguajes para el análisis de frecuencia}
@@ -201,12 +201,4 @@ y pre-existentes.
         \end{center}
     \end{table}
 
-    En el caso del análisis de frecuencia se requiere una herramienta que
-    permita tanto el cálculo de la transformada rápida de Fourier como su
-    visualización, siendo el segundo la mayor limitante a la hora de escoger
-    las herramientas porque la mayoría de los lenguajes poseen alguna librería
-    para el cálculo de la transformada de Fourier pero el software de
-    visualización es más escaso. Surgieron tres opciones naturales Python,
-    Octave y Julia los cuales fueron comparados de acuerdo a su facilidad de
-    conexión con el resto de componentes, modificabilidad de las gráficas,
-    velocidad de ejecución y madurez del lenguaje.
+

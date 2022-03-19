@@ -5,7 +5,7 @@
     Como se ha mencionado anteriormente, se ha escogido una base de datos no
     relacional, específicamente MongoDB, dentro de ella se han desarrollado
     una base de datos llamada ``tesis"\   y dos colecciones llamadas ``MotorData"\  y
-    ``MotoresInDB"\ como se observa en \ref{img:clusterBBDD}; la primera colección se encarga de almacenar toda la información
+    ``MotoresInDB"\ como se observa en la imagen \ref{img:clusterBBDD}; la primera colección se encarga de almacenar toda la información
     enviada por los sensores (en este caso el cliente simulado con los datos
     proporcionados por el modelo estadístico) y la segunda colección contiene una
     lista con los identificadores únicos de cada motor que tenga al menos un documento
@@ -13,7 +13,8 @@
 
     Cada colección tiene una estructura fija definida para facilitar el manejo y
     la consistencia de los documentos, esta es similar a un JSON y sus campos
-    están explicados en las tablas \ref{tab:MotorDatabson} para ``MotorData"\  y\
+    están explicados en la Tabla \ref{tab:MotorDatabson} para ``MotorData"\  y
+    Tabla
     \ref{tab:MotorInDBbson}\  para ``MotorInDB"\ .
 
     \begin{table}[ht]
@@ -84,7 +85,7 @@
     Cabe relatar que ``uint64"\  hace referencia a un número natural de 64 bits
     y es usado en los identificadores de sensores ya que permite el uso de 64
     bits (16 nibbles (grupos de cuatro)) los cuales son codificados de
-    la forma expuesta en la tabla \ref{tab:CodIdSensor}, para
+    la forma expuesta en la tabla      \ref{tab:CodIdSensor}, para
     poder transmitir mas información y facilitar la escalabilidad del sistema en
     un futuro.
     Asimismo, se utiliza
@@ -142,7 +143,7 @@
     progresivo del nivel de daño cada 40 días-peticiones. Al ser un Script funciona
     mediante la terminal y utiliza las banderas expuestas en la tabla
     \ref{tab:BanderasLLenadoBBDD} para tomar la información. La utilización del
-    mismo puede verse en \ref{img:scriptBBDD}
+    mismo puede verse en la figura \ref{img:scriptBBDD}
 
 \begin{table}[ht]
         \begin{center}
@@ -197,7 +198,7 @@
     Go (también conocido como Golang) por las razones previamente expuestas, y
     a un \textbf{servidor dedicado al tratamiento Web} desarrollado con una
     combinación de Python y el Framework Django para el Backend y HTML-CSS-JavaScript
-    con el Framework de React en un paradigma multipaginas de renderizado desde
+    con el Framework de React en un paradigma multipáginas de renderizado desde
     el servidor para el frontend-cliente Web.
 
     \subsubsection{Servidor dedicado a Sensorica}
@@ -208,15 +209,15 @@
     con la red de sensorica, la cual es implementada por el cliente de la simulación
     y el modelo estadístico, así mismo envía la información relacionada con la
     vista exhaustiva (para esta se requieren mediciones a tiempo real y por esto
-    este servidor tiene una conexión full dúplex con los sensores);
+    este servidor tiene una conexión full dúplex con los sensores),
     como se observa en la tabla \ref{tab:ServerSensorica}
 
     Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
-    que sera montado (Host) el sitio, en caso de un ambiente local, por
+    que sera cargado (Host) el sitio, en caso de un ambiente local, por
     ejemplo, es ``localhost:8080" (este es el usado para las pruebas,
     cuando se cambia a producción se modifica por el del Host contratado)
 
-    \begin{table}[ht]
+    \begin{table}[H]
         \begin{center}
         \caption[Funciones Servidor Sensorica]{ Relación de punto de acceso y
         funcionalidad implementada en el servidor de sensorica}
