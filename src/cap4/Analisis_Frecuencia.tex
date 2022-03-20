@@ -6,7 +6,7 @@ al daño del motor es el análisis en frecuencia de la vibración, esto es porqu
 permite obtener un mayor conocimiento del estado de los rodamientos y de cuál
 puede ser la falla, en el caso de que exista alguna, que estos presentan. Para
 poder observar esta información, se procedió a realizar una transformación de
-dominio, mediante una \textbf{Transformada Rapida de Fourier} (FFT), para
+dominio, mediante una \textbf{Transformada Rápida de Fourier} (FFT), para
 llevar las mediciones al dominio de la frecuencia
 y mediante una gráfica permitir el análisis.
 
@@ -15,7 +15,7 @@ API del análisis exhaustivo, en el servidor Web y el resultado es visualizado
 mediante el cliente Web, en el endpoint correspondiente a la vista exhaustiva.
 
 Para comenzar este proceso se debe  solicitar la información al servidor de
-sensorica, esto se hace mediante una \textbf{peticion Web GET} al endpoint
+sensorica, esto se hace mediante una \textbf{petición Web GET} al endpoint
 correspondiente (DireccionIP/exhaustive\textbf{?idMotor=identificador}) posteriormente,
 se examina el \textbf{header} de la respuesta para determinar si fue exitosa
 la solicitud, si esta no lo fue, no se puede generar este estudio por lo que se envía una
