@@ -78,11 +78,16 @@
 \spacing{1.2}
 \include{src/resumen}
 \spacing{1.5}
+
+\titleformat{\section}
+{\normalfont\bfseries\Large}{}{1em}{\filcenter}
 \include{src/introduccion}
 %***************************************************
 %**********  Capitulo 1  ***************************
 %***************************************************
 
+\titleformat{\section}[display]
+{\normalfont\bfseries\LARGE}{\filcenter CAPÍTULO \thesection}{3pt}{\filcenter \LARGE}
 \begin{refsegment}
 	\newpage
     \begingroup
