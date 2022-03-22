@@ -78,6 +78,7 @@
 \spacing{1.2}
 \include{src/resumen}
 \spacing{1.5}
+\include{src/introduccion}
 %***************************************************
 %**********  Capitulo 1  ***************************
 %***************************************************
@@ -236,15 +237,15 @@
 %**********  Anexos      ***************************
 %***************************************************
 
-\titleformat{\section}[display]
-%{\normalfont\bfseries\LARGE}{}{3pt}{ANEXO \thesection. \filcenter \LARGE}
-{\normalfont\bfseries\LARGE}{ANEXO \thesection}{3pt}{\filcenter \LARGE}
+\titleformat{\section}
+%{\small}{}{3pt}{ANEXO \thesection. \filcenter \LARGE}
+{\normalfont\bfseries\Large}{\filcenter ANEXO \thesection.}{1em}{}
 
 \appendix
 \spacing{1.5}
 \counterwithin{figure}{section}
-
+%\setcounter{figure}{0}
 \include{src/anexos}
-    \include{src/anexos/manualUsoInstalacion}
+\include{src/anexos/manualUsoInstalacion}
 
 \end{document}
