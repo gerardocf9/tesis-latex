@@ -1,21 +1,22 @@
-\subsection{ANEXO A. Manual de Uso e Instalación}\label{anexoA}
+%\subsection{ANEXO A. Manual de Uso e Instalación}\label{anexoA}
+\section{Manual de Uso e Instalación}\label{anexoA}
 
 La herramienta computacional para el análisis de vibración en motores eléctricos
 facilita el conocimiento del estado actual de los motores en una planta al mismo
 tiempo que permite realizar estudios de evolución históricos y de vibración en
-frecuencia, permitiendo de este modo conocer en profundidad que motores podrían
-fallar y cual será el elemento, mecánico, que lo hará. Esto permite la realización
+frecuencia, permitiendo de este modo conocer en profundidad qué motores podrían
+fallar y cuál será el elemento mecánico que lo hará. Esto permite la realización
 de un mantenimiento predictivo, facilitando y mejorando la efectividad y
 coordinación de las paradas programadas en una empresa.
 
 Esta herramienta es un sistema Web por lo cual \textbf{NO REQUIERE INSTALACIÓN
 EN LA COMPUTADORA}, solo se debe acceder al sitio Web (servidor) el cual se
-utilice como \textbf{HOST} para esta.
+utilice como \textbf{HOST}.
 
-Para facilitar el acceso al usuario, esta consta de 3 paginas principales,
-general, especifica y exhaustiva, además consta de 2 elementos fijos que son el
-\textbf{Header}, mostrando la información de la planta y además permitiendo
-el regreso a la vista principal (general),  solicitar ayuda y muestra en que
+Para facilitar el acceso al usuario, la página Web consta de 3 páginas principales:
+general, específica y exhaustiva, además consta de 2 elementos fijos que son el
+\textbf{Header}, que muestra la información de la planta;  ademása permite
+el regreso a la vista principal (general),  solicitar ayuda y muestra en qué
 vista se encuentra en el momento. Esto se puede observar en la figura
 \ref{img:HeaderHerramienta}.
 
@@ -26,7 +27,8 @@ vista se encuentra en el momento. Esto se puede observar en la figura
         \label{img:HeaderHerramienta}
 	\end{figure}
 
-La otra vista constante es la del \textbf{Footer} que ofrece los derechos de autor
+La otra vista constante es la del \textbf{Footer} (figura
+\ref{img:FooterHerramienta}) que ofrece los derechos de autor
 y copyright.
 
     \begin{figure}[H]
@@ -36,11 +38,11 @@ y copyright.
         \label{img:FooterHerramienta}
 	\end{figure}
 
-El resto de la pantalla se modifica de acuerdo a que pestaña (vista) se observa,
+El resto de la pantalla se modifica de acuerdo a qué pestaña (vista) se observa,
 esto es:
 
-\subsubsection{Vista General}
-Es la vista principal de la aplicación, esta diseñada para un monitoreo constante
+\subsection{Vista General}
+Es la vista principal de la aplicación, está diseñada para un monitoreo constante
 lo que implica que recarga la información cada cierto tiempo (por defecto 30s)
 este periodo puede ser modificado únicamente por código y si se desea cambiar debe
 comunicarse con el proveedor de servicio.
@@ -72,8 +74,8 @@ el proveedor del servicio); este código es :
 
 la segunda parte de interés es el buscador y control de paginación, se observa en
 la figura \ref{img:buscadoreGeneral}, el buscador permite solicitar la vista
-especifica de cualquier motor, buscando por el Identificador del mismo;
-el control de paginación permite mostrar otros motores al "pasar" la pagina,
+específica de cualquier motor, buscado por su identificador;
+el control de paginación permite mostrar otros motores al ``pasar"\ la pagina,
 de igual forma permite regresar directamente al principio con el botón de
 \textbf{RESET}.
 
@@ -85,14 +87,14 @@ de igual forma permite regresar directamente al principio con el botón de
 	\end{figure}
 
 
-\subsubsection{Vista Especifica}
+\subsection{Vista Específica}
 Esta vista permite un nivel de estudio superior ya que es solamente enfocada
 a un motor y ofrece la información histórica del mismo, esto lo hace mediante
 gráficas y una tabla exportable a Excel.
 
 tiene 3 secciones de trascendencia:
 
-la primera es un encabezado resumen,
+La primera es un encabezado resumen,
 se puede apreciar en \ref{img:especificaHeaderManual}; en este se encuentra
 el estado del motor como en la vista general, un enlace para solicitar la
 vista Exhaustiva y un mensaje con las características del motor o
@@ -101,7 +103,7 @@ sistema.
 
     \begin{figure}[H]
 		\centering
-        \caption{Sección de mensaje en la vista especifica. }
+        \caption{Sección de mensaje en la vista específica. }
         \includegraphics[width=\linewidth]{ManualUsuario/especificaMensaje.png}
         \label{img:especificaHeaderManual}
 	\end{figure}
@@ -112,24 +114,24 @@ por ejes (x,y,z) y de la aceleración, se muestran después de la palabra
 
     \begin{figure}[H]
 		\centering
-        \caption{Sección de gráficas en la vista especifica. }
+        \caption{Sección de gráficas en la vista específica. }
         \includegraphics[width=\linewidth]{ManualUsuario/especificaGraficas.png}
         \label{img:especificaGraficasManual}
 	\end{figure}
 
 La tercera es una tabla, como se observa en \ref{img:especificaTablaManual}
 exportable a Excel, mediante el botón, con toda la información de las mediciones
-a lo largo de la historia del sistema, esta posee los campos de:
+a lo largo de la historia del sistema, posee los campos:
 \begin{itemize}
-    \item fecha, en la cual se tomo la medición.
-    \item Id Sensor, identificador único, numero de serial, que posee el sensor
+    \item fecha en la cual se tomó la medición.
+    \item Id Sensor, identificador único, número de serial, que posee el sensor
         (hardware), asociado.
-    \item Lado, ubicación en la cual se tomo la medición, lado libre, lado con
+    \item Lado, ubicación en la cual se tomó la medición, lado libre, lado con
         carga o chumaceras y acoples.
     \item Velocidad vertical, medición de la velocidad, en mm/s, medición rms
     \item Velocidad Horizontal, medición de la velocidad, en mm/s, medición rms
     \item Velocidad Axial, medición de la velocidad, en mm/s, medición rms
-    \item Aceleración, medición de la aceleración, en \textbf{g} .
+    \item Aceleración, medición de la aceleración, en \textbf{g}.
 \end{itemize}
 
 \textbf{Nota,} si la tabla no posee todos los campos en su navegador, selecciónela
@@ -138,16 +140,16 @@ pantalla.
 
     \begin{figure}[H]
 		\centering
-        \caption{Sección de la tabla en la vista especifica. }
+        \caption{Sección de la tabla en la vista específica. }
         \includegraphics[width=\linewidth]{ManualUsuario/especificaTabla.png}
         \label{img:especificaTablaManual}
 	\end{figure}
 
 
-\subsubsection{Vista Exhaustiva}
-Esta vista incluye las mismas características de la vista especifica pero sufre
+\subsection{Vista Exhaustiva}
+Esta vista incluye las mismas características de la vista específica pero sufre
 una modificación en el encabezado resumen, como se puede apreciar en la figura
-\ref{img:exhaustivaMensajeManual}
+\ref{img:exhaustivaMensajeManual},
 este redirige a la vista principal.
 
     \begin{figure}[H]
@@ -160,7 +162,7 @@ este redirige a la vista principal.
 
 
 La otra modificación es que se añade otra sección de gráfica en la cual se muestra
-la salida de un estudio en frecuencia, permitiendo este su análisis; se observa en
+la salida de un estudio en frecuencia, permitiendo su análisis; se observa en
 la figura \ref{img:exhaustivaGraficaFourierManual}
 
 

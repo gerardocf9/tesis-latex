@@ -33,7 +33,7 @@ plantear las siguientes conclusiones:
         HTML, CSS, JavaScript, son casi una obligación, sin embargo,
         JavaScript cuenta con una  variedad de Frameworks para agilizar el
         trabajo, siendo React uno
-        de los mas grandes en la industria.
+        de los mas utilizados en la industria.
         %
     \item Se implementaron dos modelos estadísticos, uno para entregar el
         equivalente a mediciones diarias y otro para mediciones continuas a tiempo
@@ -45,10 +45,10 @@ plantear las siguientes conclusiones:
 
     \item Las distribuciones que satisfacen de mejor manera las variables
         modeladas fueron la distribución Burr
-        de tipo III para la magnitud de velocidad y aceleración, y la distribución
+        de tipo III, para la magnitud de velocidad y aceleración, y la distribución
         normal para el ángulo, de esta forma se obtienen las mediciones diarias;
-        con un modelo de señal no estadísticos ajustado a la amplitud dada por
-        el modelo de la aceleración mas una gaussiana para simular ruido se obtienen
+        con un modelo de señal no estadístico ajustado a la amplitud, dada por
+        el modelo de la aceleración, mas una gaussiana, para simular ruido, se obtienen
         las mediciones continuas.
         %
     \item Se implementó una API Web, para facilitar la accesibilidad al modelo, con
@@ -70,54 +70,51 @@ plantear las siguientes conclusiones:
         representan a los motores de los que se posee información.
         %
     \item La automatización de procesos es fundamental para agilizar las tareas y
-        la forma mas sencilla y óptima de hacerlo es mediante un Script; para
-        llenar la base de datos se utilizó uno escrito en Go el cual acepta
-        configuración al momento de la ejecución vía parámetros, siendo obligatorios
+        la forma mas sencilla y eficiente de hacerlo fue mediante un Script; para
+        llenar la base de datos se utilizó uno, escrito en Go, el cual acepta
+        configuración al momento de la ejecución, vía parámetros, siendo obligatorios
         la especificación de los identificadores únicos correspondientes al motor
         y los primeros 2 sensores.
         %
     \item Se crearon 2 microservicios como servidores, el primero llamado
         \textbf{servidor de sensorica}
         se encarga de la comunicación con los sensores, el segundo es el \textbf{servidor Web},
-        y se encarga de satisfacer las peticiones Web al enviar el HTML-CSS-JavaScript
-        necesario para mostrar la página, además de los archivos estáticos e
+        y se ocupa de satisfacer las peticiones Web al enviar el HTML-CSS-JavaScript
+        necesario para mostrar la página, los archivos estáticos e
         información requeridos por los mismos para mostrar el estado de los motores
         dependiendo del nivel de análisis solicitado.
         %
-    \item Para facilitar la utilización del modelo estadísticos y la conexión con
-        el microservicio de \textbf{sensorica} se implementó un \textbf{cliente de
-        sensorica} escrito en Go el cual permite especificar las características
+    \item Facilitar la utilización del modelo estadístico y la conexión con
+        el microservicio de \textbf{sensorica} se implementó con un \textbf{cliente de
+        sensorica} escrito en Go el cual permitió especificar las características
         inherentes al motor (Identificador del motor y de los sensores, características, etc)
-        y al daño existente en el mismo (en una escala del 1 al 10), además permite
-        especificar la dirección IP, o puerto local, al cual se conectara.
+        y al daño existente en el mismo (en una escala del 1 al 10), además,
+        especificar la dirección IP, o puerto local, al cual se conectará.
         %
     \item Se crearon 3 vistas para el cliente Web, estas son:
         \begin{enumerate}
-            \item \textbf{General}, que permite conocer el estado de todos
-                los motores registrados en la BBDD, mediante paginación
-                en una ventana, se muestra 12 motores por vez y permite controlar
-                cuales son mostrados,
-                además permite especificar el identificador
+            \item \textbf{General}, con el cual se conoce el estado de todos
+                los motores registrados en la base de datos, mediante paginación
+                en una ventana se muestran 12 motores por vez, y controlar
+                cuáles son mostrados,
+                y especificar el identificador
                 único del motor del cual se quiere obtener mas información.
                 %
             \item \textbf{Específica},
-                permite conocer la evolución histórica del motor mediante gráficas
+                muestra la evolución histórica del motor mediante gráficas
                 y una tabla exportable a Excel; adicionalmente permite solicitar
                 la vista exhaustiva.
                 %
             \item \textbf{Exhaustiva},
                 solicita mediciones a tiempo real de la aceleración del motor
                 y las descompone en frecuencia, permitiendo observar una gráfica
-                de las frecuencias y magnitudes de las mismas en las que vibra
+                de las frecuencias y magnitudes  en las que vibra
                 el motor; adicionalmente muestra toda la información de la
                 vista específica.
         \end{enumerate}
         %
-    \item Dado el tiempo de desarrollo y la complejidad del sistema no se
-        pueden escribir \textbf{test} automatizados, sin embargo es absolutamente
-        necesario el realizar pruebas a un software para garantizar su funcionamiento,
-        por esta razón se probó manualmente el sistema en los puntos claves
-        e interconexiones, es decir, se comprobó:
+    \item Se probó manualmente el sistema en los puntos claves
+        e interconexiones, con lo cual  se comprobó:
         \begin{enumerate}
             \item La unicidad de la información.
             \item Fallas de conexión con el microservicio de base de datos.
@@ -126,10 +123,11 @@ plantear las siguientes conclusiones:
             \item Peticiones invalidas en el servidor Web
         \end{enumerate}
         %
-    \item Se comprobó que cumpliera
-        los requerimientos mínimos solicitados por el cliente, mediante la
-        corroboración de la clasificación en los distintos niveles de daño
-        especificados por el cliente, se corroboró la coherencia y legibilidad
+    \item Se comprobó el cumplimiento de
+        los requerimientos mínimos dque satisfacen las condiciones planteadas,
+        mediante la
+        demostración de la clasificación en los distintos niveles de daño,
+         se corroboró la coherencia y legibilidad
         de las gráficas históricas y de la gráfica del análisis en frecuencia.
         %
 \end{itemize}
@@ -139,7 +137,7 @@ plantear las siguientes conclusiones:
 \subsection{Recomendaciones}
 \begin{itemize}
     \item Utilizar un sistema de adquisición de datos, sensores o placas diseñadas
-        para la obtención de las mediciones diarias como los datos a tiempo
+        para la obtención de las mediciones diarias, por ejemplo los datos a tiempo
         real para alimentar el sistema.
 
     \item  Implementar un sistema de autenticación y seguridad para que solo
@@ -149,35 +147,25 @@ plantear las siguientes conclusiones:
         relacional, y de esta forma poder hacer uso empresarial
         de la aplicación.
 
-    \item Un sistema de notificaciones configurable por el usuario, para
-        observar si algún motor recibe una medida fuera de los valores normales
+    \item Un sistema de notificaciones configurable por el usuario,
         puede ser una gran ayuda al operador de la aplicación en el diagnóstico
-        de fallas de forma temprana.
+        de fallas de forma temprana, para observar si algún motor recibe una
+        medida fuera de los valores normales.
 
     \item Debido a la complejidad de las conexiones HTTP2 una alternativa es el
         uso de Websockets los cuales permiten una conexión bidireccional sin la
-        complejidad del nuevo protocolo pero posee su propia serie de
-        desventajas las cuales tienen que ser evaluadas con los requerimientos
-        de la aplicación. Otra alternativa aún no disponible pero en un futuro
-        cercano posiblemente lo este, es HTTP3 la cual está siendo discutida
-        por el comité del estándar HTTP para corregir las fallas de la última
+        complejidad del nuevo protocolo evaluando  los requerimientos
+        de la aplicación. Otra alternativa, en un futuro
+        cercano, posiblemente lo sea el HTTP3 la cual está siendo discutida
+        por el comité del estándar HTTP para corregir fallas de la última
         versión.
 
     \item Creación y uso de  pruebas automatizadas para minimizar el tiempo de
-        depuración y evitar las fallas en producción, cabe destacar que esto
+        depuración y evitar fallas en producción, cabe destacar que esto
         implica un coste
-        en el tiempo de desarrollo dedicado al diseño de las pruebas por lo
-        tanto la elección de usarlas o no dependerá de la experiencia previa
+        en el tiempo de desarrollo dedicado al diseño de las pruebas.
+        La elección de usarlas dependerá de la experiencia previa
         del programador con este tipo de metodología de desarrollo.
 
-    \item El ecosistema de librerías y Frameworks frontend es muy cambiante por
-        lo tanto la elección de las herramientas debe ser realizada de acuerdo
-        a las tecnologías más populares al momento del desarrollo.
-
-    \item  Si bien no se llegó a utilizar Julia sigue siendo un lenguaje con
-        mucho potencial tratando de incorporar ventajas de lenguajes
-        interpretados como Python y lenguajes compilados como Fortran. Su
-        principal desventaja es lo joven que es pero a futuro puede llegar ser
-        uno de los lenguajes más dominantes en el campo científico.
 
 \end{itemize}

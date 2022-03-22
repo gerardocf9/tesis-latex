@@ -150,15 +150,15 @@
 </head>
 <body>
 <h1 id="manual-de-uso-e-instalación">Manual de Uso e Instalación</h1>
-<p>La herramienta computacional para el análisis de vibración en motores eléctricos facilita el conocimiento del estado actual de los motores en una planta al mismo tiempo que permite realizar estudios de evolución históricos y de vibración en frecuencia, permitiendo de este modo conocer en profundidad que motores podrían fallar y cual será el elemento, mecánico, que lo hará. Esto permite la realización de un mantenimiento predictivo, facilitando y mejorando la efectividad y coordinación de las paradas programadas en una empresa.</p>
-<p>Esta herramienta es un sistema Web por lo cual <strong>NO REQUIERE INSTALACIÓN EN LA COMPUTADORA</strong>, solo se debe acceder al sitio Web (servidor) el cual se utilice como <strong>HOST</strong> para esta.</p>
-<p>Para facilitar el acceso al usuario, esta consta de 3 paginas principales, general, especifica y exhaustiva, además consta de 2 elementos fijos que son el <strong>Header</strong>, mostrando la información de la planta y además permitiendo el regreso a la vista principal (general), solicitar ayuda y muestra en que vista se encuentra en el momento. Esto se puede observar en la figura .</p>
+<p>La herramienta computacional para el análisis de vibración en motores eléctricos facilita el conocimiento del estado actual de los motores en una planta al mismo tiempo que permite realizar estudios de evolución históricos y de vibración en frecuencia, permitiendo de este modo conocer en profundidad qué motores podrían fallar y cuál será el elemento mecánico que lo hará. Esto permite la realización de un mantenimiento predictivo, facilitando y mejorando la efectividad y coordinación de las paradas programadas en una empresa.</p>
+<p>Esta herramienta es un sistema Web por lo cual <strong>NO REQUIERE INSTALACIÓN EN LA COMPUTADORA</strong>, solo se debe acceder al sitio Web (servidor) el cual se utilice como <strong>HOST</strong>.</p>
+<p>Para facilitar el acceso al usuario, la página Web consta de 3 páginas principales: general, especifica y exhaustiva, además consta de 2 elementos fijos que son el <strong>Header</strong>, que muestra la información de la planta; ademása permite el regreso a la vista principal (general), solicitar ayuda y muestra en qué vista se encuentra en el momento. Esto se puede observar en la figura .</p>
 <p><img src="ManualUsuario/header.png" title="fig:" alt="Header de la herramienta computacional. " /> </p>
-<p>La otra vista constante es la del <strong>Footer</strong> que ofrece los derechos de autor y copyright.</p>
+<p>La otra vista constante es la del <strong>Footer</strong> (figura ) que ofrece los derechos de autor y copyright.</p>
 <p><img src="ManualUsuario/footer.png" title="fig:" alt="Footer de la herramienta computacional. " /> </p>
-<p>El resto de la pantalla se modifica de acuerdo a que pestaña (vista) se observa, esto es:</p>
-<h2 id="vista-general">Vista General</h2>
-<p>Es la vista principal de la aplicación, esta diseñada para un monitoreo constante lo que implica que recarga la información cada cierto tiempo (por defecto 30s) este periodo puede ser modificado únicamente por código y si se desea cambiar debe comunicarse con el proveedor de servicio.</p>
+<p>El resto de la pantalla se modifica de acuerdo a qué pestaña (vista) se observa, esto es:</p>
+<h3 id="vista-general">Vista General</h3>
+<p>Es la vista principal de la aplicación, está diseñada para un monitoreo constante lo que implica que recarga la información cada cierto tiempo (por defecto 30s) este periodo puede ser modificado únicamente por código y si se desea cambiar debe comunicarse con el proveedor de servicio.</p>
 <p>Esta ventana, se observa en la figura  cuenta de dos partes fundamentales:</p>
 <p><img src="ManualUsuario/general.png" title="fig:" alt="Vista de la pestaña general de la herramienta computacional. " /> </p>
 <p>La primera es el despliegue de motores con un máximo de 12 motores por "pagina" (para modificar esta cantidad comunicarse con el proveedor de servicios) los cuales indican su código o identificador en su parte inferior (este código se ingresa al registrar el motor, se recomienda sea el mismo del de mantenimiento para facilitar su utilización) y un diagrama de motor con un fondo de color con código correspondiente a su estado, nivel de vibración y aceleración ajustado a los parámetros solicitados (modificaciones con el proveedor del servicio); este código es :</p>
@@ -167,31 +167,31 @@
 <li><p>amarillo: primera alerta.</p></li>
 <li><p>rojo: segunda alerta.</p></li>
 </ul>
-<p>la segunda parte de interés es el buscador y control de paginación, se observa en la figura , el buscador permite solicitar la vista especifica de cualquier motor, buscando por el Identificador del mismo; el control de paginación permite mostrar otros motores al "pasar" la pagina, de igual forma permite regresar directamente al principio con el botón de <strong>RESET</strong>.</p>
+<p>la segunda parte de interés es el buscador y control de paginación, se observa en la figura , el buscador permite solicitar la vista especifica de cualquier motor, buscado por su identificador; el control de paginación permite mostrar otros motores al “pasar" la pagina, de igual forma permite regresar directamente al principio con el botón de <strong>RESET</strong>.</p>
 <p><img src="ManualUsuario/controles.png" title="fig:" alt="Controles de paginación en la vista principal. " /> </p>
-<h2 id="vista-especifica">Vista Especifica</h2>
+<h3 id="vista-específica">Vista Específica</h3>
 <p>Esta vista permite un nivel de estudio superior ya que es solamente enfocada a un motor y ofrece la información histórica del mismo, esto lo hace mediante gráficas y una tabla exportable a Excel.</p>
 <p>tiene 3 secciones de trascendencia:</p>
-<p>la primera es un encabezado resumen, se puede apreciar en ; en este se encuentra el estado del motor como en la vista general, un enlace para solicitar la vista Exhaustiva y un mensaje con las características del motor o comentarios adicionales añadidos al momento de la incorporación del motor al sistema.</p>
+<p>La primera es un encabezado resumen, se puede apreciar en ; en este se encuentra el estado del motor como en la vista general, un enlace para solicitar la vista Exhaustiva y un mensaje con las características del motor o comentarios adicionales añadidos al momento de la incorporación del motor al sistema.</p>
 <p><img src="ManualUsuario/especificaMensaje.png" title="fig:" alt="Sección de mensaje en la vista especifica. " /> </p>
 <p>La segunda es una serie de gráficas de toda la información histórica, separada por ejes (x,y,z) y de la aceleración, se muestran después de la palabra <strong>Histogramas</strong>, como se observa en la figura .</p>
 <p><img src="ManualUsuario/especificaGraficas.png" title="fig:" alt="Sección de gráficas en la vista especifica. " /> </p>
-<p>La tercera es una tabla, como se observa en  exportable a Excel, mediante el botón, con toda la información de las mediciones a lo largo de la historia del sistema, esta posee los campos de:</p>
+<p>La tercera es una tabla, como se observa en  exportable a Excel, mediante el botón, con toda la información de las mediciones a lo largo de la historia del sistema, posee los campos:</p>
 <ul>
-<li><p>fecha, en la cual se tomo la medición.</p></li>
-<li><p>Id Sensor, identificador único, numero de serial, que posee el sensor (hardware), asociado.</p></li>
-<li><p>Lado, ubicación en la cual se tomo la medición, lado libre, lado con carga o chumaceras y acoples.</p></li>
+<li><p>fecha en la cual se tomó la medición.</p></li>
+<li><p>Id Sensor, identificador único, número de serial, que posee el sensor (hardware), asociado.</p></li>
+<li><p>Lado, ubicación en la cual se tomó la medición, lado libre, lado con carga o chumaceras y acoples.</p></li>
 <li><p>Velocidad vertical, medición de la velocidad, en mm/s, medición rms</p></li>
 <li><p>Velocidad Horizontal, medición de la velocidad, en mm/s, medición rms</p></li>
 <li><p>Velocidad Axial, medición de la velocidad, en mm/s, medición rms</p></li>
-<li><p>Aceleración, medición de la aceleración, en <strong>g</strong> .</p></li>
+<li><p>Aceleración, medición de la aceleración, en <strong>g</strong>.</p></li>
 </ul>
 <p><strong>Nota,</strong> si la tabla no posee todos los campos en su navegador, selecciónela y utilice las flechas del teclado para redirigirla, o reduzca el tamaño de su pantalla.</p>
 <p><img src="ManualUsuario/especificaTabla.png" title="fig:" alt="Sección de la tabla en la vista especifica. " /> </p>
-<h2 id="vista-exhaustiva">Vista Exhaustiva</h2>
-<p>Esta vista incluye las mismas características de la vista especifica pero sufre una modificación en el encabezado resumen, como se puede apreciar en la figura  este redirige a la vista principal.</p>
+<h3 id="vista-exhaustiva">Vista Exhaustiva</h3>
+<p>Esta vista incluye las mismas características de la vista específica pero sufre una modificación en el encabezado resumen, como se puede apreciar en la figura , este redirige a la vista principal.</p>
 <p><img src="ManualUsuario/exhaustivaMensaje.png" title="fig:" alt="Sección de mensaje en la vista exhaustiva. " /> </p>
-<p>La otra modificación es que se añade otra sección de gráfica en la cual se muestra la salida de un estudio en frecuencia, permitiendo este su análisis; se observa en la figura </p>
+<p>La otra modificación es que se añade otra sección de gráfica en la cual se muestra la salida de un estudio en frecuencia, permitiendo su análisis; se observa en la figura </p>
 <p><img src="ManualUsuario/exhaustivaGraficaFourier.png" title="fig:" alt="Sección de gráfica de frecuencia en la vista exhaustiva. " /> </p>
 </body>
 </html>

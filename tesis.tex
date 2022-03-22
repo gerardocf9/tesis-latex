@@ -66,6 +66,7 @@
     \newpage
     \newpage
     \include{src/dedicatoria}
+
     \include{src/agradecimientos}
 	%\newpage
 	\tableofcontents
@@ -74,12 +75,14 @@
 	\newpage
 	\listoftables
 
-\begin{refsegment}
+\spacing{1.2}
 \include{src/resumen}
+\spacing{1.5}
 %***************************************************
 %**********  Capitulo 1  ***************************
 %***************************************************
 
+\begin{refsegment}
 	\newpage
     \begingroup
     \let\clearpage\relax
@@ -148,7 +151,7 @@
     % UI, CLIENTE WEoB
     \begin{figure}[H]
         \centering
-        \caption{Comprobación de lo niveles en los motores}
+        \caption{Comprobación de los niveles en los motores}
         \begin{tabular}{m{6cm}m{6cm}}
             \includegraphics[width=6cm]{comprobacion_resultados/finales/n1.png}&
             \includegraphics[width=6cm]{comprobacion_resultados/finales/n1mongo.png}\\
@@ -174,7 +177,7 @@
 
     \begin{figure}[H]
         \centering
-        \caption{Comprobación graficas historicas}
+        \caption{Comprobación gráficas históricas}
         \begin{tabular}{m{8cm}m{8cm}}
             \includegraphics[width=8cm]{comprobacion_resultados/finales/as_graficas1.png}&
             \includegraphics[width=8cm]{comprobacion_resultados/finales/vxs_graficas1.png}\\
@@ -220,14 +223,28 @@
 
 \end{refsegment}
 
+\begingroup
+    \spacing{1.2}
+    \setlength\bibitemsep{1.8\itemsep}
+
 	\newpage
 	\printbibliography[segment=1,title={\centering{REFERENCIAS BIBLIOGRÁFICAS}}]
     \nocite{*}
     \printbibliography[notkeyword={b1},title={\centering{BIBLIOGRAFÍA}}]
+\endgroup
 %***************************************************
 %**********  Anexos      ***************************
 %***************************************************
-    \include{src/anexos}
+
+\titleformat{\section}[display]
+%{\normalfont\bfseries\LARGE}{}{3pt}{ANEXO \thesection. \filcenter \LARGE}
+{\normalfont\bfseries\LARGE}{ANEXO \thesection}{3pt}{\filcenter \LARGE}
+
+\appendix
+\spacing{1.5}
+\counterwithin{figure}{section}
+
+\include{src/anexos}
     \include{src/anexos/manualUsoInstalacion}
 
 \end{document}
