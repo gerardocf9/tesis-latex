@@ -1,0 +1,16 @@
+velocidad-horizontal.png
+velocidad-vertical.png
+diagrama-dispersion.png
+diagrama-dispersion-regresion.png
+magnitud-velocidad.png
+angulo-velocidad.png
+aceleracion.png
+prueba-KS.png
+ajuste-bondad.png
+rodamiento-golpe.jpg
+golpeteo.png
+frecuencia-impacto.png
+frecuencia-impacto-aventanada.png
+golpeteo-simulado.png
+golpeteo-simulado-con-ruido.png
+

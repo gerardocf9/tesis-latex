@@ -113,11 +113,12 @@ de seguridad y problemas de datos. es decir:
         En este caso se muestra al cliente un error por pantalla, como ventana
         emergente, y se redirige a la vista general como se observa en la
         figura \ref{img:SolicitudNoCompletada}.
+\end{itemize}
 
         \begin{figure}[H]
             \centering
             \caption{Prueba de error, petición no completada en el cliente Web}
-            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
+            \includegraphics[width=0.8\linewidth]{comprobacion_resultados/tecnicos/conexionInvalidaNoMotorSensorica.png}
 
             Solicitud  desde el navegador, para facilitar vista, al servidor
             sin motores conectados.
@@ -127,11 +128,10 @@ de seguridad y problemas de datos. es decir:
         \begin{figure}[H]
             \centering
             \caption{Prueba de error, petición exhaustiva inválida}
-            \includegraphics[width=\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
+            \includegraphics[width=0.9\linewidth]{comprobacion_resultados/tecnicos/redireccionClienteWeb.png}
 
             Solicitud no completada en el cliente Web. \label{img:SolicitudNoCompletada}
         \end{figure}
-\end{itemize}
 
 \subsubsection{Comprobación de resultados finales}
 Una vez terminado todo el proyecto se debieron rectificar que los requerimientos
@@ -145,7 +145,7 @@ coherencia, dado esto se procedió de la siguiente forma:
 
         Para esta prueba se ingresaron 5 motores a la BBDD cuya información fue
         estrictamente configurada para cumplir los 3 estados de daño, y los
-        2 valores frontera. Consiguiendo de esta forma cubrir todas las
+        2 valores frontera. Consiguiendo, de esta forma, cubrir todas las
         posibilidades, este resultado puede verse en las figuras
         \ref{img:NivelesMotores}
         y
@@ -154,14 +154,14 @@ coherencia, dado esto se procedió de la siguiente forma:
         para los cálculos.
 
 
-\item Corroboración de las gráficas históricas.
+\item Confirmación de las gráficas históricas.
 
         Esta verificación es conseguida mediante la comparación con los valores
         históricos, igual que para la prueba anterior, se ingresó un motor
         con valores de medición fáciles de seguir para corroborar la legibilidad
         y precisión de la gráfica, como se puede observar en la figura \ref{img:GraficasHistoricas}.
 
-    \item Corroboración de la gráfica de la transformada de Fourier.
+    \item Demostración de la gráfica de la transformada de Fourier.
 
         En este caso se procedió a comparar la gráfica obtenida mediante el
         algoritmo de Python con una obtenida mediante el software Octave (versión

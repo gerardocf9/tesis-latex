@@ -41,6 +41,14 @@
                 que contiene los resultados del sensor.\\\hline
                 %
                 Time            & int64  & Estampa de tiempo, fecha y hora de la muestra en formato Unix.\\\hline
+                %
+                UmbInferiorVel  & int32  & Umbral Inferior de velocidad.\\\hline
+                %
+                UmbSuperiorVel  & int32   & Umbral Superior de velocidad.\\\hline
+                %
+                UmbInferiorAcel & int32   & Umbral Inferior de aceleración.\\\hline
+                %
+                UmbSuperiorAcel & int32 & Umbral Superior de aceleración.\\\hline
                 \hline
                 \multicolumn{3}{|c|}{Sub colección  ``DataSensor"\ }\\\hline\hline
                 %
@@ -103,7 +111,7 @@
             \begin{tabular}{|c|c|c|c|}
                 \hline
                 Tipo de sensor & Reservado& Ubicación   & Serial \\\hline\hline
-                $ B_{15} $ & $ B_{14}B_{13} $ &$ B_{12} $  &  $ B_{11}\cdots B_{0} $\\
+                $ N_{15} $ & $ N_{14}N_{13} $ &$ N_{12} $  &  $ N_{11}\cdots N_{0} $\\
                 \hline
             \end{tabular}
 
@@ -143,9 +151,9 @@
     progresivo del nivel de daño cada 40 días-peticiones. Al ser un Script funciona
     mediante la terminal y utiliza las banderas expuestas en la tabla
     \ref{tab:BanderasLLenadoBBDD} para tomar la información. La utilización del
-    mismo puede verse en la figura \ref{img:scriptBBDD}
+    mismo puede verse en la figura \ref{img:scriptBBDD}.
 
-\begin{table}[H]
+\begin{table}[ht]
         \begin{center}
         \caption[Banderas Script para el llenado de la BBDD]{
         Banderas utilizables al momento de llamar el Script para llenar la información
@@ -158,15 +166,19 @@
                 Bandera & Descripción & Requerimiento \\\hline
                 \hline
                 -i & Para especificar el Id del Motor. & Requerida.\\\hline
-                -d & Para indicar el nivel de daño  & Opcional, por defecto 1.\\\hline
-                -c & Indicar las características e información del motor & Opcional, por defecto ``Estado del motor".\\\hline
-                -s1& Especificar el Id del sensor 1 &Requerida.\\\hline
-                -s2& Especificar el Id del sensor 2 &Requerida.\\\hline
-                -s3& Especificar el Id del sensor 3 & Opcional, por defecto se omite.\\\hline
-                -s4& Especificar el Id del sensor 4  &Opcional, por defecto se omite.\\\hline
-                -r & Reiniciar la base de datos si su valor es ``true"& opcional, por defecto false.\\\hline
-                -fi& Fecha de inicio, una cantidad de días contados hacia atrás desde la fecha actual& Opcional, por defecto 90\\\hline
-                -ci& Cantidad de interacciones a ejecutarse&Opcional, por defecto, 90
+                -d & Para indicar el nivel de daño.  & Opcional, por defecto 1.\\\hline
+                -c & Indicar las características e información del motor. & Opcional, por defecto ``Estado del motor".\\\hline
+                -s1& Especificar el Id del sensor 1. &Requerida.\\\hline
+                -s2& Especificar el Id del sensor 2. &Requerida.\\\hline
+                -s3& Especificar el Id del sensor 3. & Opcional, por defecto se omite.\\\hline
+                -s4& Especificar el Id del sensor 4.  &Opcional, por defecto se omite.\\\hline
+                -r & Reiniciar la base de datos si su valor es ``true".& opcional, por defecto false.\\\hline
+                -fi& Fecha de inicio, una cantidad de días contados hacia atrás desde la fecha actual.& Opcional, por defecto 90.\\\hline
+                -ci& Cantidad de interacciones a ejecutarse. &Opcional, por defecto, 90.\\\hline
+                -uiv& Umbral inferior de velocidad. & Opcional, por defecto 12.\\\hline
+                -usv& Umbral superior de Velocidad. & Opcional, por defecto 20.\\\hline
+                -uia& Umbral inferior de aceleración   &Opcional, por defecto 2.\\\hline
+                -usa& Umbral superior de aceleración  &Opcional, por defecto 5.
                 \\\hline
             \end{tabular}
         \end{center}
@@ -174,7 +186,7 @@
 
 	\begin{figure}[ht]
 		\centering
-        \caption{Llenado de la BBDD}
+        \caption{Llenado de la base de datos}
         \includegraphics[width=\linewidth]{servers/scriptBBDD.png}
         Llamados al Script para llenar la BBDD.    \label{img:scriptBBDD}
 	\end{figure}
@@ -210,14 +222,14 @@
     y el modelo estadístico, así mismo envía la información relacionada con la
     vista exhaustiva (para esta se requieren mediciones a tiempo real y por esto
     este servidor tiene una conexión full dúplex con los sensores),
-    como se observa en la tabla \ref{tab:ServerSensorica}
+    como se observa en la tabla \ref{tab:ServerSensorica}.
 
     Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
-    que sera cargado (Host) el sitio, en caso de un ambiente local, por
+    que será cargado (Host) el sitio, en caso de un ambiente local, por
     ejemplo, es ``localhost:8080" (este es el usado para las pruebas,
-    cuando se cambia a producción se modifica por el del Host contratado)
+    cuando se cambia a producción se modifica por el del Host contratado).
 
-    \begin{table}[H]
+    \begin{table}[ht]
         \begin{center}
         \caption[Funciones Servidor Sensorica]{ Relación de punto de acceso y
         funcionalidad implementada en el servidor de sensorica}
@@ -320,14 +332,14 @@
     y enviar información al cliente Web para análisis.
     Sus conexiones son por el protocolo Http, y Https para la petición de información
     exhaustiva con el microservicio de sensorica. y realiza las tareas expuestas
-    en la tabla \ref{tab:serWeb}
+    en la tabla \ref{tab:serWeb}.
 
     Cabe resaltar que ``DireccionIP"\ hace referencia a la dirección en la
     que será montado (Host) el sitio, en caso de un ambiente local, por
     ejemplo, es ``localhost:8000" (este es el usado para las pruebas,
-    cuando se cambia a producción se modifica por el del Host contratado)
+    cuando se cambia a producción se modifica por el del Host contratado).
 
-    \begin{table}[ht]
+    \begin{table}[H]
         \begin{center}
         \caption[Funciones Servidor Web]{ Relación de punto de acceso y
         funcionalidad implementada en el servidor Web }

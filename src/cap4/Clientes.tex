@@ -25,6 +25,10 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
         en la figura \ref{img:fyne} y como se observa, permite especificar:
         \begin{enumerate}
             \item Dirección Ip: Lugar a conectar.
+            \item Umbral inferior de velocidad: Utilizado para determinar el nivel de daño del motor.
+            \item Umbral superior de velocidad: Utilizado para determinar el nivel de daño del motor.
+            \item Umbral inferior de aceleración: Utilizado para determinar el nivel de daño del motor.
+            \item Umbral superior de aceleración: Utilizado para determinar el nivel de daño del motor.
             \item Id Motor: Identificador único del motor.
             \item Potencia: Información adicional, opcional.
             \item Nivel de daño: número entre 1 y 10 que determina los posibles
@@ -85,10 +89,10 @@ lenguaje ofrece. Se puede subdividir en 3 acciones fundamentales:
 \end{itemize}
 
 \begin{center}
-    \begin{figure}[ht]
+    \begin{figure}
 		\centering
         \caption{GUI del cliente de sensorica}
-        \includegraphics[width=10cm]{clients/ClienteSensoricaSinConectar.png}
+        \includegraphics[width=13cm]{clients/ClienteSensoricaSinConectar.png}
 
         Interfaz de usuario para la conexión del cliente de sensorica. \label{img:fyne}
 	\end{figure}
@@ -128,7 +132,7 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
         \textbf{causados por ignorar las normas de instalación} afectan las medidas.
 
 \begin{center}
-    \begin{figure}[ht]
+    \begin{figure}[htb]
 		\centering
         \caption{Vista General}
         \includegraphics[width=10cm]{clients/general.png}
@@ -142,12 +146,13 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
         Permite observar
         una gráfica histórica y una tabla exportable a Excel de sus características y
         evolución en el tiempo, siempre y cuando se tenga medición de ese periodo
-        en la base de datos, asimismo permite solicitar la vista exhaustiva del
+        en la base de datos, asimismo permite observar los umbrales que se están
+        utilizando para determinar el nivel de daño y solicitar la vista exhaustiva del
         mismo motor si es requerido un nivel mayor de análisis;
         como se observa en la figura \ref{img:VistaEspecifica}.
 
 \begin{center}
-    \begin{figure}[ht]
+    \begin{figure}[htb]
 		\centering
         \caption{Vista Específica}
             \begin{tabular}{m{6cm}m{6cm}}
@@ -162,7 +167,7 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
 
         \vspace{-1.5cm}
     \item Exhaustiva: esta vista incluye todo lo anterior de la vista específica,
-        con la diferencia de que permite regresar al menú general en vez de hacer
+        con la diferencia de que permite regresar al menú general en vez de solicitar
         una vista exhaustiva; además, realiza un análisis en frecuencia
         del estado a tiempo real del motor. Este análisis se puede realizar si
         se tiene acceso en tiempo real con el motor, es decir,
@@ -179,11 +184,11 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
 \end{itemize}
 
 \begin{center}
-    \begin{figure}[ht]
+    \begin{figure}[htb]
 		\centering
         \caption{Vista exhaustiva}
             \begin{tabular}{m{6cm}m{6cm}}
-                \includegraphics[width=6cm]{clients/ex1.png}&
+                \includegraphics[width=6cm]{clients/ex12.png}&
         \includegraphics[width=6cm]{clients/es3.png}\\
                 \includegraphics[width=6cm]{clients/es2.png}&
         \includegraphics[width=6cm]{clients/es4.png}\\
@@ -194,5 +199,5 @@ Su estructura viene dada por las 3 páginas o sub aplicaciones que permiten:
 
 \vspace*{-1.5cm}
 
-Adicionalmente este cliente consta de un manual de usuario que puede ser visto
-en la sección \ref{anexoA}
+Adicionalmente este cliente consta de un manual de usuario incluido
+en el Anexo \ref{anexoA}
