@@ -42,6 +42,8 @@
 \setlist[itemize]{noitemsep}
 \setlist[enumerate]{noitemsep}
 
+\usepackage{pdfpages}%Incluir pdfs
+
 \usepackage{array}%centrar verticalmente en tablas
 %****************************************************
 %     secciones con formato especifico
@@ -65,7 +67,7 @@
 \pagenumbering{roman}
 	\include{src/portada}
     \include{src/contraportada}
-    \newpage
+    \includepdf{material_auxiliar/actaAprobacion.pdf}
     \newpage
     \include{src/dedicatoria}
 
